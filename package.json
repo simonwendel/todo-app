@@ -1,7 +1,7 @@
 {
   "name": "todo",
   "version": "1.0.0",
-  "description": "todo: An Ionic project",
+  "description": "todo: a customized todo list for the wifey",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
