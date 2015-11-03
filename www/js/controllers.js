@@ -1,2 +1,2 @@
-angular.module('starter.controllers', [])
+angular.module('todo.controllers', [])
 .controller('DashCtrl', function($scope) {});

@@ -1,1 +1,1 @@
-angular.module('starter.services', []);
+angular.module('todo.services', []);
