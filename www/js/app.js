@@ -18,7 +18,7 @@
 
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
-                StatusBar.styleLightContent();
+                window.StatusBar.styleLightContent();
             }
         });
     }
