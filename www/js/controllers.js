@@ -1,6 +1,6 @@
 ;(function () {
     'use strict';
 
-    angular.module('todo.controllers', [])
-        .controller('DashCtrl', function($scope) {});
+    angular
+        .module('todo.controllers', []);
 })();
