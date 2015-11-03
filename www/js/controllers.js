@@ -1,2 +1,6 @@
-angular.module('todo.controllers', [])
-.controller('DashCtrl', function($scope) {});
+;(function () {
+    'use strict';
+
+    angular.module('todo.controllers', [])
+        .controller('DashCtrl', function($scope) {});
+})();

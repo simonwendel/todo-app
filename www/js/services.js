@@ -1,1 +1,5 @@
-angular.module('todo.services', []);
+;(function () {
+    'use strict';
+
+    angular.module('todo.services', []);
+})();
