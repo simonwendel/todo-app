@@ -12,7 +12,7 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'www/lib/angular/angular.min.js',
+            'www/lib/angular/angular.js',
 
             'www/js/**/*.js',
             'test/spec/**/*.js'
