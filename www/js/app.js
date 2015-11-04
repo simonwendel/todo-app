@@ -3,6 +3,7 @@
 
     angular
         .module('todo', [
+            'todo.constants',
             'ionic'])
         .run(setupIonic);
 
