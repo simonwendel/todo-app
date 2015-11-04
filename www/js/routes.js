@@ -13,16 +13,15 @@
                 abstract: true,
                 templateUrl: 'templates/tabs.html'
             })
-            .state('tab.dash', {
-                url: '/dash',
+            .state('tab.todo', {
+                url: '/todo',
                 views: {
                     'tab-dash': {
-                        templateUrl: 'templates/tab-todo.html',
-                        controller: 'DashCtrl'
+                        templateUrl: 'templates/tab-todo.html'
                     }
                 }
             });
 
-        $urlRouterProvider.otherwise('/tab/dash');
+        $urlRouterProvider.otherwise('/tab/todo');
     }
 })();
