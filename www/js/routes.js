@@ -16,8 +16,9 @@
             .state('tab.todo', {
                 url: '/todo',
                 views: {
-                    'tab-dash': {
-                        templateUrl: 'templates/tab-todo.html'
+                    'tab-todo': {
+                        templateUrl: 'templates/tab-todo.html',
+                        controller: 'TodoController as vm'
                     }
                 }
             });
