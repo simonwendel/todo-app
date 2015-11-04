@@ -19,12 +19,12 @@ gulp.task('sass', function (done) {
     gulp.src('./scss/ionic.app.scss')
         .pipe(sass())
         .on('error', sass.logError)
-        .pipe(gulp.dest('./www/css/'))
+        .pipe(gulp.dest('./app/css/'))
         .pipe(minifyCss({
             keepSpecialComments: 0
         }))
         .pipe(rename({extname: '.min.css'}))
-        .pipe(gulp.dest('./www/css/'))
+        .pipe(gulp.dest('./app/css/'))
         .on('end', done);
 });
 
@@ -53,7 +53,7 @@ gulp.task('git-check', function (done) {
 });
 
 gulp.task('lint', function() {
-    return gulp.src('./www/js/**/*.js')
+    return gulp.src('./app/js/**/*.js')
         .pipe(jscs({fix: true}))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
