@@ -12,7 +12,8 @@
                 url: '/tab',
                 abstract: true,
                 templateUrl: 'templates/tabs.html'
-            }).state('tab.dash', {
+            })
+            .state('tab.dash', {
                 url: '/dash',
                 views: {
                     'tab-dash': {
