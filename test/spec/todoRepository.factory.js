@@ -3,7 +3,7 @@
 
     var todoRepository;
 
-    describe('Factory: todoRepository (todoRepository.service.js)', function () {
+    describe('Factory: todoRepository (todoRepository.factory.js)', function () {
 
         beforeEach(module('todo'));
 
