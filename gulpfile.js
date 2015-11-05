@@ -70,5 +70,5 @@ gulp.task('lint', function() {
     return gulp.src('./app/js/**/*.js')
         .pipe(jscs({fix: true}))
         .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter('jshint-stylish'));
 });
