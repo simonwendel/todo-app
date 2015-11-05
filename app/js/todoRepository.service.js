@@ -67,7 +67,7 @@
                 });
 
             if(todos.length !== 1) {
-                throw 'No such item found.';
+                throw new Error('No such item found.');
             }
 
             return todos[0];

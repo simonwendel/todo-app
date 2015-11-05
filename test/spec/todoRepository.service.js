@@ -25,7 +25,7 @@
         it('should throw exception when no todo with specified id exists in the repository.', function () {
             expect(function() {
                 todoRepository.getTodo(100);
-            }).toThrow('No such item found.');
+            }).toThrow();
         });
     });
 
