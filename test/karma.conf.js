@@ -17,7 +17,8 @@ module.exports = function (config) {
 
             'app/js/app.js',
             'app/js/**/*.js',
-            'test/spec/**/*.js'
+            'test/spec/**/*.js',
+            'app/**/*.html'
         ],
 
 
@@ -25,10 +26,26 @@ module.exports = function (config) {
         exclude: [],
 
 
+        // Which plugins to enable
+        plugins: [
+            'karma-phantomjs-launcher',
+            'karma-jasmine',
+            'karma-coverage',
+            'karma-ng-html2js-preprocessor'
+        ],
+
+
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'app/js/**/*.js': ['coverage']
+            'app/js/**/*.js': ['coverage'],
+            'app/templates/**/*.html': ['ng-html2js']
+        },
+
+
+        ngHtml2JsPreprocessor: {
+            stripPrefix: 'app/',
+            moduleName: 'todo.test.templates'
         },
 
 
