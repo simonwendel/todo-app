@@ -8,7 +8,5 @@
     /** @ngInject */
     function todoController()
     {
-        var vm = this;
-        return vm;
     }
 })();
