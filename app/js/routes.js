@@ -17,8 +17,7 @@
                 url: '/todo',
                 views: {
                     'tab-todo': {
-                        templateUrl: 'templates/tab-todo.html',
-                        controller: 'TodoController as vm'
+                        templateUrl: 'templates/tab-todo.html'
                     }
                 }
             });
