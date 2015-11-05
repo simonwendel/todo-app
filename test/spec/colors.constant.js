@@ -5,7 +5,7 @@
 
     describe('Constant: colors (colors.constant.js)', function () {
 
-        beforeEach(module('todo.constants'));
+        beforeEach(module('todo'));
 
         beforeEach(inject(fixtureSetup));
 

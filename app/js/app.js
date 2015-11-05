@@ -2,9 +2,7 @@
     'use strict';
 
     angular
-        .module('todo', [
-            'todo.constants',
-            'ionic'])
+        .module('todo', ['ionic'])
         .run(setupIonic);
 
     /** @ngInject */

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('todo.constants')
+        .module('todo')
         .constant('colors', [
             'crimson',
             'darkblue',
