@@ -22,7 +22,7 @@
                 '2015-11-05T14:09:39+01:00',
                 '2015-11-05T14:09:39+01:00'
             ],
-            color: 'crimson'
+            color: 'seagreen'
         },{
             id: 11,
             title: 'Something to do 3',
@@ -33,7 +33,7 @@
                 '2015-11-05T14:09:39+01:00',
                 '2015-11-05T14:09:39+01:00'
             ],
-            color: 'crimson'
+            color: 'purple'
         },{
             id: 21,
             title: 'Something to do 4',
@@ -44,7 +44,7 @@
                 '2015-11-05T14:09:39+01:00',
                 '2015-11-05T14:09:39+01:00'
             ],
-            color: 'crimson'
+            color: 'seagreen'
         }
     ];
 
