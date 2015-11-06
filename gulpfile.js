@@ -67,7 +67,7 @@ gulp.task('git-check', function (done) {
 });
 
 gulp.task('check-style-n-lint', function() {
-    return gulp.src('./app/js/**/*.js')
+    return gulp.src(['./app/js/**/*.js', './test/spec/**/*.js'])
         .pipe(jscs())
         .pipe(jscs.reporter())
         .pipe(jshint())
