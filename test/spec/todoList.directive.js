@@ -13,7 +13,7 @@
         beforeEach(fixtureSetup);
 
         it('should be defined.', function() {
-            expect(element.html()).toBeDefined();
+            expect(element.html()).not.toBe('');
         });
     });
 
