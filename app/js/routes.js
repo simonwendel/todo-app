@@ -8,20 +8,15 @@
     /** @ngInject */
     function setupAngularRoutes($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('tab', {
-                url: '/tab',
-                abstract: true,
-                templateUrl: 'templates/tabs.html'
-            })
-            .state('tab.todo', {
+            .state('todo', {
                 url: '/todo',
                 views: {
-                    'tab-todo': {
-                        templateUrl: 'templates/tab-todo.html'
+                    todo: {
+                        templateUrl: 'templates/todo.html'
                     }
                 }
             });
 
-        $urlRouterProvider.otherwise('/tab/todo');
+        $urlRouterProvider.otherwise('/todo');
     }
 })();
