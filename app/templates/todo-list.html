@@ -1,9 +1,6 @@
-<!-- -->
-<div class="list card" ng-repeat="todo in vm.todos">
-    <div class="item item-divider" style="color:{{ todo.color }}">{{todo.title}}</div>
-    <div class="item item-body">
-        <div>
-            <span>{{todo.description}}</span>
-        </div>
-    </div>
+<div class="list card">
+    <a href="#" class="item item-icon-left" ng-repeat="todo in vm.todos">
+        <i class="icon ion-record" style="color:{{ todo.color }}"></i>
+        {{todo.title}}
+    </a>
 </div>
