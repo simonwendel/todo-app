@@ -10,6 +10,7 @@
         return {
             templateUrl: 'templates/utility-footer.html',
             restrict: 'E',
+            transclude: true,
             scope: {},
             controller: UtilityFooterController,
             controllerAs: 'vm'
