@@ -7,7 +7,7 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'sinon'],
 
 
         // list of files / patterns to load in the browser
@@ -34,7 +34,8 @@ module.exports = function(config) {
             'karma-phantomjs-launcher',
             'karma-jasmine',
             'karma-coverage',
-            'karma-ng-html2js-preprocessor'
+            'karma-ng-html2js-preprocessor',
+            'karma-sinon'
         ],
 
 
