@@ -33,5 +33,9 @@
         vm.closeModal = function() {
             vm.modal.hide();
         };
+
+        $scope.$on('$destroy', function() {
+            vm.modal.remove();
+        });
     }
 })();

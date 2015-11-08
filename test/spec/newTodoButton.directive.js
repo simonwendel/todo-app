@@ -35,13 +35,19 @@
             scope.vm.closeModal();
             expect(modal.hide.called).toBeTruthy();
         });
+
+        it('should clean up after itself by destroying the modal on scope desctruction.', function() {
+            scope.$broadcast('$destroy');
+            expect(modal.remove.called).toBeTruthy();
+        });
     });
 
     function fixtureSetup() {
         inject(function($rootScope, $compile, fakePromise) {
             modal = {
                 show: sinon.spy(),
-                hide: sinon.spy()
+                hide: sinon.spy(),
+                remove: sinon.spy()
             };
 
             fakePromise.init(modal);
