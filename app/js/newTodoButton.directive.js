@@ -5,7 +5,6 @@
         .module('todo')
         .directive('newTodoButton', newTodoButton);
 
-    /** @ngInject */
     function newTodoButton() {
         return {
             templateUrl: 'templates/new-todo-button.html',
@@ -16,6 +15,15 @@
         };
     }
 
-    function NewTodoButtonController() {
+    /** @ngInject */
+    function NewTodoButtonController($scope, $ionicModal) {
+        var vm = this;
+
+        $ionicModal.fromTemplateUrl('templates/new-todo-button.modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            vm.modal = modal;
+        });
     }
 })();
