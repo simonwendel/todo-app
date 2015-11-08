@@ -25,5 +25,13 @@
         }).then(function(modal) {
             vm.modal = modal;
         });
+
+        vm.openModal = function() {
+            vm.modal.show();
+        };
+
+        vm.closeModal = function() {
+            vm.modal.hide();
+        };
     }
 })();

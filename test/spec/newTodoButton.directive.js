@@ -25,11 +25,25 @@
         it('should retrieve a modal instance from ionic.', function() {
             expect(scope.vm.modal).toBe(modal);
         });
+
+        it('should have a function for opening the modal attached to vm.', function() {
+            scope.vm.openModal();
+            expect(modal.show.called).toBeTruthy();
+        });
+
+        it('should have a function for closing the modal attached to vm.', function() {
+            scope.vm.closeModal();
+            expect(modal.hide.called).toBeTruthy();
+        });
     });
 
     function fixtureSetup() {
         inject(function($rootScope, $compile, fakePromise) {
-            modal = {};
+            modal = {
+                show: sinon.spy(),
+                hide: sinon.spy()
+            };
+
             fakePromise.init(modal);
             var pageScope = $rootScope.$new(),
                 ionicModal = {
