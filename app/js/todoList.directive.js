@@ -18,14 +18,11 @@
         };
     }
 
-    var todos,
-        vm;
+    var todos;
 
     function TodoListController() {
-        vm = this;
-
+        var vm = this;
         vm.todos = todos.getTodo();
-
         return vm;
     }
 })();
