@@ -8,7 +8,8 @@
     function utilityHeader() {
         return {
             templateUrl: 'templates/utility-header.html',
-            restrict: 'E'
+            restrict: 'E',
+            transclude: true
         };
     }
 })();
