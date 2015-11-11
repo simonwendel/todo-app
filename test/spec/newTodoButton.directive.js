@@ -18,27 +18,28 @@
 
         beforeEach(fixtureSetup);
 
-        it('should be defined.', function() {
-            expect(element.html()).not.toBe('');
-        });
-
         it('should retrieve a modal instance from ionic.', function() {
-            expect(scope.vm.modal).toBe(modal);
+            expect(scope.modal).toBe(modal);
         });
 
         it('should have a function for opening the modal attached to vm.', function() {
-            scope.vm.openModal();
+            scope.openModal();
             expect(modal.show.called).toBeTruthy();
         });
 
         it('should have a function for closing the modal attached to vm.', function() {
-            scope.vm.closeModal();
+            scope.closeModal();
             expect(modal.hide.called).toBeTruthy();
         });
 
         it('should clean up after itself by destroying the modal on scope desctruction.', function() {
             scope.$broadcast('$destroy');
             expect(modal.remove.called).toBeTruthy();
+        });
+
+        it('should call modal.show when element is clicked.', function() {
+            element.triggerHandler('click');
+            expect(modal.show.called).toBeTruthy();
         });
     });
 
@@ -57,7 +58,7 @@
                 };
 
             provide.value('$ionicModal', ionicModal);
-            element = angular.element('<new-todo-button></new-todo-button>');
+            element = angular.element('<button new-todo-button></button>');
             element = $compile(element)(pageScope);
             pageScope.$digest();
 

@@ -5,37 +5,39 @@
         .module('todo')
         .directive('newTodoButton', newTodoButton);
 
-    function newTodoButton() {
+    /** @ngInject */
+    function newTodoButton($ionicModal) {
+        ionicModal = $ionicModal;
+
         return {
-            templateUrl: 'templates/new-todo-button.html',
-            restrict: 'E',
+            restrict: 'A',
             scope: {},
-            controller: NewTodoButtonController,
-            controllerAs: 'vm'
+            link: linkFn
         };
     }
 
-    /** @ngInject */
-    function NewTodoButtonController($scope, $ionicModal) {
-        var vm = this;
+    var ionicModal;
 
-        $ionicModal.fromTemplateUrl('templates/new-todo-button.modal.html', {
-            scope: $scope,
+    function linkFn(scope, element, attr) {
+        ionicModal.fromTemplateUrl('templates/new-todo-button.modal.html', {
+            scope: scope,
             animation: 'slide-in-up'
         }).then(function(modal) {
-            vm.modal = modal;
+            scope.modal = modal;
         });
 
-        vm.openModal = function() {
-            vm.modal.show();
+        scope.openModal = function() {
+            scope.modal.show();
         };
 
-        vm.closeModal = function() {
-            vm.modal.hide();
+        scope.closeModal = function() {
+            scope.modal.hide();
         };
 
-        $scope.$on('$destroy', function() {
-            vm.modal.remove();
+        scope.$on('$destroy', function() {
+            scope.modal.remove();
         });
+
+        element.on('click', scope.openModal);
     }
 })();
