@@ -6,8 +6,9 @@
         .directive('newTodoButton', newTodoButton);
 
     /** @ngInject */
-    function newTodoButton($ionicModal) {
+    function newTodoButton($ionicModal, colors) {
         ionicModal = $ionicModal;
+        availableColors = colors;
 
         return {
             restrict: 'A',
@@ -16,7 +17,8 @@
         };
     }
 
-    var ionicModal;
+    var ionicModal,
+        availableColors;
 
     function linkFn(scope, element, attr) {
         createModal(scope)
@@ -44,6 +46,8 @@
         scope.vm.closeModal = function() {
             scope.modal.hide();
         };
+
+        scope.vm.availableColors = availableColors;
 
         scope.$on('$destroy', function() {
             scope.modal.remove();

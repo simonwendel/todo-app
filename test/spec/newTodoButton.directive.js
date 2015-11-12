@@ -4,7 +4,8 @@
     var element,
         modal,
         provide,
-        scope;
+        scope,
+        colors;
 
     describe('Directive: newTodoButton', function() {
 
@@ -41,6 +42,10 @@
             element.triggerHandler('click');
             expect(modal.show.called).toBeTruthy();
         });
+
+        it('should attach the color array to vm.', function() {
+            expect(scope.vm.availableColors).toBe(colors);
+        });
     });
 
     function fixtureSetup() {
@@ -58,6 +63,10 @@
                 };
 
             provide.value('$ionicModal', ionicModal);
+
+            colors = ['1', '2'];
+            provide.constant('colors', colors);
+
             element = angular.element('<button new-todo-button></button>');
             element = $compile(element)(pageScope);
             pageScope.$digest();
