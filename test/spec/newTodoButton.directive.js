@@ -23,12 +23,12 @@
         });
 
         it('should have a function for opening the modal attached to vm.', function() {
-            scope.openModal();
+            scope.vm.openModal();
             expect(modal.show.called).toBeTruthy();
         });
 
         it('should have a function for closing the modal attached to vm.', function() {
-            scope.closeModal();
+            scope.vm.closeModal();
             expect(modal.hide.called).toBeTruthy();
         });
 

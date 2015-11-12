@@ -19,18 +19,29 @@
     var ionicModal;
 
     function linkFn(scope, element, attr) {
-        ionicModal.fromTemplateUrl('templates/new-todo-button.modal.html', {
-            scope: scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            scope.modal = modal;
-        });
+        createModal(scope)
+            .then(function(modal) {
+                setupScope(modal, scope, element)
+            });
+    }
 
-        scope.openModal = function() {
+    function createModal(scope) {
+        return ionicModal
+            .fromTemplateUrl('templates/new-todo-button.modal.html', {
+                scope: scope,
+                animation: 'slide-in-up'
+            });
+    }
+
+    function setupScope(modal, scope, element) {
+        scope.modal = modal;
+        scope.vm = {};
+
+        scope.vm.openModal = function() {
             scope.modal.show();
         };
 
-        scope.closeModal = function() {
+        scope.vm.closeModal = function() {
             scope.modal.hide();
         };
 
@@ -38,6 +49,6 @@
             scope.modal.remove();
         });
 
-        element.on('click', scope.openModal);
+        element.on('click', scope.vm.openModal);
     }
 })();
