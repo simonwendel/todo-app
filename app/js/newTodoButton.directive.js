@@ -48,6 +48,7 @@
         };
 
         scope.vm.availableColors = availableColors;
+        scope.vm.selectedColor = availableColors[0];
 
         scope.$on('$destroy', function() {
             scope.modal.remove();

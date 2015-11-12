@@ -46,6 +46,10 @@
         it('should attach the color array to vm.', function() {
             expect(scope.vm.availableColors).toBe(colors);
         });
+
+        it('should set the first color as the selected color.', function() {
+            expect(scope.vm.selectedColor).toBe(colors[0]);
+        });
     });
 
     function fixtureSetup() {
