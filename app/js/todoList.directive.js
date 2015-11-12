@@ -13,16 +13,15 @@
             templateUrl: 'templates/todo-list.html',
             restrict: 'E',
             scope: {},
-            controller: TodoListController,
-            controllerAs: 'vm'
+            link: linkFn
         };
     }
 
     var todos;
 
-    function TodoListController() {
-        var vm = this;
-        vm.todos = todos.getTodo();
-        return vm;
+    function linkFn(scope) {
+        scope.vm = {
+            todos:todos.getTodo()
+        };
     }
 })();
