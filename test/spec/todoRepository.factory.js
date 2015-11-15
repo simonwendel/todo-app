@@ -27,6 +27,28 @@
                 todoRepository.getTodo(100);
             }).toThrow();
         });
+
+        it('should have a function for saving a new todo item.', function() {
+            var numberOfTodos = todoRepository.getTodo().length;
+            todoRepository.newTodo({});
+            expect(todoRepository.getTodo().length).toBe(numberOfTodos + 1);
+        });
+
+        it('should throw exception when undefined todo item is saved.', function() {
+            expect(function() {
+                todoRepository.newTodo(null);
+            }).toThrow();
+        });
+
+        it('should not save when undefined todo item is saved.', function() {
+            var numberOfTodos = todoRepository.getTodo().length;
+
+            try {
+                todoRepository.newTodo(null);
+            } catch (e) {}
+
+            expect(todoRepository.getTodo().length).toBe(numberOfTodos);
+        });
     });
 
     function fixtureSetup(_todoRepository_) {

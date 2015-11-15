@@ -55,7 +55,8 @@
     /** @ngInject */
     function todoRepository() {
         return {
-            getTodo: getTodo
+            getTodo: getTodo,
+            newTodo: newTodo
         };
     }
 
@@ -74,5 +75,22 @@
         }
 
         return dummyTodos;
+    }
+
+    function newTodo(item) {
+        if (item) {
+            var id = getNextId();
+            item.id = id;
+            dummyTodos.push(item);
+        } else {
+            throw new Error('No todo item object to save.');
+        }
+    }
+
+    function getNextId() {
+        return 1 + Math.max.apply(Math,
+            dummyTodos.map(function(t) {
+                return t.id;
+            }));
     }
 })();
