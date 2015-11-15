@@ -6,9 +6,10 @@
         .directive('newTodoButton', newTodoButton);
 
     /** @ngInject */
-    function newTodoButton($ionicModal, colors) {
+    function newTodoButton($ionicModal, colors, todoRepository) {
         ionicModal = $ionicModal;
         availableColors = colors;
+        repository = todoRepository;
 
         return {
             restrict: 'A',
@@ -18,12 +19,13 @@
     }
 
     var ionicModal,
-        availableColors;
+        availableColors,
+        repository;
 
-    function linkFn(scope, element, attr) {
+    function linkFn(scope, element) {
         createModal(scope)
             .then(function(modal) {
-                setupScope(modal, scope, element)
+                setupScope(modal, scope, element);
             });
     }
 
@@ -47,6 +49,11 @@
             scope.modal.hide();
         };
 
+        scope.vm.saveNewTodo = function() {
+            saveNewTodo(scope);
+            scope.modal.hide();
+        };
+
         scope.vm.availableColors = availableColors;
         scope.vm.selectedColor = availableColors[0];
 
@@ -55,5 +62,16 @@
         });
 
         element.on('click', scope.vm.openModal);
+    }
+
+    function saveNewTodo(scope) {
+        var item = {
+            title: scope.vm.title,
+            description: scope.vm.description,
+            color: scope.vm.selectedColor,
+            recurring: scope.vm.reccuring
+        };
+
+        repository.newTodo(item);
     }
 })();

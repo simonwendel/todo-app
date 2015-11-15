@@ -14,7 +14,7 @@
         });
 
         it('should have a function for retrieving all todo items.', function() {
-            expect(todoRepository.getTodo().length).toBe(4);
+            expect(todoRepository.getTodo().length).not.toBe(0);
         });
 
         it('should have a function for retrieving one todo item by id.', function() {

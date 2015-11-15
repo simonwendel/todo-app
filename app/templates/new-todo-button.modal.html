@@ -7,12 +7,12 @@
 
             <label class="item item-input">
                 <span class="input-label">Title</span>
-                <input type="text">
+                <input type="text" ng-model="vm.title">
             </label>
 
             <label class="item item-input">
                 <span class="input-label">Description</span>
-                <textarea></textarea>
+                <textarea ng-click="vm.description"></textarea>
             </label>
 
             <label class="item item-input item-select">
@@ -26,11 +26,11 @@
 
             <label class="item item-input">
                 <span class="input-label">Recurring (days)</span>
-                <input type="number">
+                <input type="number" ng-model="vm.recurring">
             </label>
 
             <div class="button-bar">
-                <button class="button button-full button-positive">
+                <button class="button button-full button-positive" ng-click="vm.saveNewTodo()">
                     SAVE
                 </button>
 

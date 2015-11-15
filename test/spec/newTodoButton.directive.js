@@ -5,7 +5,8 @@
         modal,
         provide,
         scope,
-        colors;
+        colors,
+        repository;
 
     describe('Directive: newTodoButton', function() {
 
@@ -50,15 +51,41 @@
         it('should set the first color as the selected color.', function() {
             expect(scope.vm.selectedColor).toBe(colors[0]);
         });
+
+        it('should save a new todo item when save function on vm is called.', function() {
+            var expected = {
+                title: 'Some title',
+                description: 'This is a longer description',
+                color: 'color 1',
+                recurring: 7
+            };
+
+            scope.vm.title = expected.title;
+            scope.vm.description = expected.description;
+            scope.vm.selectedColor = expected.color;
+            scope.vm.reccuring = expected.recurring;
+
+            scope.vm.saveNewTodo();
+
+            expect(repository.newTodo.called).toBeTruthy();
+        });
+
+        it('should remove the modal after save is completed.', function() {
+            scope.vm.saveNewTodo();
+            expect(modal.hide.called).toBeTruthy();
+        });
     });
 
     function fixtureSetup() {
-        inject(function($rootScope, $compile, fakePromise) {
+        inject(function($rootScope, $compile, fakePromise, todoRepository) {
             modal = {
                 show: sinon.spy(),
                 hide: sinon.spy(),
                 remove: sinon.spy()
             };
+
+            sinon.spy(todoRepository, 'newTodo');
+            repository = todoRepository;
 
             fakePromise.init(modal);
             var pageScope = $rootScope.$new(),
