@@ -1,11 +1,15 @@
 ;(function() {
     'use strict';
 
-    var todoRepository;
+    var provide,
+        todoRepository,
+        todoStorage;
 
     describe('Factory: todoRepository (todoRepository.factory.js)', function() {
 
-        beforeEach(module('todo'));
+        beforeEach(module('todo', function fetchProvide($provide) {
+            provide = $provide;
+        }));
 
         beforeEach(inject(fixtureSetup));
 
@@ -13,8 +17,9 @@
             expect(todoRepository).toBeDefined();
         });
 
-        it('should have a function for retrieving all todo items.', function() {
-            expect(todoRepository.getTodo().length).not.toBe(0);
+        it('should call the all() function of todoStorage to get todo items..', function() {
+            todoRepository.getTodo();
+            expect(todoStorage.all.called).toBeTruthy();
         });
 
         it('should have a function for retrieving one todo item by id.', function() {
@@ -28,10 +33,9 @@
             }).toThrow();
         });
 
-        it('should have a function for saving a new todo item.', function() {
-            var numberOfTodos = todoRepository.getTodo().length;
+        it('should call the save() function on todoStorage to save a new todo item.', function() {
             todoRepository.newTodo({});
-            expect(todoRepository.getTodo().length).toBe(numberOfTodos + 1);
+            expect(todoStorage.save.called).toBeTruthy();
         });
 
         it('should throw exception when undefined todo item is saved.', function() {
@@ -41,17 +45,29 @@
         });
 
         it('should not save when undefined todo item is saved.', function() {
-            var numberOfTodos = todoRepository.getTodo().length;
-
             try {
                 todoRepository.newTodo(null);
             } catch (e) {}
 
-            expect(todoRepository.getTodo().length).toBe(numberOfTodos);
+            expect(todoStorage.save.called).toBeFalsy();
         });
     });
 
-    function fixtureSetup(_todoRepository_) {
-        todoRepository = _todoRepository_;
+    function fixtureSetup() {
+        todoStorage = {
+            all: sinon.stub().returns([
+                { id: 1 },
+                { id: 10 },
+                { id: 11 },
+                { id: 21 }
+            ]),
+            save: sinon.spy()
+        };
+
+        provide.value('todoStorage', todoStorage);
+
+        inject(function(_todoRepository_) {
+            todoRepository = _todoRepository_;
+        });
     }
 })();
