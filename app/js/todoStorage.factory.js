@@ -49,17 +49,20 @@
             '2015-11-05T14:09:39+01:00'
         ],
         color: 'seagreen'
-    }
-    ];
+    }];
 
     function todoStorage() {
         return {
-            all: function all() {
-                return staticTodos;
-            },
-            save: function save(item) {
-                staticTodos.push(item);
-            }
+            all: all,
+            save: save
         };
+    }
+
+    function all() {
+        return staticTodos.slice();
+    }
+
+    function save(item) {
+        staticTodos.push(item);
     }
 })();
