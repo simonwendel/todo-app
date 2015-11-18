@@ -16,6 +16,11 @@
         it('should have an all() function to retrieve todos from storage.', function() {
             expect(todoStorage.all().length).toBe(4);
         });
+
+        it('should have an save() function to save a todo to storage.', function() {
+            todoStorage.save({});
+            expect(todoStorage.all().length).toBe(5);
+        });
     });
 
     function fixtureSetup(_todoStorage_) {

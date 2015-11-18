@@ -54,8 +54,11 @@
 
     function todoStorage() {
         return {
-            all: function() {
+            all: function all() {
                 return staticTodos;
+            },
+            save: function save(item) {
+                staticTodos.push(item);
             }
         };
     }
