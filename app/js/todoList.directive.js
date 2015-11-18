@@ -21,7 +21,7 @@
 
     function linkFn(scope) {
         scope.vm = {
-            todos:todos.getTodo()
+            todos: todos.getTodo()
         };
     }
 })();
