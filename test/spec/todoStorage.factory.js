@@ -12,6 +12,10 @@
         it('should be defined and accessible.', function() {
             expect(todoStorage).toBeDefined();
         });
+
+        it('should have an all() function to retrieve todos from storage.', function() {
+            expect(todoStorage.all().length).toBe(4);
+        });
     });
 
     function fixtureSetup(_todoStorage_) {
