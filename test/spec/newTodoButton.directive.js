@@ -77,15 +77,18 @@
     });
 
     function fixtureSetup() {
-        inject(function($rootScope, $compile, fakePromise, todoRepository) {
+        inject(function($rootScope, $compile, fakePromise) {
             modal = {
                 show: sinon.spy(),
                 hide: sinon.spy(),
                 remove: sinon.spy()
             };
 
-            sinon.spy(todoRepository, 'newTodo');
-            repository = todoRepository;
+            repository = {
+                newTodo: sinon.spy()
+            };
+
+            provide.value('todoRepository', repository);
 
             fakePromise.init(modal);
             var pageScope = $rootScope.$new(),
