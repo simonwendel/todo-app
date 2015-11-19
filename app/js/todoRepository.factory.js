@@ -8,17 +8,17 @@
     /** @ngInject */
     function todoRepository(todoStorage, notificationService) {
         storage = todoStorage;
-        notification = notificationService.build('todoRepository.update');
+        subscribers = notificationService.build('todoRepository.update');
 
         return {
             getTodo: getTodo,
             newTodo: newTodo,
-            subscribe: notification.subscribe
+            subscribe: subscribers.subscribe
         };
     }
 
     var storage,
-        notification;
+        subscribers;
 
     function getTodo(id) {
         if (id) {
@@ -41,7 +41,7 @@
         if (item) {
             item.id = getNextId();
             storage.save(item);
-            notification.notify();
+            subscribers.notify();
         } else {
             throw new Error('No todo item object to save.');
         }
