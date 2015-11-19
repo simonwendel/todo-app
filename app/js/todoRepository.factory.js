@@ -39,8 +39,7 @@
 
     function newTodo(item) {
         if (item) {
-            var id = getNextId();
-            item.id = id;
+            item.id = getNextId();
             storage.save(item);
             notification.notify();
         } else {
