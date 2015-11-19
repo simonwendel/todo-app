@@ -6,8 +6,9 @@
         .factory('todoRepository', todoRepository);
 
     /** @ngInject */
-    function todoRepository(todoStorage) {
+    function todoRepository(todoStorage, notificationService) {
         storage = todoStorage;
+        notification = notificationService.build('todoRepository.update');
 
         return {
             getTodo: getTodo,
@@ -15,7 +16,8 @@
         };
     }
 
-    var storage;
+    var storage,
+        notification;
 
     function getTodo(id) {
         if (id) {

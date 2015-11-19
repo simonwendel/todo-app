@@ -3,7 +3,8 @@
 
     var provide,
         todoRepository,
-        todoStorage;
+        todoStorage,
+        notificationService;
 
     describe('Factory: todoRepository (todoRepository.factory.js)', function() {
 
@@ -15,6 +16,10 @@
 
         it('should be defined and accessible through the angular module system.', function() {
             expect(todoRepository).toBeDefined();
+        });
+
+        it('should build a notification service with appropriate event name.', function() {
+            expect(notificationService.build.calledWith('todoRepository.update')).toBeTruthy();
         });
 
         it('should call the all() function of todoStorage to get todo items..', function() {
@@ -65,6 +70,12 @@
         };
 
         provide.value('todoStorage', todoStorage);
+
+        notificationService = {
+            build: sinon.spy()
+        };
+
+        provide.value('notificationService', notificationService);
 
         inject(function(_todoRepository_) {
             todoRepository = _todoRepository_;
