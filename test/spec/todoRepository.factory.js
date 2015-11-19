@@ -4,7 +4,8 @@
     var provide,
         todoRepository,
         todoStorage,
-        notificationService;
+        notificationService,
+        todoNotification;
 
     describe('Factory: todoRepository (todoRepository.factory.js)', function() {
 
@@ -20,6 +21,11 @@
 
         it('should build a notification service with appropriate event name.', function() {
             expect(notificationService.build.calledWith('todoRepository.update')).toBeTruthy();
+        });
+
+        it('should expose a subscriber interface using notificationService.', function() {
+            todoRepository.subscribe(function() {});
+            expect(todoNotification.subscribe.called).toBeTruthy();
         });
 
         it('should call the all() function of todoStorage to get todo items..', function() {
@@ -71,8 +77,12 @@
 
         provide.value('todoStorage', todoStorage);
 
+        todoNotification = {
+            subscribe: sinon.spy()
+        };
+
         notificationService = {
-            build: sinon.spy()
+            build: sinon.stub().returns(todoNotification)
         };
 
         provide.value('notificationService', notificationService);

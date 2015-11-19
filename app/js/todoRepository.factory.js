@@ -12,7 +12,8 @@
 
         return {
             getTodo: getTodo,
-            newTodo: newTodo
+            newTodo: newTodo,
+            subscribe: notification.subscribe
         };
     }
 
