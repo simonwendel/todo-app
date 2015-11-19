@@ -18,7 +18,7 @@
             provide = $provide;
         }));
 
-        beforeEach(fixtureSetup);
+        beforeEach(inject(fixtureSetup));
 
         it('should retrieve a modal instance from ionic.', function() {
             expect(scope.modal).toBe(modal);
@@ -76,36 +76,34 @@
         });
     });
 
-    function fixtureSetup() {
-        inject(function($rootScope, $compile, fakePromise) {
-            modal = {
-                show: sinon.spy(),
-                hide: sinon.spy(),
-                remove: sinon.spy()
+    function fixtureSetup($rootScope, $compile, fakePromise) {
+        modal = {
+            show: sinon.spy(),
+            hide: sinon.spy(),
+            remove: sinon.spy()
+        };
+
+        repository = {
+            newTodo: sinon.spy()
+        };
+
+        provide.value('todoRepository', repository);
+
+        fakePromise.init(modal);
+        var pageScope = $rootScope.$new(),
+            ionicModal = {
+                fromTemplateUrl: fakePromise.resolved
             };
 
-            repository = {
-                newTodo: sinon.spy()
-            };
+        provide.value('$ionicModal', ionicModal);
 
-            provide.value('todoRepository', repository);
+        colors = ['1', '2'];
+        provide.constant('colors', colors);
 
-            fakePromise.init(modal);
-            var pageScope = $rootScope.$new(),
-                ionicModal = {
-                    fromTemplateUrl: fakePromise.resolved
-                };
+        element = angular.element('<button new-todo-button></button>');
+        element = $compile(element)(pageScope);
+        pageScope.$digest();
 
-            provide.value('$ionicModal', ionicModal);
-
-            colors = ['1', '2'];
-            provide.constant('colors', colors);
-
-            element = angular.element('<button new-todo-button></button>');
-            element = $compile(element)(pageScope);
-            pageScope.$digest();
-
-            scope = element.isolateScope();
-        });
+        scope = element.isolateScope();
     }
 })();
