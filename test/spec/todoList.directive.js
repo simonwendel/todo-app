@@ -23,11 +23,23 @@
         it('should call getTodo on todoRepository at init.', function() {
             expect(todoRepository.getTodo.called).toBeTruthy();
         });
+
+        it('should subscribe to todoRepository updates.', function() {
+            expect(todoRepository.subscribe.called).toBeTruthy();
+        });
+
+        it('should update when the subscriber is called.', function() {
+            var callback = todoRepository.subscribe.getCall(0).args[1];
+            todoRepository.getTodo.reset();
+            callback();
+            expect(todoRepository.getTodo.called).toBeTruthy();
+        });
     });
 
     function fixtureSetup($rootScope, $compile) {
         todoRepository = {
-            getTodo: sinon.spy()
+            getTodo: sinon.spy(),
+            subscribe: sinon.spy()
         };
 
         provide.value('todoRepository', todoRepository);

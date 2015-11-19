@@ -17,11 +17,18 @@
         };
     }
 
-    var todos;
+    var todos,
+        savedScope;
 
     function linkFn(scope) {
-        scope.vm = {
-            todos: todos.getTodo()
-        };
+        savedScope = scope;
+
+        todos.subscribe(savedScope, updateList);
+        savedScope.vm = {};
+        updateList();
+    }
+
+    function updateList() {
+        savedScope.vm.todos = todos.getTodo();
     }
 })();
