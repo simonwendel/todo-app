@@ -49,13 +49,25 @@
             expect(todoStorage.save.called).toBeTruthy();
         });
 
-        it('should throw exception when undefined todo item is saved.', function() {
+        it('should call the notify function notifying subscribers on newTodo.', function() {
+            todoRepository.newTodo({});
+            expect(todoNotification.notify.called).toBeTruthy();
+        });
+
+        it('should throw exception when null todo item is saved.', function() {
             expect(function() {
                 todoRepository.newTodo(null);
             }).toThrow();
         });
 
-        it('should not save when undefined todo item is saved.', function() {
+        it('should not notify subscribers if todo item to newTodo is null.', function() {
+            expect(function() {
+                todoRepository.newTodo(null);
+            }).toThrow();
+            expect(todoNotification.notify.called).toBeFalsy();
+        });
+
+        it('should not save when null todo item is saved.', function() {
             try {
                 todoRepository.newTodo(null);
             } catch (e) {}
@@ -78,7 +90,8 @@
         provide.value('todoStorage', todoStorage);
 
         todoNotification = {
-            subscribe: sinon.spy()
+            subscribe: sinon.spy(),
+            notify: sinon.spy()
         };
 
         notificationService = {

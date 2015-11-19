@@ -42,6 +42,7 @@
             var id = getNextId();
             item.id = id;
             storage.save(item);
+            notification.notify();
         } else {
             throw new Error('No todo item object to save.');
         }
