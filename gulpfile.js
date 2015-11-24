@@ -8,26 +8,12 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
-var clean = require('gulp-clean');
 
 var paths = {
     sass: ['./scss/**/*.scss']
 };
 
 gulp.task('default', ['sass']);
-
-gulp.task('build', ['sass', 'dist-empty', 'dist-copy']);
-
-gulp.task('dist-empty', function () {
-    return gulp.src('./www/', {read: false})
-        .pipe(clean());
-});
-
-gulp.task('dist-copy', ['dist-empty'], function () {
-    return gulp.src(['./app/**/*'], {
-        base: './app'
-    }).pipe(gulp.dest('www'));
-});
 
 gulp.task('sass', function (done) {
     gulp.src('./scss/ionic.app.scss')
