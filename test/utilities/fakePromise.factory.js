@@ -24,6 +24,6 @@
             then: function(callback) {
                 callback(expected);
             }
-        }
+        };
     }
 })();
