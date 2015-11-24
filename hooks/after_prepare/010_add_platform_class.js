@@ -71,15 +71,15 @@ if (rootdir) {
   var platforms = (process.env.CORDOVA_PLATFORMS ? process.env.CORDOVA_PLATFORMS.split(',') : []);
 
   for(var x=0; x<platforms.length; x++) {
-    // open up the index.html file at the app root
+    // open up the index.html file at the www root
     try {
       var platform = platforms[x].trim().toLowerCase();
       var indexPath;
 
       if(platform == 'android') {
-        indexPath = path.join('platforms', platform, 'assets', 'app', 'index.html');
+        indexPath = path.join('platforms', platform, 'assets', 'www', 'index.html');
       } else {
-        indexPath = path.join('platforms', platform, 'app', 'index.html');
+        indexPath = path.join('platforms', platform, 'www', 'index.html');
       }
 
       if(fs.existsSync(indexPath)) {

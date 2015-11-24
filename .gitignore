@@ -5,5 +5,5 @@ node_modules/
 platforms/
 plugins/
 .idea/
-app/lib
+www/lib
 www/

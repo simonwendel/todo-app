@@ -1,9 +1,4 @@
 {
   "name": "todo",
-  "app_id": "",
-  "documentRoot": "app",
-  "watchPatterns": [
-    "app/**/*",
-    "!app/lib/**/*"
-  ]
+  "app_id": ""
 }
