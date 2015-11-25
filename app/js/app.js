@@ -14,8 +14,8 @@ app.run(ionicSetup);
 app.config(routes);
 
 // constants and values
-import colors from 'js/colors.constant';
-app.value(colors.name, colors);
+import getColorsConstant from 'js/colors.constant';
+app.constant(getColorsConstant.name, getColorsConstant());
 
 // services
 import dateUtility from 'js/dateUtility.factory';
