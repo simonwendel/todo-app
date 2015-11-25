@@ -1,34 +1,27 @@
-;(function() {
-    'use strict';
+function todoList(todoRepository) {
+    todos = todoRepository;
 
-    angular
-        .module('todo')
-        .directive('todoList', todoList);
+    return {
+        templateUrl: 'templates/todo-list.html',
+        restrict: 'E',
+        scope: {},
+        link: linkFn
+    };
+}
 
-    /** @ngInject */
-    function todoList(todoRepository) {
-        todos = todoRepository;
+var todos,
+    savedScope;
 
-        return {
-            templateUrl: 'templates/todo-list.html',
-            restrict: 'E',
-            scope: {},
-            link: linkFn
-        };
-    }
+function linkFn(scope) {
+    savedScope = scope;
 
-    var todos,
-        savedScope;
+    todos.subscribe(savedScope, updateList);
+    savedScope.vm = {};
+    updateList();
+}
 
-    function linkFn(scope) {
-        savedScope = scope;
+function updateList() {
+    savedScope.vm.todos = todos.getTodo();
+}
 
-        todos.subscribe(savedScope, updateList);
-        savedScope.vm = {};
-        updateList();
-    }
-
-    function updateList() {
-        savedScope.vm.todos = todos.getTodo();
-    }
-})();
+export default todoList;

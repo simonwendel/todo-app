@@ -1,24 +1,44 @@
-;(function() {
-    'use strict';
+import 'ionic';
+import angular from 'angular';
 
+import ionicSetup from 'js/ionic.config';
+import routes from 'js/routes';
+
+// boot app
+const app =
     angular
-        .module('todo', ['ionic'])
-        .run(setupIonic);
+        .module('todo', ['ionic']);
 
-    /** @ngInject */
-    function setupIonic($ionicPlatform) {
-        $ionicPlatform.ready(function() {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
-            if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                cordova.plugins.Keyboard.disableScroll(true);
-            }
+// configure it
+app.run(ionicSetup);
+app.config(routes);
 
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                window.StatusBar.styleLightContent();
-            }
-        });
-    }
-})();
+// constants and values
+import colors from 'js/colors.constant';
+app.value(colors.name, colors);
+
+// services
+import dateUtility from 'js/dateUtility.factory';
+app.factory(dateUtility.name, dateUtility);
+
+import notificationService from 'js/notificationService.factory';
+app.factory(notificationService.name, notificationService);
+
+import todoStorage from 'js/todoStorage.factory';
+app.factory(todoStorage.name, todoStorage);
+
+import todoRepository from 'js/todoRepository.factory';
+app.factory(todoRepository.name, todoRepository);
+
+// directives
+import todoList from 'js/todoList.directive';
+app.directive(todoList.name, todoList);
+
+import utilityFooter from 'js/utilityFooter.directive';
+app.directive(utilityFooter.name, utilityFooter);
+
+import utilityHeader from 'js/utilityHeader.directive';
+app.directive(utilityHeader.name, utilityHeader);
+
+import newTodoButton from 'js/newTodoButton.directive';
+app.directive(newTodoButton.name, newTodoButton);

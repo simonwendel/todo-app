@@ -1,13 +1,10 @@
-;(function() {
-    'use strict';
+const colors = [
+    'crimson',
+    'darkblue',
+    'purple',
+    'seagreen',
+    'tomato',
+    'violet'
+];
 
-    angular
-        .module('todo')
-        .constant('colors', [
-            'crimson',
-            'darkblue',
-            'purple',
-            'seagreen',
-            'tomato',
-            'violet']);
-})();
+export default colors;

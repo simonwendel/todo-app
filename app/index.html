@@ -7,24 +7,15 @@
 
     <link href="css/ionic.app.css" rel="stylesheet">
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/routes.js"></script>
-    <script src="js/colors.constant.js"></script>
-    <script src="js/todoRepository.factory.js"></script>
-    <script src="js/dateUtility.factory.js"></script>
-    <script src="js/todoList.directive.js"></script>
-    <script src="js/utilityHeader.directive.js"></script>
-    <script src="js/utilityFooter.directive.js"></script>
-    <script src="js/newTodoButton.directive.js"></script>
-    <script src="js/todoStorage.factory.js"></script>
-    <script src="js/notificationService.factory.js"></script>
+    <script src="lib/system.js"></script>
+    <script src="js/system.config.js"></script>
+    <script type="text/javascript">
+        System.import('js/app');
+    </script>
 </head>
 <body ng-app="todo">
     <ion-nav-view name="todo"></ion-nav-view>

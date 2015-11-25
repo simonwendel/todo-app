@@ -1,30 +1,23 @@
-;(function() {
-    'use strict';
+function notificationService($rootScope) {
+    rootScope = $rootScope;
 
-    angular
-        .module('todo')
-        .factory('notificationService', notificationService);
+    return {
+        build: build
+    };
+}
 
-    /** @ngInject */
-    function notificationService($rootScope) {
-        rootScope = $rootScope;
+var rootScope;
 
-        return {
-            build: build
-        };
-    }
+function build(eventName) {
+    return {
+        subscribe: function(scope, callback) {
+            var handler = rootScope.$on(eventName, callback);
+            scope.$on('$destroy', handler);
+        },
+        notify: function() {
+            rootScope.$emit(eventName);
+        }
+    };
+}
 
-    var rootScope;
-
-    function build(eventName) {
-        return {
-            subscribe: function(scope, callback) {
-                var handler = rootScope.$on(eventName, callback);
-                scope.$on('$destroy', handler);
-            },
-            notify: function() {
-                rootScope.$emit(eventName);
-            }
-        };
-    }
-})();
+export default notificationService;
