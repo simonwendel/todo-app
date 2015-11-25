@@ -10,21 +10,21 @@ var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 
 var paths = {
-    sass: ['./scss/**/*.scss']
+    sass: ['./app/css/**/*.scss']
 };
 
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function (done) {
-    gulp.src('./scss/ionic.app.scss')
+    gulp.src(paths.sass)
         .pipe(sass())
         .on('error', sass.logError)
-        .pipe(gulp.dest('./www/css/'))
+        .pipe(gulp.dest('./app/css/'))
         .pipe(minifyCss({
             keepSpecialComments: 0
         }))
         .pipe(rename({extname: '.min.css'}))
-        .pipe(gulp.dest('./www/css/'))
+        .pipe(gulp.dest('./app/css/'))
         .on('end', done);
 });
 

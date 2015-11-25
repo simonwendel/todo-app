@@ -5,5 +5,7 @@ node_modules/
 platforms/
 plugins/
 .idea/
-www/lib
-www/
+app/lib
+
+app/css/ionic.app.css
+app/css/ionic.app.min.css
