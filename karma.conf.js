@@ -1,10 +1,5 @@
 module.exports = function(config) {
     config.set({
-
-        // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
-
-
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jspm', 'jasmine', 'sinon'],
@@ -13,16 +8,6 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             'app/lib/system.js'
-            //'app/lib/ionic/js/ionic.bundle.js',
-            //'app/lib/angular-mocks/angular-mocks.js',
-            //
-            //'test/utilities/testUtils.module.js',
-            //'test/utilities/fakePromise.factory.js',
-            //
-            //'app/js/app.js',
-            //'app/js/**/*.js',
-            //'test/spec/**/*.js',
-            //'app/**/*.html'
         ],
 
 
@@ -40,11 +25,17 @@ module.exports = function(config) {
             'karma-jspm'
         ],
 
+
         jspm: {
             config: 'app/js/system.config.js',
             loadFiles: ['app/js/app.js', 'test/spec/**/*.js'],
-            serveFiles: ['test/utilities/**/*.js','app/**/*.+(js|html|css|json)']
+            serveFiles: ['test/utilities/**/*.js','app/js/*.+(js|html|css|json)'],
+            paths: {
+                "github:*": "app/lib/github/*",
+                "npm:*": "app/lib/npm/*"
+            }
         },
+
 
         proxies: {
             '/test/': '/base/test/',
