@@ -2,26 +2,27 @@ module.exports = function(config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '../',
+        basePath: '',
 
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'sinon'],
+        frameworks: ['jspm', 'jasmine', 'sinon'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            'app/lib/ionic/js/ionic.bundle.js',
-            'app/lib/angular-mocks/angular-mocks.js',
-
-            'test/utilities/testUtils.module.js',
-            'test/utilities/fakePromise.factory.js',
-
-            'app/js/app.js',
-            'app/js/**/*.js',
-            'test/spec/**/*.js',
-            'app/**/*.html'
+            'app/lib/system.js'
+            //'app/lib/ionic/js/ionic.bundle.js',
+            //'app/lib/angular-mocks/angular-mocks.js',
+            //
+            //'test/utilities/testUtils.module.js',
+            //'test/utilities/fakePromise.factory.js',
+            //
+            //'app/js/app.js',
+            //'app/js/**/*.js',
+            //'test/spec/**/*.js',
+            //'app/**/*.html'
         ],
 
 
@@ -35,8 +36,20 @@ module.exports = function(config) {
             'karma-jasmine',
             'karma-coverage',
             'karma-ng-html2js-preprocessor',
-            'karma-sinon'
+            'karma-sinon',
+            'karma-jspm'
         ],
+
+        jspm: {
+            config: 'app/js/system.config.js',
+            loadFiles: ['app/js/app.js', 'test/spec/**/*.js'],
+            serveFiles: ['test/utilities/**/*.js','app/**/*.+(js|html|css|json)']
+        },
+
+        proxies: {
+            '/test/': '/base/test/',
+            '/app/': '/base/app/'
+        },
 
 
         // preprocess matching files before serving them to the browser
