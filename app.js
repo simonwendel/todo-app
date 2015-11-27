@@ -42,3 +42,5 @@ app.directive(utilityHeader.name, utilityHeader);
 
 import newTodoButton from 'js/newTodoButton.directive';
 app.directive(newTodoButton.name, newTodoButton);
+
+export { app };

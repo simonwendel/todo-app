@@ -1,7 +1,5 @@
 module.exports = function(config) {
     config.set({
-        basePath: '..',
-
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jspm', 'jasmine', 'sinon'],
@@ -9,7 +7,10 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'node_modules/babel-polyfill/browser.js'
+            'node_modules/babel-polyfill/browser.js',
+            'node_modules/angular/angular.min.js',
+            'node_modules/angular-mocks/angular-mocks.js',
+            'lib/system.js'
         ],
 
 
@@ -24,33 +25,22 @@ module.exports = function(config) {
             'karma-coverage',
             'karma-ng-html2js-preprocessor',
             'karma-sinon',
-            'karma-jspm'
+            'karma-jspm',
+            'karma-babel-preprocessor'
         ],
 
 
         jspm: {
-            config: "app/config.js",
-            packages: "app/lib/",
-            stripExtension: false,
-            loadFiles: ['test/spec/app.js'],
-            serveFiles: ['test/utilities/**/*.js','js/*.+(js|html|css|json)'],
-            paths: {
-                "github:*": "app/lib/github/*",
-                "npm:*": "app/lib/npm/*"
-            }
-        },
-
-
-        proxies: {
-            '/app/': '/base/app/',
-            '/test/': '/base/test/'
+            config: "js/config.js",
+            loadFiles: ['js/**/*.spec.js'],
+            serveFiles: ['js/*.js']
         },
 
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'app/js/**/*.js': ['coverage'],
+            'js/**/*.js': ['babel', 'coverage'],
             'app/templates/**/*.html': ['ng-html2js']
         },
 
@@ -91,7 +81,7 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+        singleRun: true,
 
         // Concurrency level
         // how many browser should be started simultanous

@@ -1,13 +1,13 @@
 {
   "name": "todo",
   "app_id": "",
-   "documentRoot": "app",
+   "documentRoot": "./",
    "gulpStartupTasks": [
        "sass",
        "watch"
      ],
      "watchPatterns": [
-       "app/**/*",
-       "!app/lib/**/*"
+       "js/**/*",
+       "!/lib/**/*"
      ]
 }
