@@ -1,5 +1,7 @@
 module.exports = function(config) {
     config.set({
+        basePath: '..',
+
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jspm', 'jasmine', 'sinon'],
@@ -7,7 +9,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'app/lib/system.js'
+            'node_modules/babel-polyfill/browser.js'
         ],
 
 
@@ -27,9 +29,11 @@ module.exports = function(config) {
 
 
         jspm: {
-            config: 'app/js/system.config.js',
-            loadFiles: ['app/js/app.js', 'test/spec/**/*.js'],
-            serveFiles: ['test/utilities/**/*.js','app/js/*.+(js|html|css|json)'],
+            config: "app/config.js",
+            packages: "app/lib/",
+            stripExtension: false,
+            loadFiles: ['test/spec/app.js'],
+            serveFiles: ['test/utilities/**/*.js','js/*.+(js|html|css|json)'],
             paths: {
                 "github:*": "app/lib/github/*",
                 "npm:*": "app/lib/npm/*"
@@ -38,8 +42,8 @@ module.exports = function(config) {
 
 
         proxies: {
-            '/test/': '/base/test/',
-            '/app/': '/base/app/'
+            '/app/': '/base/app/',
+            '/test/': '/base/test/'
         },
 
 
