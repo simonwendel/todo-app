@@ -7,3 +7,6 @@ describe('Module: todo (app.js)', function() {
 
 });
 
+console.log('berlh');
+
+export default null;
