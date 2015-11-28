@@ -18,8 +18,8 @@ import { colors } from 'js/colors.constant';
 app.constant('colors', colors);
 
 // services
-import { dateUtility } from 'js/dateUtility.factory';
-app.factory('dateUtility', dateUtility);
+import { dateUtilityFactory } from 'js/dateUtility.factory';
+app.factory('dateUtility', dateUtilityFactory);
 
 import { notificationService } from 'js/notificationService.factory';
 app.factory('notificationService', notificationService);

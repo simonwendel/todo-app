@@ -1,4 +1,4 @@
-const dateUtility = () => {
+const dateUtilityFactory = () => {
     return {
         addDays: addDays
     };
@@ -10,4 +10,4 @@ function addDays(date, days) {
     return result;
 }
 
-export { dateUtility };
+export { dateUtilityFactory };
