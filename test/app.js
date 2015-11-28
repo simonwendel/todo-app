@@ -1,12 +1,13 @@
-describe('Module: todo (app.js)', function() {
+import 'JamieMason/Jasmine-Matchers';
+import angular from 'angular';
+import 'js/app';
 
-    it('should be defined and accessible through angular module system.', function() {
-        var i = 1;
-        expect(i).toBe(2);
+describe('Module: todo (app.js)', () => {
+
+    it('should be defined and accessible through angular module system.', () => {
+
+        expect(() => angular.module('todo')).not.toThrow();
+
     });
 
 });
-
-console.log('berlh');
-
-export default null;
