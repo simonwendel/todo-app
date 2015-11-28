@@ -7,7 +7,12 @@
        "watch"
      ],
      "watchPatterns": [
-       "js/**/*",
-       "!/lib/**/*"
+       "/js/**/*",
+       "/css/**/*",
+       "/templates/**/*",
+       "/index.html",
+       "/app.js",
+       "/config.js",
+       "!/jspm_packages/**/*"
      ]
 }
