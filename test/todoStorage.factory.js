@@ -1,5 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
-import { todoStorage } from 'js/todoStorage.factory.js';
+import { todoStorage } from 'js/todoStorage.factory';
 
 describe('Factory: todoStorage (todoStorage.factory.js)', () => {
 
