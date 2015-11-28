@@ -10,4 +10,4 @@ function addDays(date, days) {
     return result;
 }
 
-export default dateUtility;
+export { dateUtility };

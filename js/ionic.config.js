@@ -14,4 +14,4 @@ const setupIonic = ($ionicPlatform) => {
     });
 };
 
-export default setupIonic;
+export { setupIonic };

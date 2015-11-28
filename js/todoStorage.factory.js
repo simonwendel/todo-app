@@ -59,4 +59,4 @@ function save(item) {
     staticTodos.push(item);
 }
 
-export default todoStorage;
+export { todoStorage };

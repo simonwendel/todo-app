@@ -24,4 +24,4 @@ function updateList() {
     savedScope.vm.todos = todos.getTodo();
 }
 
-export default todoList;
+export { todoList };

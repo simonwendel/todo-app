@@ -1,4 +1,4 @@
-const setupAngularRoutes = ($stateProvider, $urlRouterProvider) => {
+const routes = ($stateProvider, $urlRouterProvider) => {
     $stateProvider
         .state('todo', {
             url: '/todo',
@@ -12,4 +12,4 @@ const setupAngularRoutes = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/todo');
 };
 
-export default setupAngularRoutes;
+export { routes };

@@ -20,4 +20,4 @@ function build(eventName) {
     };
 }
 
-export default notificationService;
+export { notificationService };

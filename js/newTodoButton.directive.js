@@ -67,4 +67,4 @@ function saveNewTodo(scope) {
     repository.newTodo(item);
 }
 
-export default newTodoButton;
+export { newTodoButton };

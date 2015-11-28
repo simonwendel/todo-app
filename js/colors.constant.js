@@ -1,12 +1,10 @@
-var colors = () => {
-    return  [
-        'crimson',
-        'darkblue',
-        'purple',
-        'seagreen',
-        'tomato',
-        'violet'
-    ];
-};
+const colors = [
+    'crimson',
+    'darkblue',
+    'purple',
+    'seagreen',
+    'tomato',
+    'violet'
+];
 
-export default colors;
+export { colors };

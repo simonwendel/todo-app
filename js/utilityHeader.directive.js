@@ -6,4 +6,4 @@ function utilityHeader() {
     };
 }
 
-export default utilityHeader;
+export { utilityHeader };

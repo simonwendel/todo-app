@@ -6,4 +6,4 @@ function utilityFooter() {
     };
 }
 
-export default utilityFooter;
+export { utilityFooter };

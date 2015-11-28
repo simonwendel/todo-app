@@ -46,4 +46,4 @@ function getNextId() {
             }));
 }
 
-export default todoRepository;
+export { todoRepository };
