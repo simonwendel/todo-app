@@ -18,7 +18,7 @@ describe('Factory: todoRepository (todoRepository.factory.js)', () => {
 
     it('should build a notification service with appropriate event name.', () => {
 
-        expect(notificationService.build.calledWith('todoRepository.update')).toBeTruthy();
+        expect(notificationService.build.calledWith('todoRepositoryFactory.update')).toBeTruthy();
 
     });
 

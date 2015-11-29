@@ -3,7 +3,7 @@ let storage,
 
 function todoRepositoryFactory(todoStorage, notificationService) {
     storage = todoStorage;
-    subscribers = notificationService.build('todoRepository.update');
+    subscribers = notificationService.build('todoRepositoryFactory.update');
 
     return {
         getTodo: getTodo,
