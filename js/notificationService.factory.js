@@ -11,7 +11,7 @@ function notificationServiceFactory($rootScope) {
 function build(eventName) {
     return {
         subscribe: (scope, callback) => {
-            var handler = rootScope.$on(eventName, callback);
+            let handler = rootScope.$on(eventName, callback);
             scope.$on('$destroy', handler);
         },
         notify: () => {
