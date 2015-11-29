@@ -1,6 +1,8 @@
+import utilityHeaderTemplate from 'templates/utility-header.html!text';
+
 function utilityHeader() {
     return {
-        templateUrl: 'templates/utility-header.html',
+        template: utilityHeaderTemplate,
         restrict: 'E',
         transclude: true
     };
