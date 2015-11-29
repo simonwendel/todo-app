@@ -1,8 +1,10 @@
+import todoListTemplate from 'templates/todo-list.html!text';
+
 function todoList(todoRepository) {
     todos = todoRepository;
 
     return {
-        templateUrl: 'templates/todo-list.html',
+        template: todoListTemplate,
         restrict: 'E',
         scope: {},
         link: linkFn
