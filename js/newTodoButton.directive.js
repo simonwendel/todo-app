@@ -1,6 +1,6 @@
 import newTodoButtonModalTemplate from 'templates/new-todo-button.modal.html!text';
 
-function newTodoButton($ionicModal, colors, todoRepository) {
+function newTodoButtonDirective($ionicModal, colors, todoRepository) {
     ionicModal = $ionicModal;
     availableColors = colors;
     repository = todoRepository;
@@ -65,4 +65,4 @@ function saveNewTodo(scope) {
     repository.newTodo(item);
 }
 
-export { newTodoButton };
+export { newTodoButtonDirective };

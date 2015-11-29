@@ -8,7 +8,7 @@ let element,
     colors,
     repository;
 
-describe('Directive: newTodoButton', () => {
+describe('Directive: newTodoButtonDirective', () => {
 
     beforeEach(ng.module('todo', function fetchProvide($provide) {
         provide = $provide;

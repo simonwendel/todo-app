@@ -40,5 +40,5 @@ app.directive('utilityFooter', utilityFooter);
 import { utilityHeader } from 'js/utilityHeader.directive';
 app.directive('utilityHeader', utilityHeader);
 
-import { newTodoButton } from 'js/newTodoButton.directive';
-app.directive('newTodoButton', newTodoButton);
+import { newTodoButtonDirective } from 'js/newTodoButton.directive';
+app.directive('newTodoButton', newTodoButtonDirective);
