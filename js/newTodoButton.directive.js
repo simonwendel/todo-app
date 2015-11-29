@@ -1,5 +1,9 @@
 import newTodoButtonModalTemplate from 'templates/new-todo-button.modal.html!text';
 
+let ionicModal,
+    availableColors,
+    repository;
+
 function newTodoButtonDirective($ionicModal, colors, todoRepository) {
     ionicModal = $ionicModal;
     availableColors = colors;
@@ -11,10 +15,6 @@ function newTodoButtonDirective($ionicModal, colors, todoRepository) {
         link: linkFn
     };
 }
-
-let ionicModal,
-    availableColors,
-    repository;
 
 function linkFn(scope, element) {
     let modal = createModal(scope);
