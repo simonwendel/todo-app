@@ -44,7 +44,7 @@ var staticTodos = [{
     color: 'seagreen'
 }];
 
-function todoStorage() {
+function todoStorageFactory() {
     return {
         all: all,
         save: save
@@ -59,4 +59,4 @@ function save(item) {
     staticTodos.push(item);
 }
 
-export { todoStorage };
+export { todoStorageFactory };

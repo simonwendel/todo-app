@@ -24,8 +24,8 @@ app.factory('dateUtility', dateUtilityFactory);
 import { notificationService } from 'js/notificationService.factory';
 app.factory('notificationService', notificationService);
 
-import { todoStorage } from 'js/todoStorage.factory';
-app.factory('todoStorage', todoStorage);
+import { todoStorageFactory } from 'js/todoStorage.factory';
+app.factory('todoStorage', todoStorageFactory);
 
 import { todoRepository } from 'js/todoRepository.factory';
 app.factory('todoRepository', todoRepository);

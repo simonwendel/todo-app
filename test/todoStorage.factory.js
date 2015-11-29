@@ -1,20 +1,20 @@
 import 'JamieMason/Jasmine-Matchers';
-import { todoStorage } from 'js/todoStorage.factory';
+import { todoStorageFactory } from 'js/todoStorage.factory';
 
-describe('Factory: todoStorage (todoStorage.factory.js)', () => {
+describe('Factory: todoStorageFactory (todoStorage.factory.js)', () => {
 
-    const storage = todoStorage();
+    const todoStorage = todoStorageFactory();
 
     it('should have an all() function to retrieve todos from storage.', () => {
 
-        expect(storage.all().length).toBe(4);
+        expect(todoStorage.all().length).toBe(4);
 
     });
 
     it('should have an save() function to save a todo to storage.', () => {
 
-        storage.save({});
-        expect(storage.all().length).toBe(5);
+        todoStorage.save({});
+        expect(todoStorage.all().length).toBe(5);
 
     });
 
