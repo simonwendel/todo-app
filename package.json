@@ -35,7 +35,9 @@
     "android"
   ],
   "jspm": {
-    "dependencies": {},
+    "dependencies": {
+      "text": "github:systemjs/plugin-text@^0.0.3"
+    },
     "devDependencies": {
       "JamieMason/Jasmine-Matchers": "github:JamieMason/Jasmine-Matchers@^1.22.3",
       "angular": "github:angular/bower-angular@^1.4.7",

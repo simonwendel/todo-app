@@ -1,10 +1,12 @@
+import todoTemplate from 'templates/todo.html!text';
+
 function routes($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('todo', {
             url: '/todo',
             views: {
                 todo: {
-                    templateUrl: 'templates/todo.html'
+                    template: todoTemplate
                 }
             }
         });
