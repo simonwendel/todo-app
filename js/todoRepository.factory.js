@@ -14,10 +14,9 @@ function todoRepositoryFactory(todoStorage, notificationService) {
 
 function getTodo(id) {
     if (id) {
-        let todo =
-            storage.all().filter(function filterDummyTodos(element) {
-                return id === element.id;
-            });
+        let todo = storage
+            .all()
+            .filter((e) => id === e.id);
 
         if (todo.length !== 1) {
             throw new Error('No such item found.');
@@ -40,10 +39,12 @@ function newTodo(item) {
 }
 
 function getNextId() {
-    return 1 + Math.max.apply(Math,
-            storage.all().map(function(t) {
-                return t.id;
-            }));
+    return 1 + Math.max.apply(
+            Math,
+            storage
+                .all()
+                .map((t) => t.id)
+        );
 }
 
 export { todoRepositoryFactory };
