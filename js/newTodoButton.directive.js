@@ -33,15 +33,13 @@ function setupScope(modal, scope, element) {
     scope.modal = modal;
     scope.vm = {};
 
-    scope.vm.openModal = function() {
+    scope.vm.openModal = () =>
         scope.modal.show();
-    };
 
-    scope.vm.closeModal = function() {
+    scope.vm.closeModal = () =>
         scope.modal.hide();
-    };
 
-    scope.vm.saveNewTodo = function() {
+    scope.vm.saveNewTodo = () => {
         saveNewTodo(scope);
         scope.modal.hide();
     };
@@ -49,7 +47,7 @@ function setupScope(modal, scope, element) {
     scope.vm.availableColors = availableColors;
     scope.vm.selectedColor = availableColors[0];
 
-    scope.$on('$destroy', function() {
+    scope.$on('$destroy', () => {
         scope.modal.remove();
     });
 
@@ -57,7 +55,7 @@ function setupScope(modal, scope, element) {
 }
 
 function saveNewTodo(scope) {
-    var item = {
+    let item = {
         title: scope.vm.title,
         description: scope.vm.description,
         color: scope.vm.selectedColor,
