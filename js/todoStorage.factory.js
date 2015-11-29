@@ -1,4 +1,4 @@
-var staticTodos = [{
+let staticTodos = [{
     id: 1,
     title: 'Something to do 1',
     description: 'This is a longer description string to show in details',
