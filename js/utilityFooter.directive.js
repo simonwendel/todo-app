@@ -1,6 +1,8 @@
+import utilityFooterTemplate from 'templates/utility-footer.html!text';
+
 function utilityFooter() {
     return {
-        templateUrl: 'templates/utility-footer.html',
+        template: utilityFooterTemplate,
         restrict: 'E',
         transclude: true
     };
