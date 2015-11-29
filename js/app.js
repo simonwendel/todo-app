@@ -31,8 +31,8 @@ import { todoRepositoryFactory } from 'js/todoRepository.factory';
 app.factory('todoRepository', todoRepositoryFactory);
 
 // directives
-import { todoList } from 'js/todoList.directive';
-app.directive('todoList', todoList);
+import { todoListDirective } from 'js/todoList.directive';
+app.directive('todoList', todoListDirective);
 
 import { utilityFooter } from 'js/utilityFooter.directive';
 app.directive('utilityFooter', utilityFooter);

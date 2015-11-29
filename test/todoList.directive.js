@@ -6,7 +6,7 @@ var element,
     provide,
     todoRepository;
 
-describe('Directive: todoList (todoList.directive.js)', () => {
+describe('Directive: todoListDirective (todoList.directive.js)', () => {
 
     beforeEach(ng.module('todo', function fetchProvide($provide) {
 

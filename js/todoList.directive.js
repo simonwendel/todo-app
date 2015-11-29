@@ -3,7 +3,7 @@ import todoListTemplate from 'templates/todo-list.html!text';
 let todoRepo,
     savedScope;
 
-function todoList(todoRepository) {
+function todoListDirective(todoRepository) {
     todoRepo = todoRepository;
 
     return {
@@ -26,4 +26,4 @@ function updateList() {
     savedScope.vm.todos = todoRepo.getTodo();
 }
 
-export { todoList };
+export { todoListDirective };
