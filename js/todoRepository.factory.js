@@ -1,3 +1,6 @@
+let storage,
+    subscribers;
+
 function todoRepositoryFactory(todoStorage, notificationService) {
     storage = todoStorage;
     subscribers = notificationService.build('todoRepository.update');
@@ -9,21 +12,18 @@ function todoRepositoryFactory(todoStorage, notificationService) {
     };
 }
 
-var storage,
-    subscribers;
-
 function getTodo(id) {
     if (id) {
-        var todos =
+        let todo =
             storage.all().filter(function filterDummyTodos(element) {
                 return id === element.id;
             });
 
-        if (todos.length !== 1) {
+        if (todo.length !== 1) {
             throw new Error('No such item found.');
         }
 
-        return todos[0];
+        return todo[0];
     }
 
     return storage.all();
