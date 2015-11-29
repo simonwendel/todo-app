@@ -9,12 +9,6 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
 
     beforeEach(ng.inject(fixtureSetup));
 
-    it('should be defined and accessible.', () => {
-
-        expect(notification).toBeDefined();
-
-    });
-
     it('should have a build function.', () => {
 
         expect(notification.build('some event')).toBeDefined();
