@@ -1,8 +1,8 @@
-const dateUtilityFactory = () => {
+function dateUtilityFactory() {
     return {
         addDays: addDays
     };
-};
+}
 
 function addDays(date, days) {
     let result = new Date(date);
