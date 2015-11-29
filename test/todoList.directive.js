@@ -1,17 +1,15 @@
 import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
 
-var element,
+let element,
     pageScope,
     provide,
     todoRepository;
 
 describe('Directive: todoListDirective (todoList.directive.js)', () => {
 
-    beforeEach(ng.module('todo', function fetchProvide($provide) {
-
+    beforeEach(ng.module('todo', ($provide) => {
         provide = $provide;
-
     }));
 
     beforeEach(ng.inject(fixtureSetup));
@@ -37,7 +35,7 @@ describe('Directive: todoListDirective (todoList.directive.js)', () => {
 
     it('should update when the subscriber is called.', () => {
 
-        var callback = todoRepository.subscribe.getCall(0).args[1];
+        let callback = todoRepository.subscribe.getCall(0).args[1];
         todoRepository.getTodo.reset();
         callback();
         expect(todoRepository.getTodo.called).toBeTruthy();
