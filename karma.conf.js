@@ -4,7 +4,7 @@ module.exports = function(config) {
         basePath: './',
 
 
-        frameworks: ['jspm', 'jasmine'],
+        frameworks: ['jspm', 'jasmine', 'sinon'],
 
 
         files: [
