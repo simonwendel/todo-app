@@ -1,25 +1,23 @@
 import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
-import 'js/app';
+import { notificationService } from 'js/notificationService.factory';
 
-let notificationService,
+let notification,
     rootScope;
 
 describe('Factory: notificationService (notificationService.factory.js)', () => {
-
-    beforeEach(ng.module('todo'));
 
     beforeEach(ng.inject(fixtureSetup));
 
     it('should be defined and accessible.', () => {
 
-        expect(notificationService).toBeDefined();
+        expect(notification).toBeDefined();
 
     });
 
     it('should have a build function.', () => {
 
-        expect(notificationService.build('some event')).toBeDefined();
+        expect(notification.build('some event')).toBeDefined();
 
     });
 
@@ -27,17 +25,17 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
 
         let someFunction = sinon.spy(),
             scope = rootScope.$new(),
-            service = notificationService.build('some event');
+            service = notification.build('some event');
 
         service.subscribe(scope, someFunction);
-        
+
     });
 
     it('should call subscriber back on notify.', () => {
 
         let someFunction = sinon.spy(),
             scope = rootScope.$new(),
-            service = notificationService.build('some event');
+            service = notification.build('some event');
 
         service.subscribe(scope, someFunction);
         service.notify();
@@ -49,7 +47,7 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
 
         let someFunction = sinon.spy(),
             scope = rootScope.$new(),
-            service = notificationService.build('some event');
+            service = notification.build('some event');
 
         service.subscribe(scope, someFunction);
         scope.$destroy();
@@ -57,10 +55,11 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
         expect(someFunction.called).toBeFalsy();
 
     });
+
 });
 
-function fixtureSetup(_notificationService_, $rootScope) {
-    notificationService = _notificationService_;
+function fixtureSetup($rootScope) {
     rootScope = $rootScope;
+    notification = notificationService(rootScope);
 }
 
