@@ -1,4 +1,4 @@
-function notificationService($rootScope) {
+function notificationServiceFactory($rootScope) {
     rootScope = $rootScope;
 
     return {
@@ -20,4 +20,4 @@ function build(eventName) {
     };
 }
 
-export { notificationService };
+export { notificationServiceFactory };

@@ -1,17 +1,17 @@
 import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
-import { notificationService } from 'js/notificationService.factory';
+import { notificationServiceFactory } from 'js/notificationService.factory';
 
-let notification,
+let notificationService,
     rootScope;
 
-describe('Factory: notificationService (notificationService.factory.js)', () => {
+describe('Factory: notificationServiceFactory (notificationService.factory.js)', () => {
 
     beforeEach(ng.inject(fixtureSetup));
 
     it('should have a build function.', () => {
 
-        expect(notification.build('some event')).toBeDefined();
+        expect(notificationService.build('some event')).toBeDefined();
 
     });
 
@@ -19,7 +19,7 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
 
         let someFunction = sinon.spy(),
             scope = rootScope.$new(),
-            service = notification.build('some event');
+            service = notificationService.build('some event');
 
         service.subscribe(scope, someFunction);
 
@@ -29,7 +29,7 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
 
         let someFunction = sinon.spy(),
             scope = rootScope.$new(),
-            service = notification.build('some event');
+            service = notificationService.build('some event');
 
         service.subscribe(scope, someFunction);
         service.notify();
@@ -41,7 +41,7 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
 
         let someFunction = sinon.spy(),
             scope = rootScope.$new(),
-            service = notification.build('some event');
+            service = notificationService.build('some event');
 
         service.subscribe(scope, someFunction);
         scope.$destroy();
@@ -54,6 +54,6 @@ describe('Factory: notificationService (notificationService.factory.js)', () => 
 
 function fixtureSetup($rootScope) {
     rootScope = $rootScope;
-    notification = notificationService(rootScope);
+    notificationService = notificationServiceFactory(rootScope);
 }
 

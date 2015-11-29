@@ -21,8 +21,8 @@ app.constant('colors', colors);
 import { dateUtilityFactory } from 'js/dateUtility.factory';
 app.factory('dateUtility', dateUtilityFactory);
 
-import { notificationService } from 'js/notificationService.factory';
-app.factory('notificationService', notificationService);
+import { notificationServiceFactory } from 'js/notificationService.factory';
+app.factory('notificationService', notificationServiceFactory);
 
 import { todoStorageFactory } from 'js/todoStorage.factory';
 app.factory('todoStorage', todoStorageFactory);
