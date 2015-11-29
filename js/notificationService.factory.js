@@ -1,3 +1,5 @@
+let rootScope;
+
 function notificationServiceFactory($rootScope) {
     rootScope = $rootScope;
 
@@ -6,15 +8,13 @@ function notificationServiceFactory($rootScope) {
     };
 }
 
-var rootScope;
-
 function build(eventName) {
     return {
-        subscribe: function(scope, callback) {
+        subscribe: (scope, callback) => {
             var handler = rootScope.$on(eventName, callback);
             scope.$on('$destroy', handler);
         },
-        notify: function() {
+        notify: () => {
             rootScope.$emit(eventName);
         }
     };
