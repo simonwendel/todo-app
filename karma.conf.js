@@ -50,7 +50,7 @@ module.exports = function(config) {
         },
 
 
-        reporters: ['progress'],
+        reporters: ['verbose'],
 
 
         port: 9876,

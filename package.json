@@ -18,6 +18,7 @@
     "karma-jasmine": "^0.3.6",
     "karma-jspm": "^2.0.2",
     "karma-phantomjs-launcher": "^0.2.1",
+    "karma-verbose-reporter": "0.0.3",
     "phantomjs": "^1.9.19"
   },
   "cordovaPlugins": [
