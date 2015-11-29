@@ -27,8 +27,8 @@ app.factory('notificationService', notificationService);
 import { todoStorageFactory } from 'js/todoStorage.factory';
 app.factory('todoStorage', todoStorageFactory);
 
-import { todoRepository } from 'js/todoRepository.factory';
-app.factory('todoRepository', todoRepository);
+import { todoRepositoryFactory } from 'js/todoRepository.factory';
+app.factory('todoRepository', todoRepositoryFactory);
 
 // directives
 import { todoList } from 'js/todoList.directive';

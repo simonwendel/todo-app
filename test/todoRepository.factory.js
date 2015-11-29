@@ -1,7 +1,7 @@
 import 'JamieMason/Jasmine-Matchers';
-import { todoRepository } from 'js/todoRepository.factory';
+import { todoRepositoryFactory } from 'js/todoRepository.factory';
 
-let repository,
+let todoRepository,
     todoStorage,
     notificationService,
     todoNotification;
@@ -12,7 +12,7 @@ describe('Factory: todoRepository (todoRepository.factory.js)', () => {
 
     it('should be defined and accessible through the angular module system.', () => {
 
-        expect(repository).toBeDefined();
+        expect(todoRepository).toBeDefined();
 
     });
 
@@ -24,21 +24,21 @@ describe('Factory: todoRepository (todoRepository.factory.js)', () => {
 
     it('should expose a subscriber interface using notificationService.', () => {
 
-        repository.subscribe(() => {});
+        todoRepository.subscribe(() => {});
         expect(todoNotification.subscribe.called).toBeTruthy();
 
     });
 
     it('should call the all() function of todoStorage to get todo items..', () => {
 
-        repository.getTodo();
+        todoRepository.getTodo();
         expect(todoStorage.all.called).toBeTruthy();
 
     });
 
     it('should have a function for retrieving one todo item by id.', () => {
 
-        var todo = repository.getTodo(11);
+        var todo = todoRepository.getTodo(11);
         expect(todo.id).toBe(11);
 
     });
@@ -46,21 +46,21 @@ describe('Factory: todoRepository (todoRepository.factory.js)', () => {
     it('should throw exception when no todo with specified id exists in the repository.', () => {
 
         expect(() => {
-            repository.getTodo(100);
+            todoRepository.getTodo(100);
         }).toThrow();
 
     });
 
     it('should call the save() function on todoStorage to save a new todo item.', () => {
 
-        repository.newTodo({});
+        todoRepository.newTodo({});
         expect(todoStorage.save.called).toBeTruthy();
 
     });
 
     it('should call the notify function notifying subscribers on newTodo.', () => {
 
-        repository.newTodo({});
+        todoRepository.newTodo({});
         expect(todoNotification.notify.called).toBeTruthy();
 
     });
@@ -68,7 +68,7 @@ describe('Factory: todoRepository (todoRepository.factory.js)', () => {
     it('should throw exception when null todo item is saved.', () => {
 
         expect(() => {
-            repository.newTodo(null);
+            todoRepository.newTodo(null);
         }).toThrow();
 
     });
@@ -76,7 +76,7 @@ describe('Factory: todoRepository (todoRepository.factory.js)', () => {
     it('should not notify subscribers if todo item to newTodo is null.', () => {
 
         expect(() => {
-            repository.newTodo(null);
+            todoRepository.newTodo(null);
         }).toThrow();
         expect(todoNotification.notify.called).toBeFalsy();
 
@@ -85,7 +85,7 @@ describe('Factory: todoRepository (todoRepository.factory.js)', () => {
     it('should not save when null todo item is saved.', () => {
 
         try {
-            repository.newTodo(null);
+            todoRepository.newTodo(null);
         } catch (e) {
         }
 
@@ -114,5 +114,5 @@ function fixtureSetup() {
         build: sinon.stub().returns(todoNotification)
     };
 
-    repository = todoRepository(todoStorage, notificationService);
+    todoRepository = todoRepositoryFactory(todoStorage, notificationService);
 }

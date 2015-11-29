@@ -1,4 +1,4 @@
-function todoRepository(todoStorage, notificationService) {
+function todoRepositoryFactory(todoStorage, notificationService) {
     storage = todoStorage;
     subscribers = notificationService.build('todoRepository.update');
 
@@ -46,4 +46,4 @@ function getNextId() {
             }));
 }
 
-export { todoRepository };
+export { todoRepositoryFactory };
