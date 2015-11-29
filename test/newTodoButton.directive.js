@@ -10,7 +10,7 @@ let element,
 
 describe('Directive: newTodoButtonDirective', () => {
 
-    beforeEach(ng.module('todo', function fetchProvide($provide) {
+    beforeEach(ng.module('todo', ($provide) => {
         provide = $provide;
     }));
 
