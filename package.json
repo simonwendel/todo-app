@@ -39,7 +39,7 @@
     "devDependencies": {
       "JamieMason/Jasmine-Matchers": "github:JamieMason/Jasmine-Matchers@^1.22.3",
       "angular": "github:angular/bower-angular@^1.4.7",
-      "angular-mocks": "github:angular/bower-angular-mocks@^1.4.7",
+      "angular-mocks": "github:angular/bower-angular-mocks@^1.4.8",
       "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
       "babel": "npm:babel-core@^5.1.10",
       "babel-runtime": "npm:babel-runtime@^5.1.10",

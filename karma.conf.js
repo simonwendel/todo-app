@@ -18,9 +18,10 @@ module.exports = function(config) {
         jspm: {
             config: 'config.js',
             loadFiles: [
-                'test/**/*.js'
+                'test/*.js'
             ],
             serveFiles: [
+                'test/utilities/*.js',
                 'js/**/*.js',
                 'templates/**/*.html'
             ]
