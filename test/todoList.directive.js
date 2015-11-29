@@ -18,6 +18,7 @@ describe('Directive: todoList', () => {
 
     it('should be defined.', () => {
 
+        expect(element.html()).toBeDefined();
         expect(element.html()).not.toBe('');
 
     });
