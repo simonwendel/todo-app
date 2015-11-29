@@ -5,7 +5,7 @@ describe('Constant: colors (colors.constant.js)', () => {
 
     it('should be an array of six color strings.', () => {
 
-        expect(colors instanceof Array).toBeTruthy();
+        expect(colors).toBeArray();
         expect(colors.length).toBe(6);
 
     });
