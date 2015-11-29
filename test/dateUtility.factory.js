@@ -5,7 +5,7 @@ describe('Factory: dateUtilityFactory (dateUtility.factory.js)', function() {
 
     const dateUtility = dateUtilityFactory();
 
-    describe('Product dateUtility', () => {
+    describe('Product: dateUtility', () => {
 
         it('should have an addDays function that can add a positive number of days to a date.', () => {
 
