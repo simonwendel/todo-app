@@ -1,4 +1,4 @@
-const routes = ($stateProvider, $urlRouterProvider) => {
+function routes($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('todo', {
             url: '/todo',
@@ -10,6 +10,6 @@ const routes = ($stateProvider, $urlRouterProvider) => {
         });
 
     $urlRouterProvider.otherwise('/todo');
-};
+}
 
 export { routes };
