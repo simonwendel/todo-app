@@ -1,7 +1,10 @@
 import todoListTemplate from 'templates/todo-list.html!text';
 
+let todoRepo,
+    savedScope;
+
 function todoList(todoRepository) {
-    todos = todoRepository;
+    todoRepo = todoRepository;
 
     return {
         template: todoListTemplate,
@@ -11,19 +14,16 @@ function todoList(todoRepository) {
     };
 }
 
-var todos,
-    savedScope;
-
 function linkFn(scope) {
     savedScope = scope;
 
-    todos.subscribe(savedScope, updateList);
+    todoRepo.subscribe(savedScope, updateList);
     savedScope.vm = {};
     updateList();
 }
 
 function updateList() {
-    savedScope.vm.todos = todos.getTodo();
+    savedScope.vm.todos = todoRepo.getTodo();
 }
 
 export { todoList };
