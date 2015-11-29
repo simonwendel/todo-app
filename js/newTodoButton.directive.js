@@ -1,3 +1,5 @@
+import newTodoButtonModalTemplate from 'templates/new-todo-button.modal.html!text';
+
 function newTodoButton($ionicModal, colors, todoRepository) {
     ionicModal = $ionicModal;
     availableColors = colors;
@@ -10,20 +12,18 @@ function newTodoButton($ionicModal, colors, todoRepository) {
     };
 }
 
-var ionicModal,
+let ionicModal,
     availableColors,
     repository;
 
 function linkFn(scope, element) {
-    createModal(scope)
-        .then(function(modal) {
-            setupScope(modal, scope, element);
-        });
+    let modal = createModal(scope);
+    setupScope(modal, scope, element);
 }
 
 function createModal(scope) {
     return ionicModal
-        .fromTemplateUrl('templates/new-todo-button.modal.html', {
+        .fromTemplate(newTodoButtonModalTemplate, {
             scope: scope,
             animation: 'slide-in-up'
         });

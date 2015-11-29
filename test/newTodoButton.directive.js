@@ -1,6 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
-import { promise } from 'test/utilities/fakes';
 
 let element,
     modal,
@@ -104,10 +103,9 @@ function fixtureSetup($rootScope, $compile) {
 
     provide.value('todoRepository', repository);
 
-    let tpl = promise(modal),
-        pageScope = $rootScope.$new(),
+    let pageScope = $rootScope.$new(),
         ionicModal = {
-            fromTemplateUrl: tpl.resolved
+            fromTemplate: () => modal
         };
 
     provide.value('$ionicModal', ionicModal);
