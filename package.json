@@ -36,7 +36,6 @@
   ],
   "jspm": {
     "dependencies": {
-      "text": "github:systemjs/plugin-text@^0.0.3"
     },
     "devDependencies": {
       "JamieMason/Jasmine-Matchers": "github:JamieMason/Jasmine-Matchers@^1.22.3",
@@ -46,7 +45,8 @@
       "babel": "npm:babel-core@^5.1.10",
       "babel-runtime": "npm:babel-runtime@^5.1.10",
       "core-js": "npm:core-js@^1.1.4",
-      "ionic": "github:driftyco/ionic-bower@^1.1.1"
+      "ionic": "github:driftyco/ionic-bower@^1.1.1",
+      "text": "github:systemjs/plugin-text@^0.0.3"
     },
     "buildConfig": {
       "transpileES6": true
