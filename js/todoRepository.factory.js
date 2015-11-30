@@ -16,7 +16,7 @@ function getTodo(id) {
     if (id) {
         let todo = storage
             .all()
-            .filter((e) => id === e.id);
+            .filter(t => id === t.id);
 
         if (todo.length !== 1) {
             throw new Error('No such item found.');
@@ -43,7 +43,7 @@ function getNextId() {
             Math,
             storage
                 .all()
-                .map((t) => t.id)
+                .map(t => t.id)
         );
 }
 
