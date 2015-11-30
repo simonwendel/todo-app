@@ -1,7 +1,7 @@
 import 'ionic';
 import angular from 'angular';
 
-import { ionicSetup } from 'js/ionic.config';
+import { setupIonic } from 'js/ionic.config';
 import { routes } from 'js/routes';
 
 // boot app
@@ -10,7 +10,7 @@ const app =
         .module('todo', ['ionic']);
 
 // configure it
-app.run(ionicSetup);
+app.run(setupIonic);
 app.config(routes);
 
 // constants and values
