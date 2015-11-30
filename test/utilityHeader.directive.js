@@ -1,7 +1,7 @@
 import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
 
-var element;
+let element;
 
 describe('Directive: utilityHeader', () => {
 
@@ -20,7 +20,7 @@ describe('Directive: utilityHeader', () => {
 
 function fixtureSetup() {
     ng.inject(($rootScope, $compile) => {
-        pageScope = $rootScope.$new();
+        let pageScope = $rootScope.$new();
 
         element = angular.element('<c-utility-header></c-utility-header>');
         element = $compile(element)(pageScope);
