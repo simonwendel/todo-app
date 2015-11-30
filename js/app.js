@@ -32,13 +32,13 @@ app.factory('todoRepository', todoRepositoryFactory);
 
 // directives
 import { todoListDirective } from 'js/todoList.directive';
-app.directive('todoList', todoListDirective);
+app.directive('cTodoList', todoListDirective);
 
 import { utilityFooter } from 'js/utilityFooter.directive';
-app.directive('utilityFooter', utilityFooter);
+app.directive('cUtilityFooter', utilityFooter);
 
 import { utilityHeader } from 'js/utilityHeader.directive';
-app.directive('utilityHeader', utilityHeader);
+app.directive('cUtilityHeader', utilityHeader);
 
 import { newTodoButtonDirective } from 'js/newTodoButton.directive';
-app.directive('newTodoButton', newTodoButtonDirective);
+app.directive('cNewTodoButton', newTodoButtonDirective);

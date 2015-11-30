@@ -52,7 +52,7 @@ function fixtureSetup($rootScope, $compile) {
     provide.value('todoRepository', todoRepository);
     pageScope = $rootScope.$new();
 
-    element = angular.element('<todo-list></todo-list>');
+    element = angular.element('<c-todo-list></c-todo-list>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
 }

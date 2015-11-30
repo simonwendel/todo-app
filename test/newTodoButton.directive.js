@@ -113,7 +113,7 @@ function fixtureSetup($rootScope, $compile) {
     colors = ['1', '2'];
     provide.constant('colors', colors);
 
-    element = angular.element('<button new-todo-button></button>');
+    element = angular.element('<button c-new-todo-button></button>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
 

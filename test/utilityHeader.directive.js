@@ -22,7 +22,7 @@ function fixtureSetup() {
     ng.inject(($rootScope, $compile) => {
         pageScope = $rootScope.$new();
 
-        element = angular.element('<utility-header></utility-header>');
+        element = angular.element('<c-utility-header></c-utility-header>');
         element = $compile(element)(pageScope);
         pageScope.$digest();
     });
