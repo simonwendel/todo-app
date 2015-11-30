@@ -36,6 +36,7 @@
   ],
   "jspm": {
     "dependencies": {
+      "moment": "npm:moment@^2.10.6"
     },
     "devDependencies": {
       "JamieMason/Jasmine-Matchers": "github:JamieMason/Jasmine-Matchers@^1.22.3",

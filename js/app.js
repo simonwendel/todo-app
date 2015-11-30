@@ -42,3 +42,6 @@ app.directive('cUtilityHeader', utilityHeader);
 
 import { newTodoButtonDirective } from 'js/newTodoButton.directive';
 app.directive('cNewTodoButton', newTodoButtonDirective);
+
+import { dateLabelDirective } from 'js/dateLabel.directive';
+app.directive('cDateLabel', dateLabelDirective);
