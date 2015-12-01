@@ -6,15 +6,15 @@ import { ionicSetup } from 'js/config/ionic';
 import { translationSetup } from 'js/config/translations';
 import { routeSetup } from 'js/config/routes';
 
-// boot app
+// boot it
 const app =
     angular
         .module('todo', ['ionic', 'pascalprecht.translate']);
 
 // configure it
 app.run(ionicSetup);
-app.config(routeSetup);
 app.config(translationSetup);
+app.config(routeSetup);
 
 // constants and values
 import { colors } from 'js/colors.constant';
