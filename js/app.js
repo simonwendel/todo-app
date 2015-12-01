@@ -17,6 +17,9 @@ app.config(routes);
 import { colors } from 'js/colors.constant';
 app.constant('colors', colors);
 
+import { platform } from 'js/platform.constant';
+app.constant('platform', platform);
+
 // services
 import { dateUtilityFactory } from 'js/dateUtility.factory';
 app.factory('dateUtility', dateUtilityFactory);
