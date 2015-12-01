@@ -14,21 +14,21 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
 
         it('should build a notification service with appropriate event name.', () => {
 
-            expect(notificationService.build.calledWith('todoRepositoryFactory.update')).toBeTruthy();
+            expect(notificationService.build.calledWith('todoRepositoryFactory.update')).toBe(true);
 
         });
 
         it('should expose a subscriber interface using notificationService.', () => {
 
             todoRepository.subscribe(() => {});
-            expect(todoNotification.subscribe.called).toBeTruthy();
+            expect(todoNotification.subscribe.called).toBe(true);
 
         });
 
         it('should call the all() function of todoStorage to get todo items..', () => {
 
             todoRepository.getTodo();
-            expect(todoStorage.all.called).toBeTruthy();
+            expect(todoStorage.all.called).toBe(true);
 
         });
 
@@ -50,14 +50,14 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
         it('should call the save() function on todoStorage to save a new todo item.', () => {
 
             todoRepository.newTodo({});
-            expect(todoStorage.save.called).toBeTruthy();
+            expect(todoStorage.save.called).toBe(true);
 
         });
 
         it('should call the notify function notifying subscribers on newTodo.', () => {
 
             todoRepository.newTodo({});
-            expect(todoNotification.notify.called).toBeTruthy();
+            expect(todoNotification.notify.called).toBe(true);
 
         });
 
@@ -74,7 +74,7 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
             expect(() => {
                 todoRepository.newTodo(null);
             }).toThrow();
-            expect(todoNotification.notify.called).toBeFalsy();
+            expect(todoNotification.notify.called).toBe(false);
 
         });
 
@@ -85,7 +85,7 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
             } catch (e) {
             }
 
-            expect(todoStorage.save.called).toBeFalsy();
+            expect(todoStorage.save.called).toBe(false);
 
         });
 

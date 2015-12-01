@@ -23,13 +23,13 @@ describe('Directive: todoListDirective (todoList.directive.js)', () => {
 
     it('should call getTodo on todoRepository at init.', () => {
 
-        expect(todoRepository.getTodo.called).toBeTruthy();
+        expect(todoRepository.getTodo.called).toBe(true);
 
     });
 
     it('should subscribe to todoRepository updates.', () => {
 
-        expect(todoRepository.subscribe.called).toBeTruthy();
+        expect(todoRepository.subscribe.called).toBe(true);
 
     });
 
@@ -38,7 +38,7 @@ describe('Directive: todoListDirective (todoList.directive.js)', () => {
         let callback = todoRepository.subscribe.getCall(0).args[1];
         todoRepository.getTodo.reset();
         callback();
-        expect(todoRepository.getTodo.called).toBeTruthy();
+        expect(todoRepository.getTodo.called).toBe(true);
 
     });
 });

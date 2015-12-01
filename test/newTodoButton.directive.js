@@ -25,28 +25,28 @@ describe('Directive: newTodoButtonDirective', () => {
     it('should have a function for opening the modal attached to vm.', () => {
 
         scope.vm.openModal();
-        expect(modal.show.called).toBeTruthy();
+        expect(modal.show.called).toBe(true);
 
     });
 
     it('should have a function for closing the modal attached to vm.', () => {
 
         scope.vm.closeModal();
-        expect(modal.hide.called).toBeTruthy();
+        expect(modal.hide.called).toBe(true);
 
     });
 
     it('should clean up after itself by destroying the modal on scope desctruction.', () => {
 
         scope.$broadcast('$destroy');
-        expect(modal.remove.called).toBeTruthy();
+        expect(modal.remove.called).toBe(true);
 
     });
 
     it('should call modal.show when element is clicked.', () => {
 
         element.triggerHandler('click');
-        expect(modal.show.called).toBeTruthy();
+        expect(modal.show.called).toBe(true);
 
     });
 
@@ -78,14 +78,14 @@ describe('Directive: newTodoButtonDirective', () => {
 
         scope.vm.saveNewTodo();
 
-        expect(repository.newTodo.called).toBeTruthy();
+        expect(repository.newTodo.called).toBe(true);
 
     });
 
     it('should remove the modal after save is completed.', () => {
 
         scope.vm.saveNewTodo();
-        expect(modal.hide.called).toBeTruthy();
+        expect(modal.hide.called).toBe(true);
 
     });
 });

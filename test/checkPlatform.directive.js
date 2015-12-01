@@ -14,7 +14,7 @@ describe('Directive: checkPlatformDirective (checkPlatform.directive.js)', () =>
 
     it('should add a class "platform-xxx" with platform name in element.', () => {
 
-        expect(element.hasClass('platform-blackberry')).toBeTruthy();
+        expect(element.hasClass('platform-blackberry')).toBe(true);
 
     });
 

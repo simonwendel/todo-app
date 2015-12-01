@@ -35,7 +35,7 @@ describe('Factory: notificationServiceFactory (notificationService.factory.js)',
 
             service.subscribe(scope, someFunction);
             service.notify();
-            expect(someFunction.called).toBeTruthy();
+            expect(someFunction.called).toBe(true);
 
         });
 
@@ -48,7 +48,7 @@ describe('Factory: notificationServiceFactory (notificationService.factory.js)',
             service.subscribe(scope, someFunction);
             scope.$destroy();
             service.notify();
-            expect(someFunction.called).toBeFalsy();
+            expect(someFunction.called).toBe(false);
 
         });
 
