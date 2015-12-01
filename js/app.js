@@ -2,9 +2,9 @@ import 'ionic';
 import 'angular-translate';
 import angular from 'angular';
 
-import { setupIonic } from 'js/ionic.config';
-import { translationsConfig } from 'js/translations.config.js';
-import { routes } from 'js/routes';
+import { ionicSetup } from 'js/config/ionic';
+import { translationSetup } from 'js/config/translations';
+import { routeSetup } from 'js/config/routes';
 
 // boot app
 const app =
@@ -12,9 +12,9 @@ const app =
         .module('todo', ['ionic', 'pascalprecht.translate']);
 
 // configure it
-app.run(setupIonic);
-app.config(routes);
-app.config(translationsConfig);
+app.run(ionicSetup);
+app.config(routeSetup);
+app.config(translationSetup);
 
 // constants and values
 import { colors } from 'js/colors.constant';

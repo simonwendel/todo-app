@@ -1,6 +1,6 @@
 import todoTemplate from 'templates/todo.html!text';
 
-function routes($stateProvider, $urlRouterProvider) {
+function routeSetup($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('todo', {
             url: '/todo',
@@ -14,4 +14,4 @@ function routes($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/todo');
 }
 
-export { routes };
+export { routeSetup };
