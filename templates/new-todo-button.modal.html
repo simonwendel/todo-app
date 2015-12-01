@@ -1,41 +1,41 @@
 <ion-modal-view>
     <ion-header-bar>
-        <h1 class="title">ADD TASK</h1>
+        <h1 class="title">{{ 'ADD_TASK__UPPER' | translate }}</h1>
     </ion-header-bar>
     <ion-content>
         <div class="list">
 
             <label class="item item-input">
-                <span class="input-label">Title</span>
+                <span class="input-label">{{ 'TITLE__PASCAL' | translate }}</span>
                 <input type="text" ng-model="vm.title">
             </label>
 
             <label class="item item-input">
-                <span class="input-label">Description</span>
+                <span class="input-label">{{ 'DESCRIPTION__PASCAL' | translate }}</span>
                 <textarea ng-click="vm.description"></textarea>
             </label>
 
             <label class="item item-input item-select">
                 <div class="input-label">
                     <i class="icon ion-record" style="color:{{ vm.selectedColor }}"></i>
-                    Color
+                    {{ 'COLOR__PASCAL' | translate }}
                 </div>
                 <select ng-model="vm.selectedColor" ng-options="color as color for color in vm.availableColors">
                 </select>
             </label>
 
             <label class="item item-input">
-                <span class="input-label">Recurring (days)</span>
+                <span class="input-label">{{ 'RECURRING_(DAYS)__PASCAL' | translate }}</span>
                 <input type="number" ng-model="vm.recurring">
             </label>
 
             <div class="button-bar">
                 <button class="button button-full button-positive" ng-click="vm.saveNewTodo()">
-                    SAVE
+                    {{ 'SAVE__UPPER' | translate }}
                 </button>
 
                 <button class="button button-full button-stable" ng-click="vm.closeModal()">
-                    CANCEL
+                    {{ 'CLOSE__UPPER' | translate }}
                 </button>
             </div>
 
