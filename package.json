@@ -39,6 +39,7 @@
   ],
   "jspm": {
     "dependencies": {
+      "angular-translate": "github:angular-translate/bower-angular-translate@^2.8.1",
       "moment": "npm:moment@^2.10.6"
     },
     "devDependencies": {

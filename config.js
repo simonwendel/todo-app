@@ -16,6 +16,7 @@ System.config({
     "JamieMason/Jasmine-Matchers": "github:JamieMason/Jasmine-Matchers@1.22.3",
     "angular": "github:angular/bower-angular@1.4.8",
     "angular-mocks": "github:angular/bower-angular-mocks@1.4.8",
+    "angular-translate": "github:angular-translate/bower-angular-translate@2.8.1",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
@@ -23,6 +24,9 @@ System.config({
     "ionic": "github:driftyco/ionic-bower@1.1.1",
     "moment": "npm:moment@2.10.6",
     "text": "github:systemjs/plugin-text@0.0.3",
+    "github:angular-translate/bower-angular-translate@2.8.1": {
+      "angular": "github:angular/bower-angular@1.4.8"
+    },
     "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.4.8"
     },

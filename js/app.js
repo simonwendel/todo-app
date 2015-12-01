@@ -1,4 +1,5 @@
 import 'ionic';
+import 'angular-translate';
 import angular from 'angular';
 
 import { setupIonic } from 'js/ionic.config';
@@ -7,7 +8,7 @@ import { routes } from 'js/routes';
 // boot app
 const app =
     angular
-        .module('todo', ['ionic']);
+        .module('todo', ['ionic', 'pascalprecht.translate']);
 
 // configure it
 app.run(setupIonic);
