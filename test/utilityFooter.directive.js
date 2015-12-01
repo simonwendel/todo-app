@@ -3,7 +3,7 @@ import { ng } from 'test/utilities/mocks';
 
 let element;
 
-describe('Directive: utilityFooter', () => {
+describe('Directive: utilityFooterDirective', () => {
 
     beforeEach(ng.module('todo'));
 

@@ -1,6 +1,6 @@
 import utilityFooterTemplate from 'templates/utility-footer.html!text';
 
-function utilityFooter() {
+function utilityFooterDirective() {
     return {
         template: utilityFooterTemplate,
         restrict: 'E',
@@ -8,4 +8,4 @@ function utilityFooter() {
     };
 }
 
-export { utilityFooter };
+export { utilityFooterDirective };

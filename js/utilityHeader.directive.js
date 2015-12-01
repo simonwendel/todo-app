@@ -1,6 +1,6 @@
 import utilityHeaderTemplate from 'templates/utility-header.html!text';
 
-function utilityHeader() {
+function utilityHeaderDirective() {
     return {
         template: utilityHeaderTemplate,
         restrict: 'E',
@@ -8,4 +8,4 @@ function utilityHeader() {
     };
 }
 
-export { utilityHeader };
+export { utilityHeaderDirective };

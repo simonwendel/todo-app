@@ -40,11 +40,11 @@ app.factory('todoRepository', todoRepositoryFactory);
 import { todoListDirective } from 'js/todoList.directive';
 app.directive('cTodoList', todoListDirective);
 
-import { utilityFooter } from 'js/utilityFooter.directive';
-app.directive('cUtilityFooter', utilityFooter);
+import { utilityFooterDirective } from 'js/utilityFooter.directive';
+app.directive('cUtilityFooter', utilityFooterDirective);
 
-import { utilityHeader } from 'js/utilityHeader.directive';
-app.directive('cUtilityHeader', utilityHeader);
+import { utilityHeaderDirective } from 'js/utilityHeader.directive';
+app.directive('cUtilityHeader', utilityHeaderDirective);
 
 import { newTodoButtonDirective } from 'js/newTodoButton.directive';
 app.directive('cNewTodoButton', newTodoButtonDirective);
