@@ -3,6 +3,7 @@ import 'angular-translate';
 import angular from 'angular';
 
 import { setupIonic } from 'js/ionic.config';
+import { translationsConfig } from 'js/translations.config.js';
 import { routes } from 'js/routes';
 
 // boot app
@@ -13,6 +14,7 @@ const app =
 // configure it
 app.run(setupIonic);
 app.config(routes);
+app.config(translationsConfig);
 
 // constants and values
 import { colors } from 'js/colors.constant';

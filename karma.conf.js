@@ -23,6 +23,7 @@ module.exports = function(config) {
             serveFiles: [
                 'test/utilities/*.js',
                 'js/**/*.js',
+                'i18n/**/*.js',
                 'templates/**/*.html'
             ]
         },
@@ -31,12 +32,14 @@ module.exports = function(config) {
         proxies: {
             '/test/': '/base/test/',
             '/js/': '/base/js/',
+            '/i18n/': '/base/i18n/',
             '/jspm_packages/': '/base/jspm_packages/'
         },
 
 
         preprocessors: {
             'js/**/*.js': ['babel'],
+            'i18n/**/*.js': ['babel'],
             'test/**/*.js': ['babel']
         },
 
