@@ -17,13 +17,13 @@ app.config(translationSetup);
 app.config(routeSetup);
 
 // constants and values
-import { colors } from 'js/colors.constant';
-app.constant('colors', colors);
-
 import { platform } from 'js/platform.constant';
 app.constant('platform', platform);
 
 // services
+import { colorsFactory } from 'js/colors.factory';
+app.factory('colors', colorsFactory);
+
 import { dateUtilityFactory } from 'js/dateUtility.factory';
 app.factory('dateUtility', dateUtilityFactory);
 

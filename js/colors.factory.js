@@ -7,4 +7,8 @@ const colors = [
     'violet'
 ];
 
-export { colors };
+function colorsFactory() {
+    return colors;
+}
+
+export { colorsFactory };
