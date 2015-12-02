@@ -20,7 +20,7 @@ function getAll() {
     return colors
         .map(c => {
             return {
-                colorName: translate(c.colorName),
+                colorName: translate.instant(c.colorName),
                 colorValue: c.colorValue
             }
         });
