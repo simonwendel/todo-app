@@ -9,6 +9,7 @@ const colors = [
 
 let translate;
 
+colorsFactory.$inject = ['$translate'];
 function colorsFactory($translate) {
     translate = $translate;
     return {

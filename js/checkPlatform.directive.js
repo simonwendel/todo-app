@@ -1,5 +1,6 @@
 import angular from 'angular';
 
+checkPlatformDirective.$inject = ['platform'];
 function checkPlatformDirective(platform) {
     return {
         restrict: 'A',

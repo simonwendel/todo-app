@@ -1,3 +1,4 @@
+ionicSetup.$inject = ['$ionicPlatform'];
 function ionicSetup($ionicPlatform) {
     $ionicPlatform.ready(() => {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

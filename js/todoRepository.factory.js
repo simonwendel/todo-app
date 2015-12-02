@@ -1,6 +1,7 @@
 let storage,
     subscribers;
 
+todoRepositoryFactory.$inject = ['todoStorage', 'notificationService'];
 function todoRepositoryFactory(todoStorage, notificationService) {
     storage = todoStorage;
     subscribers = notificationService.build('todoRepositoryFactory.update');

@@ -1,5 +1,6 @@
 let rootScope;
 
+notificationServiceFactory.$inject = ['$rootScope'];
 function notificationServiceFactory($rootScope) {
     rootScope = $rootScope;
 

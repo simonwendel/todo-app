@@ -4,6 +4,7 @@ let ionicModal,
     availableColors,
     repository;
 
+newTodoButtonDirective.$inject = ['$ionicModal', 'colors', 'todoRepository'];
 function newTodoButtonDirective($ionicModal, colors, todoRepository) {
     ionicModal = $ionicModal;
     availableColors = colors.getAll();
