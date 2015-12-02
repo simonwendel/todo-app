@@ -54,3 +54,6 @@ app.directive('cDateLabel', dateLabelDirective);
 
 import { checkPlatformDirective } from 'js/checkPlatform.directive';
 app.directive('cCheckPlatform', checkPlatformDirective);
+
+angular.element(document).ready(() =>
+    angular.bootstrap(document, ['todo'], { strictDi: true }));
