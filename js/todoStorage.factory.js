@@ -8,7 +8,7 @@ let staticTodos = [{
         '2015-11-15T14:09:39+01:00',
         '2015-11-25T14:09:39+01:00'
     ],
-    color: 'crimson'
+    color: {colorName: 'CRIMSON__PASCAL', colorValue: 'crimson'}
 }, {
     id: 10,
     title: 'Something to do 2',
@@ -17,7 +17,7 @@ let staticTodos = [{
     recurring: 15,
     completed: [
     ],
-    color: 'seagreen'
+    color: {colorName: 'SEAGREEN__PASCAL', colorValue: 'seagreen'}
 }, {
     id: 11,
     title: 'Something to do 3',
@@ -27,7 +27,7 @@ let staticTodos = [{
     completed: [
         '2015-11-22T14:09:39+01:00',
     ],
-    color: 'purple'
+    color: {colorName: 'PURPLE__PASCAL', colorValue: 'purple'}
 }, {
     id: 21,
     title: 'Something to do 4',
@@ -37,7 +37,7 @@ let staticTodos = [{
     completed: [
         '2015-11-25T14:09:39+01:00'
     ],
-    color: 'seagreen'
+    color: {colorName: 'SEAGREEN__PASCAL', colorValue: 'seagreen'}
 }];
 
 function todoStorageFactory() {
