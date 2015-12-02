@@ -17,10 +17,12 @@
 
             <label class="item item-input item-select">
                 <div class="input-label">
-                    <i class="icon ion-record" style="color:{{ vm.selectedColor }}"></i>
+                    <i class="icon ion-record" style="color:{{ vm.selectedColor.colorValue }}"></i>
                     {{ 'COLOR__PASCAL' | translate }}
                 </div>
-                <select ng-model="vm.selectedColor" ng-options="color as color for color in vm.availableColors">
+                <select
+                    ng-model="vm.selectedColor"
+                    ng-options="color.colorName for color in vm.availableColors">
                 </select>
             </label>
 

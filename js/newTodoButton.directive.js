@@ -6,7 +6,7 @@ let ionicModal,
 
 function newTodoButtonDirective($ionicModal, colors, todoRepository) {
     ionicModal = $ionicModal;
-    availableColors = colors;
+    availableColors = colors.getAll();
     repository = todoRepository;
 
     return {

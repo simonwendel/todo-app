@@ -5,7 +5,7 @@ let element,
     modal,
     provide,
     scope,
-    colors,
+    allColors,
     repository;
 
 describe('Directive: newTodoButtonDirective', () => {
@@ -52,13 +52,13 @@ describe('Directive: newTodoButtonDirective', () => {
 
     it('should attach the color array to vm.', () => {
 
-        expect(scope.vm.availableColors).toBe(colors);
+        expect(scope.vm.availableColors).toEqual(allColors);
 
     });
 
     it('should set the first color as the selected color.', () => {
 
-        expect(scope.vm.selectedColor).toBe(colors[0]);
+        expect(scope.vm.selectedColor).toEqual(allColors[0]);
 
     });
 
@@ -90,7 +90,7 @@ describe('Directive: newTodoButtonDirective', () => {
     });
 });
 
-function fixtureSetup($rootScope, $compile) {
+function fixtureSetup($rootScope, $compile, colors) {
     modal = {
         show: sinon.spy(),
         hide: sinon.spy(),
@@ -110,8 +110,8 @@ function fixtureSetup($rootScope, $compile) {
 
     provide.value('$ionicModal', ionicModal);
 
-    colors = ['1', '2'];
-    provide.constant('colors', colors);
+    // lazyness makes me just go ahead and use the actual "colors" factory...
+    allColors = colors.getAll();
 
     element = angular.element('<button c-new-todo-button></button>');
     element = $compile(element)(pageScope);
