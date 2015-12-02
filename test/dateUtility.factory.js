@@ -1,9 +1,9 @@
 import 'JamieMason/Jasmine-Matchers';
 import { dateUtilityFactory } from 'js/dateUtility.factory';
 
-describe('Factory: dateUtilityFactory (dateUtility.factory.js)', function() {
+const dateUtility = dateUtilityFactory();
 
-    const dateUtility = dateUtilityFactory();
+describe('Factory: dateUtilityFactory (dateUtility.factory.js)', function() {
 
     describe('Product: dateUtility', () => {
 
