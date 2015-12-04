@@ -1,10 +1,10 @@
 import dateLabelTemplate from 'templates/date-label.html!text';
 
-let momentService;
+let todoViewService;
 
-dateLabelDirective.$inject = ['moment'];
-function dateLabelDirective(moment) {
-    momentService = moment;
+dateLabelDirective.$inject = ['todoView'];
+function dateLabelDirective(todoView) {
+    todoViewService = todoView;
     return {
           template: dateLabelTemplate,
           restrict: 'E',
@@ -15,7 +15,7 @@ function dateLabelDirective(moment) {
 
 function linkFn(scope) {
     scope.vm = {
-        date: momentService().format('L')
+        date: todoViewService.getDate()
     }
 }
 
