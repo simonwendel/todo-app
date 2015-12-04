@@ -1,11 +1,11 @@
 import todoListTemplate from 'templates/todo-list.html!text';
 
-let todoRepo,
+let todoRepository,
     savedScope;
 
 todoListDirective.$inject = ['todoRepository'];
-function todoListDirective(todoRepository) {
-    todoRepo = todoRepository;
+function todoListDirective(todoRepositoryFactory) {
+    todoRepository = todoRepositoryFactory;
 
     return {
         template: todoListTemplate,
@@ -18,13 +18,13 @@ function todoListDirective(todoRepository) {
 function linkFn(scope) {
     savedScope = scope;
 
-    todoRepo.subscribe(savedScope, updateList);
+    todoRepository.subscribe(savedScope, updateList);
     savedScope.vm = {};
     updateList();
 }
 
 function updateList() {
-    savedScope.vm.todos = todoRepo.getTodo();
+    savedScope.vm.todos = todoRepository.getTodo();
 }
 
 export { todoListDirective };
