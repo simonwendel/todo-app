@@ -1,21 +1,21 @@
-let storage,
-    subscribers;
+let todoStorage,
+    notificationService;
 
 todoRepositoryFactory.$inject = ['todoStorage', 'notificationService'];
-function todoRepositoryFactory(todoStorage, notificationService) {
-    storage = todoStorage;
-    subscribers = notificationService.build('todoRepositoryFactory.update');
+function todoRepositoryFactory(todoStorageFactory, notificationServiceFactory) {
+    todoStorage = todoStorageFactory;
+    notificationService = notificationServiceFactory.build('todoRepositoryFactory.update');
 
     return {
         getTodo: getTodo,
         newTodo: newTodo,
-        subscribe: subscribers.subscribe
+        subscribe: notificationService.subscribe
     };
 }
 
 function getTodo(id) {
     if (id) {
-        let todo = storage
+        let todo = todoStorage
             .all()
             .filter(t => id === t.id);
 
@@ -26,14 +26,14 @@ function getTodo(id) {
         return todo[0];
     }
 
-    return storage.all();
+    return todoStorage.all();
 }
 
 function newTodo(item) {
     if (item) {
         item.id = getNextId();
-        storage.save(item);
-        subscribers.notify();
+        todoStorage.save(item);
+        notificationService.notify();
     } else {
         throw new Error('No todo item object to save.');
     }
@@ -42,7 +42,7 @@ function newTodo(item) {
 function getNextId() {
     return 1 + Math.max.apply(
             Math,
-            storage
+            todoStorage
                 .all()
                 .map(t => t.id)
         );
