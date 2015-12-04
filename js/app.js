@@ -36,6 +36,10 @@ app.factory('todoStorage', todoStorageFactory);
 import { todoRepositoryFactory } from 'js/todoRepository.factory';
 app.factory('todoRepository', todoRepositoryFactory);
 
+// wrapping moment.js for injectability
+import { momentFactory } from 'js/moment.factory';
+app.factory('moment', momentFactory);
+
 // directives
 import { todoListDirective } from 'js/todoList.directive';
 app.directive('cTodoList', todoListDirective);
