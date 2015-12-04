@@ -3,8 +3,8 @@ import dateLabelTemplate from 'templates/date-label.html!text';
 let todoView;
 
 dateLabelDirective.$inject = ['todoView'];
-function dateLabelDirective(todoViewProvider) {
-    todoView = todoViewProvider;
+function dateLabelDirective(todoViewFactory) {
+    todoView = todoViewFactory;
     return {
           template: dateLabelTemplate,
           restrict: 'E',
