@@ -1,9 +1,12 @@
 import 'JamieMason/Jasmine-Matchers';
 import { dateUtilityFactory } from 'js/dateUtility.factory';
 
+const ken = '1943-02-04';
+
 let dateUtility,
     momentMock,
-    now;
+    now,
+    formatMock;
 
 describe('Factory: dateUtilityFactory (dateUtility.factory.js)', function() {
 
@@ -37,15 +40,25 @@ describe('Factory: dateUtilityFactory (dateUtility.factory.js)', function() {
 
         });
 
+        it('should have a display function to render a date for output.', () => {
+
+            expect(dateUtility.display(new Date())).toBe(ken);
+            expect(formatMock.called).toBe(true);
+
+        });
+
     });
 
 });
 
 function fixtureSetup() {
     now = new Date();
+    formatMock = sinon.stub().returns(ken);
+
     momentMock = sinon.stub().returns({
-        toDate: () => now
+        toDate: () => now,
+        format: formatMock
     });
-    
+
     dateUtility = dateUtilityFactory(momentMock);
 }

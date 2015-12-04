@@ -2,6 +2,7 @@ dateUtilityFactory.$inject = ['moment'];
 function dateUtilityFactory(momentFactory) {
     return {
         now: () => momentFactory().toDate(),
+        display: date => momentFactory(date).format('L'),
         addDays: addDays
     };
 }
