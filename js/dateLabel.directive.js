@@ -1,10 +1,10 @@
 import dateLabelTemplate from 'templates/date-label.html!text';
 
-let todoViewService;
+let todoView;
 
 dateLabelDirective.$inject = ['todoView'];
-function dateLabelDirective(todoView) {
-    todoViewService = todoView;
+function dateLabelDirective(todoViewProvider) {
+    todoView = todoViewProvider;
     return {
           template: dateLabelTemplate,
           restrict: 'E',
@@ -15,7 +15,7 @@ function dateLabelDirective(todoView) {
 
 function linkFn(scope) {
     scope.vm = {
-        date: todoViewService.getDate()
+        date: todoView.getDate()
     }
 }
 
