@@ -1,14 +1,14 @@
 import newTodoButtonModalTemplate from 'templates/new-todo-button.modal.html!text';
 
 let ionicModal,
-    availableColors,
-    repository;
+    colors,
+    todoRepository;
 
 newTodoButtonDirective.$inject = ['$ionicModal', 'colors', 'todoRepository'];
-function newTodoButtonDirective($ionicModal, colors, todoRepository) {
+function newTodoButtonDirective($ionicModal, colorsFactory, todoRepositoryFactory) {
     ionicModal = $ionicModal;
-    availableColors = colors.getAll();
-    repository = todoRepository;
+    colors = colorsFactory.getAll();
+    todoRepository = todoRepositoryFactory;
 
     return {
         restrict: 'A',
@@ -45,8 +45,8 @@ function setupScope(modal, scope, element) {
         scope.modal.hide();
     };
 
-    scope.vm.availableColors = availableColors;
-    scope.vm.selectedColor = availableColors[0];
+    scope.vm.availableColors = colors;
+    scope.vm.selectedColor = colors[0];
 
     scope.$on('$destroy', () => {
         scope.modal.remove();
@@ -63,7 +63,7 @@ function saveNewTodo(scope) {
         recurring: scope.vm.reccuring
     };
 
-    repository.newTodo(item);
+    todoRepository.newTodo(item);
 }
 
 export { newTodoButtonDirective };
