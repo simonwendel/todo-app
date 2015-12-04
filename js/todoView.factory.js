@@ -1,9 +1,9 @@
-let dateUtilityService,
+let dateUtility,
     selectedDate;
 
 todoViewFactory.$inject = ['dateUtility'];
-function todoViewFactory(dateUtility) {
-    dateUtilityService = dateUtility;
+function todoViewFactory(dateUtilityFactory) {
+    dateUtility = dateUtilityFactory;
     selectedDate = now();
 
     return {
@@ -12,11 +12,11 @@ function todoViewFactory(dateUtility) {
 }
 
 function now() {
-    return dateUtilityService.now();
+    return dateUtility.now();
 }
 
 function getDate() {
-    return dateUtilityService
+    return dateUtility
         .display(selectedDate);
 }
 
