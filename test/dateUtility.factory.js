@@ -1,11 +1,23 @@
 import 'JamieMason/Jasmine-Matchers';
 import { dateUtilityFactory } from 'js/dateUtility.factory';
 
-const dateUtility = dateUtilityFactory();
+let dateUtility,
+    momentMock,
+    now;
 
 describe('Factory: dateUtilityFactory (dateUtility.factory.js)', function() {
 
+    beforeEach(fixtureSetup);
+
     describe('Product: dateUtility', () => {
+
+        it('should use moment for resolving a now() function return.', () => {
+
+            let date = dateUtility.now();
+            expect(date).toBe(now);
+            expect(momentMock.called).toBe(true);
+
+        });
 
         it('should have an addDays function that can add a positive number of days to a date.', () => {
 
@@ -28,3 +40,12 @@ describe('Factory: dateUtilityFactory (dateUtility.factory.js)', function() {
     });
 
 });
+
+function fixtureSetup() {
+    now = new Date();
+    momentMock = sinon.stub().returns({
+        toDate: () => now
+    });
+    
+    dateUtility = dateUtilityFactory(momentMock);
+}
