@@ -16,7 +16,11 @@ function dateLabelDirective(todoViewFactory) {
 function linkFn(scope) {
     scope.vm = {
         date: todoView.getDate()
-    }
+    };
+
+    scope.$watch(
+        s => todoView.getDate(),
+        v => scope.vm.date = v);
 }
 
 export { dateLabelDirective };
