@@ -3,7 +3,7 @@ import { ng } from 'test/utilities/mocks';
 
 let element;
 
-describe('Directive: utilityFooterDirective', () => {
+describe('Directive: footerDirective', () => {
 
     beforeEach(ng.module('todo'));
 
@@ -22,7 +22,7 @@ function fixtureSetup() {
     ng.inject(($rootScope, $compile) => {
         let pageScope = $rootScope.$new();
 
-        element = angular.element('<c-utility-footer></c-utility-footer>');
+        element = angular.element('<c-footer></c-footer>');
         element = $compile(element)(pageScope);
         pageScope.$digest();
     });

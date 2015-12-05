@@ -47,8 +47,8 @@ app.factory('moment', momentFactory);
 import { todoListDirective } from 'js/todoList.directive';
 app.directive('cTodoList', todoListDirective);
 
-import { utilityFooterDirective } from 'js/utilityFooter.directive';
-app.directive('cUtilityFooter', utilityFooterDirective);
+import { footerDirective } from 'js/footer.directive';
+app.directive('cFooter', footerDirective);
 
 import { utilityHeaderDirective } from 'js/utilityHeader.directive';
 app.directive('cUtilityHeader', utilityHeaderDirective);
