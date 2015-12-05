@@ -27,13 +27,22 @@ describe('Factory: todoViewFactory (todoView.factory.js)', () => {
 
         });
 
+        it('should have a function to step to next day.', () => {
+
+            todoView.nextDay();
+            expect(dateUtilityMock.addDays.args[0][0]).toBe(1);
+            expect(dateUtilityMock.addDays.args[0][1]).toBeDate();
+
+        });
+
     });
 
 });
 
 function fixtureSetup() {
     dateUtilityMock = {
-        now: sinon.stub(),
+        now: sinon.stub().returns(new Date()),
+        addDays: sinon.stub(),
         display: sinon.stub().returns(rms)
     };
 
