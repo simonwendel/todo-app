@@ -35,6 +35,14 @@ describe('Factory: todoViewFactory (todoView.factory.js)', () => {
 
         });
 
+        it('should have a function to step to previous day.', () => {
+
+            todoView.previousDay();
+            expect(dateUtilityMock.addDays.args[0][0]).toBe(-1);
+            expect(dateUtilityMock.addDays.args[0][1]).toBeDate();
+
+        });
+
     });
 
 });

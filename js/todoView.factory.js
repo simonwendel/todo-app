@@ -8,7 +8,8 @@ function todoViewFactory(dateUtilityFactory) {
 
     return {
         getDate: getDate,
-        nextDay: nextDay
+        nextDay: nextDay,
+        previousDay: previousDay
     };
 }
 
@@ -23,6 +24,10 @@ function getDate() {
 
 function nextDay() {
     selectedDate = dateUtility.addDays(1, selectedDate);
+}
+
+function previousDay() {
+    selectedDate = dateUtility.addDays(-1, selectedDate);
 }
 
 export { todoViewFactory };
