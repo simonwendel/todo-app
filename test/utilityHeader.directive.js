@@ -1,13 +1,18 @@
 import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
 
-let element;
+let element,
+    scope,
+    provide,
+    todoViewMock;
 
 describe('Directive: utilityHeaderDirective', () => {
 
-    beforeEach(ng.module('todo'));
+    beforeEach(ng.module('todo', $provide => {
+        provide = $provide;
+    }));
 
-    beforeEach(fixtureSetup);
+    beforeEach(ng.inject(fixtureSetup));
 
     it('should be defined.', () => {
 
@@ -16,14 +21,35 @@ describe('Directive: utilityHeaderDirective', () => {
 
     });
 
+    it('should call add step to next day fn to scope.', () => {
+
+        scope.vm.nextDay();
+        expect(todoViewMock.nextDay.calledOnce).toBe(true);
+
+    });
+
+    it('should call add step to previous day fn to scope.', () => {
+
+        scope.vm.previousDay();
+        expect(todoViewMock.previousDay.calledOnce).toBe(true);
+
+    });
+
 });
 
-function fixtureSetup() {
-    ng.inject(($rootScope, $compile) => {
-        let pageScope = $rootScope.$new();
+function fixtureSetup($rootScope, $compile) {
+    todoViewMock = {
+        nextDay: sinon.stub(),
+        previousDay: sinon.stub()
+    };
 
-        element = angular.element('<c-utility-header></c-utility-header>');
-        element = $compile(element)(pageScope);
-        pageScope.$digest();
-    });
+    provide.value('todoView', todoViewMock);
+
+    let pageScope = $rootScope.$new();
+
+    element = angular.element('<c-utility-header></c-utility-header>');
+    element = $compile(element)(pageScope);
+    pageScope.$digest();
+
+    scope = element.isolateScope();
 }
