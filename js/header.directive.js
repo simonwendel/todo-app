@@ -1,13 +1,13 @@
-import utilityHeaderTemplate from 'templates/utility-header.html!text';
+import headerTemplate from 'templates/header.html!text';
 
 let todoView;
 
-utilityHeaderDirective.$inject = ['todoView'];
-function utilityHeaderDirective(todoViewFactory) {
+headerDirective.$inject = ['todoView'];
+function headerDirective(todoViewFactory) {
     todoView = todoViewFactory;
 
     return {
-        template: utilityHeaderTemplate,
+        template: headerTemplate,
         restrict: 'E',
         transclude: true,
         scope: {},
@@ -22,4 +22,4 @@ function linkFn(scope) {
     }
 }
 
-export { utilityHeaderDirective };
+export { headerDirective };

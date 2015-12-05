@@ -6,7 +6,7 @@ let element,
     provide,
     todoViewMock;
 
-describe('Directive: utilityHeaderDirective', () => {
+describe('Directive: headerDirective', () => {
 
     beforeEach(ng.module('todo', $provide => {
         provide = $provide;
@@ -47,7 +47,7 @@ function fixtureSetup($rootScope, $compile) {
 
     let pageScope = $rootScope.$new();
 
-    element = angular.element('<c-utility-header></c-utility-header>');
+    element = angular.element('<c-header></c-header>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
 

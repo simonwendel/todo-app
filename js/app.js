@@ -50,8 +50,8 @@ app.directive('cTodoList', todoListDirective);
 import { footerDirective } from 'js/footer.directive';
 app.directive('cFooter', footerDirective);
 
-import { utilityHeaderDirective } from 'js/utilityHeader.directive';
-app.directive('cUtilityHeader', utilityHeaderDirective);
+import { headerDirective } from 'js/header.directive';
+app.directive('cHeader', headerDirective);
 
 import { newTodoButtonDirective } from 'js/newTodoButton.directive';
 app.directive('cNewTodoButton', newTodoButtonDirective);
