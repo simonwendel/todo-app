@@ -7,7 +7,7 @@ function dateUtilityFactory(momentFactory) {
     };
 }
 
-function addDays(date, days) {
+function addDays(days, date) {
     let result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
