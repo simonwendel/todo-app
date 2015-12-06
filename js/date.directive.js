@@ -1,12 +1,12 @@
-import dateLabelTemplate from 'templates/date-label.html!text';
+import dateTemplate from 'templates/date.html!text';
 
 let todoView;
 
-dateLabelDirective.$inject = ['todoView'];
-function dateLabelDirective(todoViewFactory) {
+dateDirective.$inject = ['todoView'];
+function dateDirective(todoViewFactory) {
     todoView = todoViewFactory;
     return {
-          template: dateLabelTemplate,
+          template: dateTemplate,
           restrict: 'E',
           scope: {},
           link: linkFn
@@ -23,4 +23,4 @@ function linkFn(scope) {
         v => scope.vm.date = v);
 }
 
-export { dateLabelDirective };
+export { dateDirective };

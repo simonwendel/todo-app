@@ -56,8 +56,8 @@ app.directive('cHeader', headerDirective);
 import { newTodoButtonDirective } from 'js/newTodoButton.directive';
 app.directive('cNewTodoButton', newTodoButtonDirective);
 
-import { dateLabelDirective } from 'js/dateLabel.directive';
-app.directive('cDateLabel', dateLabelDirective);
+import { dateDirective } from 'js/date.directive';
+app.directive('cDate', dateDirective);
 
 import { checkPlatformDirective } from 'js/checkPlatform.directive';
 app.directive('cCheckPlatform', checkPlatformDirective);

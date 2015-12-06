@@ -8,7 +8,7 @@ let element,
     provide,
     todoViewMock;
 
-describe('Directive: dateLabelDirective (dateLabel.directive.js)', () => {
+describe('Directive: dateDirective (date.directive.js)', () => {
 
     beforeEach(ng.module('todo', ($provide) => {
         provide = $provide;
@@ -42,7 +42,7 @@ function fixtureSetup($rootScope, $compile) {
 
     provide.value('todoView', todoViewMock);
 
-    element = angular.element('<c-date-label></c-date-label>');
+    element = angular.element('<c-date></c-date>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
     scope = element.isolateScope();
