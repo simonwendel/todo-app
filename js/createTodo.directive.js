@@ -1,11 +1,11 @@
-import newTodoButtonModalTemplate from 'templates/new-todo-button.modal.html!text';
+import createTodoTemplate from 'templates/create-todo.html!text';
 
 let ionicModal,
     colors,
     todoRepository;
 
-newTodoButtonDirective.$inject = ['$ionicModal', 'colors', 'todoRepository'];
-function newTodoButtonDirective($ionicModal, colorsFactory, todoRepositoryFactory) {
+createTodoDirective.$inject = ['$ionicModal', 'colors', 'todoRepository'];
+function createTodoDirective($ionicModal, colorsFactory, todoRepositoryFactory) {
     ionicModal = $ionicModal;
     colors = colorsFactory.getAll();
     todoRepository = todoRepositoryFactory;
@@ -24,7 +24,7 @@ function linkFn(scope, element) {
 
 function createModal(scope) {
     return ionicModal
-        .fromTemplate(newTodoButtonModalTemplate, {
+        .fromTemplate(createTodoTemplate, {
             scope: scope,
             animation: 'slide-in-up'
         });
@@ -66,4 +66,4 @@ function saveNewTodo(scope) {
     todoRepository.newTodo(item);
 }
 
-export { newTodoButtonDirective };
+export { createTodoDirective };

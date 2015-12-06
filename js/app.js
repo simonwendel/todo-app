@@ -53,8 +53,8 @@ app.directive('cFooter', footerDirective);
 import { headerDirective } from 'js/header.directive';
 app.directive('cHeader', headerDirective);
 
-import { newTodoButtonDirective } from 'js/newTodoButton.directive';
-app.directive('cNewTodoButton', newTodoButtonDirective);
+import { createTodoDirective } from 'js/createTodo.directive';
+app.directive('cCreateTodo', createTodoDirective);
 
 import { dateDirective } from 'js/date.directive';
 app.directive('cDate', dateDirective);

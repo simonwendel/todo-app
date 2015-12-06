@@ -8,7 +8,7 @@ let element,
     allColors,
     repository;
 
-describe('Directive: newTodoButtonDirective', () => {
+describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
     beforeEach(ng.module('todo', ($provide) => {
         provide = $provide;
@@ -113,7 +113,7 @@ function fixtureSetup($rootScope, $compile, colors) {
     // lazyness makes me just go ahead and use the actual "colors" factory...
     allColors = colors.getAll();
 
-    element = angular.element('<button c-new-todo-button></button>');
+    element = angular.element('<button c-create-todo></button>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
 
