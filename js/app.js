@@ -59,8 +59,8 @@ app.directive('cCreateTodo', createTodoDirective);
 import { dateDirective } from 'js/date.directive';
 app.directive('cDate', dateDirective);
 
-import { checkPlatformDirective } from 'js/checkPlatform.directive';
-app.directive('cCheckPlatform', checkPlatformDirective);
+import { platformClassDirective } from 'js/platformClass.directive';
+app.directive('cPlatformClass', platformClassDirective);
 
 // boot it
 angular.element(document).ready(() =>

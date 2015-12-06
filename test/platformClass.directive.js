@@ -4,7 +4,7 @@ import { ng } from 'test/utilities/mocks';
 let element,
     provide;
 
-describe('Directive: checkPlatformDirective (checkPlatform.directive.js)', () => {
+describe('Directive: platformClassDirective (platformClass.directive.js)', () => {
 
     beforeEach(ng.module('todo', $provide => {
         provide = $provide;
@@ -24,7 +24,7 @@ function fixtureSetup($rootScope, $compile) {
     provide.constant('platform', 'blackberry');
 
     let pageScope = $rootScope.$new();
-    element = angular.element('<div c-check-platform></div>');
+    element = angular.element('<div c-platform-class></div>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
 }

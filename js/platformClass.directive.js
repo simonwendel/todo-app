@@ -1,7 +1,7 @@
 import angular from 'angular';
 
-checkPlatformDirective.$inject = ['platform'];
-function checkPlatformDirective(platform) {
+platformClassDirective.$inject = ['platform'];
+function platformClassDirective(platform) {
     return {
         restrict: 'A',
         scope: {},
@@ -13,4 +13,4 @@ function checkPlatformDirective(platform) {
     }
 }
 
-export { checkPlatformDirective };
+export { platformClassDirective };
