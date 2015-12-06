@@ -1,17 +1,17 @@
 {
-  "name": "todo",
-  "app_id": "",
-   "documentRoot": "./",
-   "gulpStartupTasks": [
-       "sass",
-       "watch"
-     ],
-     "watchPatterns": [
-       "/js/**/*",
-       "/css/**/*",
-       "/templates/**/*",
-       "/index.html",
-       "/config.js",
-       "!/jspm_packages/**/*"
-     ]
+    "name": "todo",
+    "app_id": "",
+    "documentRoot": "./",
+    "gulpStartupTasks": [
+        "sass",
+        "watch"
+    ],
+    "watchPatterns": [
+        "/js/**/*",
+        "/css/**/*",
+        "/templates/**/*",
+        "/index.html",
+        "/config.js",
+        "!/jspm_packages/**/*"
+    ]
 }
