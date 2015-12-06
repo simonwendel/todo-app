@@ -2,7 +2,7 @@ import 'JamieMason/Jasmine-Matchers';
 import { todoRepositoryFactory } from 'js/todoRepository.factory';
 
 let todoRepository,
-    todoStorage,
+    storageMock,
     notificationService,
     todoNotification;
 
@@ -25,10 +25,10 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
 
         });
 
-        it('should call the all() function of todoStorage to get todo items..', () => {
+        it('should call the all() function of storage to get todo items..', () => {
 
             todoRepository.getTodo();
-            expect(todoStorage.all.called).toBe(true);
+            expect(storageMock.all.called).toBe(true);
 
         });
 
@@ -47,10 +47,10 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
 
         });
 
-        it('should call the save() function on todoStorage to save a new todo item.', () => {
+        it('should call the save() function on storage to save a new todo item.', () => {
 
             todoRepository.newTodo({});
-            expect(todoStorage.save.called).toBe(true);
+            expect(storageMock.save.called).toBe(true);
 
         });
 
@@ -85,7 +85,7 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
             } catch (e) {
             }
 
-            expect(todoStorage.save.called).toBe(false);
+            expect(storageMock.save.called).toBe(false);
 
         });
 
@@ -93,7 +93,7 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
 });
 
 function fixtureSetup() {
-    todoStorage = {
+    storageMock = {
         all: sinon.stub().returns([
             {id: 1},
             {id: 10},
@@ -112,5 +112,5 @@ function fixtureSetup() {
         build: sinon.stub().returns(todoNotification)
     };
 
-    todoRepository = todoRepositoryFactory(todoStorage, notificationService);
+    todoRepository = todoRepositoryFactory(storageMock, notificationService);
 }
