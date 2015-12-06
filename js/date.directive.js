@@ -1,10 +1,10 @@
 import dateTemplate from 'templates/date.html!text';
 
-let todoView;
+let view;
 
-dateDirective.$inject = ['todoView'];
-function dateDirective(todoViewFactory) {
-    todoView = todoViewFactory;
+dateDirective.$inject = ['view'];
+function dateDirective(viewFactory) {
+    view = viewFactory;
     return {
           template: dateTemplate,
           restrict: 'E',
@@ -15,11 +15,11 @@ function dateDirective(todoViewFactory) {
 
 function linkFn(scope) {
     scope.vm = {
-        date: todoView.getDate()
+        date: view.getDate()
     };
 
     scope.$watch(
-        s => todoView.getDate(),
+        s => view.getDate(),
         v => scope.vm.date = v);
 }
 

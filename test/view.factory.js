@@ -1,28 +1,28 @@
 import 'JamieMason/Jasmine-Matchers';
-import { todoViewFactory } from 'js/todoView.factory';
+import { viewFactory } from 'js/view.factory';
 
 const rms = '1953-03-16';
 
-let todoView,
+let view,
     todo,
     dateUtilityMock,
     todoRepositoryMock;
 
-describe('Factory: todoViewFactory (todoView.factory.js)', () => {
+describe('Factory: viewFactory (view.factory.js)', () => {
 
     beforeEach(fixtureSetup);
 
-    describe('Product: todoView', () => {
+    describe('Product: view', () => {
 
         it('should exist.', () => {
 
-            expect(todoView).toBeDefined();
+            expect(view).toBeDefined();
 
         });
 
         it('should have a function to get the view date as a string.', () => {
 
-            let date = todoView.getDate();
+            let date = view.getDate();
             expect(dateUtilityMock.now.called).toBe(true);
             expect(dateUtilityMock.display.called).toBe(true);
             expect(date).toBe(rms);
@@ -31,7 +31,7 @@ describe('Factory: todoViewFactory (todoView.factory.js)', () => {
 
         it('should have a function to step to next day.', () => {
 
-            todoView.nextDay();
+            view.nextDay();
             expect(dateUtilityMock.addDays.args[0][0]).toBe(1);
             expect(dateUtilityMock.addDays.args[0][1]).toBeDate();
 
@@ -39,7 +39,7 @@ describe('Factory: todoViewFactory (todoView.factory.js)', () => {
 
         it('should have a function to step to previous day.', () => {
 
-            todoView.previousDay();
+            view.previousDay();
             expect(dateUtilityMock.addDays.args[0][0]).toBe(-1);
             expect(dateUtilityMock.addDays.args[0][1]).toBeDate();
 
@@ -47,7 +47,7 @@ describe('Factory: todoViewFactory (todoView.factory.js)', () => {
 
         it('should have a function to get todo.', () => {
 
-            let t = todoView.getTodo();
+            let t = view.getTodo();
             expect(t).toBe(todo);
             expect(todoRepositoryMock.getTodo.calledOnce).toBe(true);
 
@@ -70,5 +70,5 @@ function fixtureSetup() {
         getTodo: sinon.stub().returns(todo)
     };
 
-    todoView = todoViewFactory(todoRepositoryMock, dateUtilityMock);
+    view = viewFactory(todoRepositoryMock, dateUtilityMock);
 }

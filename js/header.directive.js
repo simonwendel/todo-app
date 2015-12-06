@@ -1,10 +1,10 @@
 import headerTemplate from 'templates/header.html!text';
 
-let todoView;
+let view;
 
-headerDirective.$inject = ['todoView'];
-function headerDirective(todoViewFactory) {
-    todoView = todoViewFactory;
+headerDirective.$inject = ['view'];
+function headerDirective(viewFactory) {
+    view = viewFactory;
 
     return {
         template: headerTemplate,
@@ -17,8 +17,8 @@ function headerDirective(todoViewFactory) {
 
 function linkFn(scope) {
     scope.vm = {
-        nextDay: todoView.nextDay,
-        previousDay: todoView.previousDay
+        nextDay: view.nextDay,
+        previousDay: view.previousDay
     }
 }
 

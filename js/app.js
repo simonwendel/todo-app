@@ -36,8 +36,8 @@ app.factory('todoStorage', todoStorageFactory);
 import { todoRepositoryFactory } from 'js/todoRepository.factory';
 app.factory('todoRepository', todoRepositoryFactory);
 
-import { todoViewFactory } from 'js/todoView.factory';
-app.factory('todoView', todoViewFactory);
+import { viewFactory } from 'js/view.factory';
+app.factory('view', viewFactory);
 
 // wrapping moment.js for injectability
 import { momentFactory } from 'js/moment.factory';

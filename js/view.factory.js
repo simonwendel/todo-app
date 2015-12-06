@@ -2,8 +2,8 @@ let todoRepository,
     dateUtility,
     selectedDate;
 
-todoViewFactory.$inject = ['todoRepository', 'dateUtility'];
-function todoViewFactory(todoRepositoryFactory, dateUtilityFactory) {
+viewFactory.$inject = ['todoRepository', 'dateUtility'];
+function viewFactory(todoRepositoryFactory, dateUtilityFactory) {
     todoRepository = todoRepositoryFactory;
     dateUtility = dateUtilityFactory;
 
@@ -34,4 +34,4 @@ function getTodo() {
     return todoRepository.getTodo();
 }
 
-export { todoViewFactory };
+export { viewFactory };

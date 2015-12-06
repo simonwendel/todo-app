@@ -6,7 +6,7 @@ const dmr = '1941-09-09';
 let element,
     scope,
     provide,
-    todoViewMock;
+    viewMock;
 
 describe('Directive: dateDirective (date.directive.js)', () => {
 
@@ -23,9 +23,9 @@ describe('Directive: dateDirective (date.directive.js)', () => {
 
     });
 
-    it('should have a date string from todoView on scope.', () => {
+    it('should have a date string from view on scope.', () => {
 
-        expect(todoViewMock.getDate.called).toBe(true);
+        expect(viewMock.getDate.called).toBe(true);
         expect(scope.vm.date).toBeString();
         expect(scope.vm.date).toBe(dmr);
 
@@ -34,13 +34,13 @@ describe('Directive: dateDirective (date.directive.js)', () => {
   });
 
 function fixtureSetup($rootScope, $compile) {
-    todoViewMock = {
+    viewMock = {
         getDate: sinon.stub().returns(dmr)
     };
 
     let pageScope = $rootScope.$new();
 
-    provide.value('todoView', todoViewMock);
+    provide.value('view', viewMock);
 
     element = angular.element('<c-date></c-date>');
     element = $compile(element)(pageScope);

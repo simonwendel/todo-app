@@ -4,7 +4,7 @@ import { ng } from 'test/utilities/mocks';
 let element,
     scope,
     provide,
-    todoViewMock;
+    viewMock;
 
 describe('Directive: headerDirective', () => {
 
@@ -24,26 +24,26 @@ describe('Directive: headerDirective', () => {
     it('should call add step to next day fn to scope.', () => {
 
         scope.vm.nextDay();
-        expect(todoViewMock.nextDay.calledOnce).toBe(true);
+        expect(viewMock.nextDay.calledOnce).toBe(true);
 
     });
 
     it('should call add step to previous day fn to scope.', () => {
 
         scope.vm.previousDay();
-        expect(todoViewMock.previousDay.calledOnce).toBe(true);
+        expect(viewMock.previousDay.calledOnce).toBe(true);
 
     });
 
 });
 
 function fixtureSetup($rootScope, $compile) {
-    todoViewMock = {
+    viewMock = {
         nextDay: sinon.stub(),
         previousDay: sinon.stub()
     };
 
-    provide.value('todoView', todoViewMock);
+    provide.value('view', viewMock);
 
     let pageScope = $rootScope.$new();
 
