@@ -1,20 +1,20 @@
-let dateUtility,
+let todoRepository,
+    dateUtility,
     selectedDate;
 
-todoViewFactory.$inject = ['dateUtility'];
-function todoViewFactory(dateUtilityFactory) {
+todoViewFactory.$inject = ['todoRepository', 'dateUtility'];
+function todoViewFactory(todoRepositoryFactory, dateUtilityFactory) {
+    todoRepository = todoRepositoryFactory;
     dateUtility = dateUtilityFactory;
-    selectedDate = now();
+
+    selectedDate = dateUtility.now();
 
     return {
         getDate: getDate,
         nextDay: nextDay,
-        previousDay: previousDay
+        previousDay: previousDay,
+        getTodo: getTodo
     };
-}
-
-function now() {
-    return dateUtility.now();
 }
 
 function getDate() {
@@ -28,6 +28,10 @@ function nextDay() {
 
 function previousDay() {
     selectedDate = dateUtility.addDays(-1, selectedDate);
+}
+
+function getTodo() {
+    return todoRepository.getTodo();
 }
 
 export { todoViewFactory };

@@ -4,7 +4,9 @@ import { todoViewFactory } from 'js/todoView.factory';
 const rms = '1953-03-16';
 
 let todoView,
-    dateUtilityMock;
+    todo,
+    dateUtilityMock,
+    todoRepositoryMock;
 
 describe('Factory: todoViewFactory (todoView.factory.js)', () => {
 
@@ -43,16 +45,30 @@ describe('Factory: todoViewFactory (todoView.factory.js)', () => {
 
         });
 
+        it('should have a function to get todo.', () => {
+
+            let t = todoView.getTodo();
+            expect(t).toBe(todo);
+            expect(todoRepositoryMock.getTodo.calledOnce).toBe(true);
+
+        });
+
     });
 
 });
 
 function fixtureSetup() {
+    todo = new Array(5);
+
     dateUtilityMock = {
         now: sinon.stub().returns(new Date()),
         addDays: sinon.stub(),
         display: sinon.stub().returns(rms)
     };
 
-    todoView = todoViewFactory(dateUtilityMock);
+    todoRepositoryMock = {
+        getTodo: sinon.stub().returns(todo)
+    };
+
+    todoView = todoViewFactory(todoRepositoryMock, dateUtilityMock);
 }
