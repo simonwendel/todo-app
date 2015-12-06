@@ -1,5 +1,5 @@
-ionicSetup.$inject = ['$ionicPlatform'];
-function ionicSetup($ionicPlatform) {
+ionic.$inject = ['$ionicPlatform'];
+function ionic($ionicPlatform) {
     $ionicPlatform.ready(() => {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -15,4 +15,4 @@ function ionicSetup($ionicPlatform) {
     });
 }
 
-export { ionicSetup };
+export { ionic };

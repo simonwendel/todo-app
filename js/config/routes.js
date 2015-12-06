@@ -1,7 +1,7 @@
 import todoTemplate from 'templates/todo.html!text';
 
-routeSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
-function routeSetup($stateProvider, $urlRouterProvider) {
+routes.$inject = ['$stateProvider', '$urlRouterProvider'];
+function routes($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('todo', {
             url: '/todo',
@@ -15,4 +15,4 @@ function routeSetup($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/todo');
 }
 
-export { routeSetup };
+export { routes };
