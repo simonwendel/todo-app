@@ -1,8 +1,8 @@
 let storage,
     notificationService;
 
-todoRepositoryFactory.$inject = ['storage', 'notificationService'];
-function todoRepositoryFactory(storageFactory, notificationServiceFactory) {
+repositoryFactory.$inject = ['storage', 'notificationService'];
+function repositoryFactory(storageFactory, notificationServiceFactory) {
     storage = storageFactory;
     notificationService = notificationServiceFactory.build('todoRepositoryFactory.update');
 
@@ -48,4 +48,4 @@ function getNextId() {
         );
 }
 
-export { todoRepositoryFactory };
+export { repositoryFactory };

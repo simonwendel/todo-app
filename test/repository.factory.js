@@ -1,16 +1,16 @@
 import 'JamieMason/Jasmine-Matchers';
-import { todoRepositoryFactory } from 'js/todoRepository.factory';
+import { repositoryFactory } from 'js/repository.factory';
 
-let todoRepository,
+let repository,
     storageMock,
     notificationService,
     todoNotification;
 
-describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
+describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
     beforeEach(fixtureSetup);
 
-    describe('Product: todoRepository', () => {
+    describe('Product: repository', () => {
 
         it('should build a notification service with appropriate event name.', () => {
 
@@ -20,21 +20,21 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
 
         it('should expose a subscriber interface using notificationService.', () => {
 
-            todoRepository.subscribe(() => {});
+            repository.subscribe(() => {});
             expect(todoNotification.subscribe.called).toBe(true);
 
         });
 
         it('should call the all() function of storage to get todo items..', () => {
 
-            todoRepository.getTodo();
+            repository.getTodo();
             expect(storageMock.all.called).toBe(true);
 
         });
 
         it('should have a function for retrieving one todo item by id.', () => {
 
-            var todo = todoRepository.getTodo(11);
+            var todo = repository.getTodo(11);
             expect(todo.id).toBe(11);
 
         });
@@ -42,21 +42,21 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
         it('should throw exception when no todo with specified id exists in the repository.', () => {
 
             expect(() => {
-                todoRepository.getTodo(100);
+                repository.getTodo(100);
             }).toThrow();
 
         });
 
         it('should call the save() function on storage to save a new todo item.', () => {
 
-            todoRepository.newTodo({});
+            repository.newTodo({});
             expect(storageMock.save.called).toBe(true);
 
         });
 
         it('should call the notify function notifying subscribers on newTodo.', () => {
 
-            todoRepository.newTodo({});
+            repository.newTodo({});
             expect(todoNotification.notify.called).toBe(true);
 
         });
@@ -64,7 +64,7 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
         it('should throw exception when null todo item is saved.', () => {
 
             expect(() => {
-                todoRepository.newTodo(null);
+                repository.newTodo(null);
             }).toThrow();
 
         });
@@ -72,7 +72,7 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
         it('should not notify subscribers if todo item to newTodo is null.', () => {
 
             expect(() => {
-                todoRepository.newTodo(null);
+                repository.newTodo(null);
             }).toThrow();
             expect(todoNotification.notify.called).toBe(false);
 
@@ -81,7 +81,7 @@ describe('Factory: todoRepositoryFactory (todoRepository.factory.js)', () => {
         it('should not save when null todo item is saved.', () => {
 
             try {
-                todoRepository.newTodo(null);
+                repository.newTodo(null);
             } catch (e) {
             }
 
@@ -112,5 +112,5 @@ function fixtureSetup() {
         build: sinon.stub().returns(todoNotification)
     };
 
-    todoRepository = todoRepositoryFactory(storageMock, notificationService);
+    repository = repositoryFactory(storageMock, notificationService);
 }

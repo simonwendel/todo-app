@@ -6,7 +6,7 @@ let element,
     provide,
     scope,
     allColors,
-    repository;
+    repositoryMock;
 
 describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
@@ -78,7 +78,7 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
         scope.vm.saveNewTodo();
 
-        expect(repository.newTodo.called).toBe(true);
+        expect(repositoryMock.newTodo.called).toBe(true);
 
     });
 
@@ -97,11 +97,11 @@ function fixtureSetup($rootScope, $compile, colors) {
         remove: sinon.spy()
     };
 
-    repository = {
+    repositoryMock = {
         newTodo: sinon.spy()
     };
 
-    provide.value('todoRepository', repository);
+    provide.value('repository', repositoryMock);
 
     let pageScope = $rootScope.$new(),
         ionicModal = {

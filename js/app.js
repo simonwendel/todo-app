@@ -33,8 +33,8 @@ app.factory('notificationService', notificationServiceFactory);
 import { storageFactory } from 'js/storage.factory';
 app.factory('storage', storageFactory);
 
-import { todoRepositoryFactory } from 'js/todoRepository.factory';
-app.factory('todoRepository', todoRepositoryFactory);
+import { repositoryFactory } from 'js/repository.factory';
+app.factory('repository', repositoryFactory);
 
 import { viewFactory } from 'js/view.factory';
 app.factory('view', viewFactory);
