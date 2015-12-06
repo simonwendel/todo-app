@@ -6,7 +6,7 @@ import { ionic } from 'js/config/ionic';
 import { translations } from 'js/config/translations';
 import { routes } from 'js/config/routes';
 
-// boot it
+// define it
 const app =
     angular
         .module('todo', ['ionic', 'pascalprecht.translate']);
@@ -62,5 +62,6 @@ app.directive('cDate', dateDirective);
 import { checkPlatformDirective } from 'js/checkPlatform.directive';
 app.directive('cCheckPlatform', checkPlatformDirective);
 
+// boot it
 angular.element(document).ready(() =>
     angular.bootstrap(document, ['todo'], { strictDi: true }));
