@@ -1,14 +1,14 @@
-import todoListTemplate from 'templates/todo-list.html!text';
+import listTemplate from 'templates/list.html!text';
 
 let todoRepository,
     savedScope;
 
-todoListDirective.$inject = ['todoRepository'];
-function todoListDirective(todoRepositoryFactory) {
+listDirective.$inject = ['todoRepository'];
+function listDirective(todoRepositoryFactory) {
     todoRepository = todoRepositoryFactory;
 
     return {
-        template: todoListTemplate,
+        template: listTemplate,
         restrict: 'E',
         scope: {},
         link: linkFn
@@ -27,4 +27,4 @@ function updateList() {
     savedScope.vm.todos = todoRepository.getTodo();
 }
 
-export { todoListDirective };
+export { listDirective };

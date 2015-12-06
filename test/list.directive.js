@@ -6,7 +6,7 @@ let element,
     provide,
     todoRepository;
 
-describe('Directive: todoListDirective (todoList.directive.js)', () => {
+describe('Directive: listDirective (list.directive.js)', () => {
 
     beforeEach(ng.module('todo', ($provide) => {
         provide = $provide;
@@ -52,7 +52,7 @@ function fixtureSetup($rootScope, $compile) {
     provide.value('todoRepository', todoRepository);
     pageScope = $rootScope.$new();
 
-    element = angular.element('<c-todo-list></c-todo-list>');
+    element = angular.element('<c-list></c-list>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
 }
