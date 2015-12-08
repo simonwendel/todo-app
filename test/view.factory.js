@@ -6,7 +6,7 @@ const rms = '1953-03-16';
 let view,
     todo,
     dateUtilityMock,
-    todoRepositoryMock;
+    repositoryMock;
 
 describe('Factory: viewFactory (view.factory.js)', () => {
 
@@ -49,7 +49,7 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
             let t = view.getTodo();
             expect(t).toBe(todo);
-            expect(todoRepositoryMock.getTodo.calledOnce).toBe(true);
+            expect(repositoryMock.getTodo.calledOnce).toBe(true);
 
         });
 
@@ -66,9 +66,9 @@ function fixtureSetup() {
         display: sinon.stub().returns(rms)
     };
 
-    todoRepositoryMock = {
+    repositoryMock = {
         getTodo: sinon.stub().returns(todo)
     };
 
-    view = viewFactory(todoRepositoryMock, dateUtilityMock);
+    view = viewFactory(repositoryMock, dateUtilityMock);
 }
