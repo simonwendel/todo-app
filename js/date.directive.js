@@ -1,10 +1,13 @@
 import dateTemplate from 'templates/date.html!text';
 
-let view;
+let view,
+    date;
 
-dateDirective.$inject = ['view'];
-function dateDirective(viewFactory) {
+dateDirective.$inject = ['view', 'dateUtility'];
+function dateDirective(viewFactory, dateUtility) {
     view = viewFactory;
+    date = dateUtility;
+
     return {
           template: dateTemplate,
           restrict: 'E',
@@ -15,12 +18,20 @@ function dateDirective(viewFactory) {
 
 function linkFn(scope) {
     scope.vm = {
-        date: view.getDate()
+        date: view.getDate(),
+        viewingHistory: isHistoric()
     };
 
     scope.$watch(
         s => view.getDate(),
-        v => scope.vm.date = v);
+        v => {
+            scope.vm.date = v;
+            scope.vm.viewingHistory = isHistoric();
+        });
+}
+
+function isHistoric() {
+    return date.compareDatePart(view.getDate(), date.now()) < 0;
 }
 
 export { dateDirective };
