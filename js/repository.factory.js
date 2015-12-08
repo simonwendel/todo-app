@@ -4,7 +4,7 @@ let storage,
 repositoryFactory.$inject = ['storage', 'notification'];
 function repositoryFactory(storageFactory, notificationFactory) {
     storage = storageFactory;
-    notification = notificationFactory.build('todoRepositoryFactory.update');
+    notification = notificationFactory.create('todoRepositoryFactory.update');
 
     return {
         getTodo: getTodo,

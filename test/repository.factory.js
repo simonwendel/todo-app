@@ -3,8 +3,8 @@ import { repositoryFactory } from 'js/repository.factory';
 
 let repository,
     storageMock,
-    notificationService,
-    todoNotification;
+    notificationMock,
+    notificationChannel;
 
 describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
@@ -12,16 +12,16 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
     describe('Product: repository', () => {
 
-        it('should build a notification service with appropriate event name.', () => {
+        it('should create a notification service with appropriate event name.', () => {
 
-            expect(notificationService.build.calledWith('todoRepositoryFactory.update')).toBe(true);
+            expect(notificationMock.create.calledWith('todoRepositoryFactory.update')).toBe(true);
 
         });
 
         it('should expose a subscriber interface using notificationService.', () => {
 
             repository.subscribe(() => {});
-            expect(todoNotification.subscribe.called).toBe(true);
+            expect(notificationChannel.subscribe.called).toBe(true);
 
         });
 
@@ -57,7 +57,7 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
         it('should call the notify function notifying subscribers on newTodo.', () => {
 
             repository.newTodo({});
-            expect(todoNotification.notify.called).toBe(true);
+            expect(notificationChannel.notify.called).toBe(true);
 
         });
 
@@ -74,7 +74,7 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
             expect(() => {
                 repository.newTodo(null);
             }).toThrow();
-            expect(todoNotification.notify.called).toBe(false);
+            expect(notificationChannel.notify.called).toBe(false);
 
         });
 
@@ -103,14 +103,14 @@ function fixtureSetup() {
         save: sinon.spy()
     };
 
-    todoNotification = {
+    notificationChannel = {
         subscribe: sinon.spy(),
         notify: sinon.spy()
     };
 
-    notificationService = {
-        build: sinon.stub().returns(todoNotification)
+    notificationMock = {
+        create: sinon.stub().returns(notificationChannel)
     };
 
-    repository = repositoryFactory(storageMock, notificationService);
+    repository = repositoryFactory(storageMock, notificationMock);
 }
