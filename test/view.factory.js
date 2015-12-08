@@ -6,7 +6,9 @@ const rms = '1953-03-16';
 let view,
     todo,
     dateUtilityMock,
-    repositoryMock;
+    repositoryMock,
+    notificationMock,
+    notificationChannel;
 
 describe('Factory: viewFactory (view.factory.js)', () => {
 
@@ -53,6 +55,15 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
+        it('should set up a notification channel', () => {
+
+            expect(view.subscribe).toBe(notificationChannel.subscribe);
+            expect(
+                notificationMock.create.calledWith('todoViewFactory.viewChanged'))
+                .toBe(true);
+
+        });
+
     });
 
 });
@@ -70,5 +81,13 @@ function fixtureSetup() {
         getTodo: sinon.stub().returns(todo)
     };
 
-    view = viewFactory(repositoryMock, dateUtilityMock);
+    notificationChannel = {
+        subscribe: sinon.stub()
+    };
+
+    notificationMock = {
+        create: sinon.stub().returns(notificationChannel),
+    };
+
+    view = viewFactory(repositoryMock, dateUtilityMock, notificationMock);
 }

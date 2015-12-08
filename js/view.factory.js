@@ -1,11 +1,13 @@
 let repository,
     dateUtility,
-    selectedDate;
+    selectedDate,
+    subscribers;
 
-viewFactory.$inject = ['repository', 'dateUtility'];
-function viewFactory(repositoryFactory, dateUtilityFactory) {
+viewFactory.$inject = ['repository', 'dateUtility', 'notification'];
+function viewFactory(repositoryFactory, dateUtilityFactory, notification) {
     repository = repositoryFactory;
     dateUtility = dateUtilityFactory;
+    subscribers = notification.create('todoViewFactory.viewChanged');
 
     selectedDate = dateUtility.now();
 
@@ -13,7 +15,8 @@ function viewFactory(repositoryFactory, dateUtilityFactory) {
         getDate: getDate,
         nextDay: nextDay,
         previousDay: previousDay,
-        getTodo: getTodo
+        getTodo: getTodo,
+        subscribe: subscribers.subscribe
     };
 }
 
