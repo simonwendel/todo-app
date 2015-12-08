@@ -7,7 +7,10 @@ viewFactory.$inject = ['repository', 'dateUtility', 'notification'];
 function viewFactory(repositoryFactory, dateUtilityFactory, notification) {
     repository = repositoryFactory;
     dateUtility = dateUtilityFactory;
+
+    // just short-circuit these notifications
     subscribers = notification.create('todoViewFactory.viewChanged');
+    repository.subscribe(subscribers.notify);
 
     selectedDate = dateUtility.now();
 

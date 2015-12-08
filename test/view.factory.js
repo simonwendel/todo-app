@@ -64,6 +64,20 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
+        it('should subscribe to the repository notification channel.', () => {
+
+            expect(repositoryMock.subscribe.called).toBe(true);
+
+        });
+
+        it('should notify it´s own subscribers on repository notifications.', () => {
+
+            expect(
+                repositoryMock.subscribe.calledWith(notificationChannel.notify))
+                .toBe(true);
+
+        });
+
     });
 
 });
@@ -78,11 +92,13 @@ function fixtureSetup() {
     };
 
     repositoryMock = {
-        getTodo: sinon.stub().returns(todo)
+        getTodo: sinon.stub().returns(todo),
+        subscribe: sinon.stub()
     };
 
     notificationChannel = {
-        subscribe: sinon.stub()
+        subscribe: sinon.stub(),
+        notify: sinon.stub()
     };
 
     notificationMock = {
