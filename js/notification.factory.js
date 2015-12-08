@@ -13,7 +13,9 @@ function create(eventName) {
     return {
         subscribe: (callback, scope) => {
             let handler = rootScope.$on(eventName, callback);
-            scope.$on('$destroy', handler);
+            if (scope) {
+                scope.$on('$destroy', handler);
+            }
         },
         notify: () => {
             rootScope.$emit(eventName);
