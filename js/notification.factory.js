@@ -1,15 +1,15 @@
 let rootScope;
 
-notificationServiceFactory.$inject = ['$rootScope'];
-function notificationServiceFactory($rootScope) {
+notificationFactory.$inject = ['$rootScope'];
+function notificationFactory($rootScope) {
     rootScope = $rootScope;
 
     return {
-        build: build
+        create: create
     };
 }
 
-function build(eventName) {
+function create(eventName) {
     return {
         subscribe: (scope, callback) => {
             let handler = rootScope.$on(eventName, callback);
@@ -21,4 +21,4 @@ function build(eventName) {
     };
 }
 
-export { notificationServiceFactory };
+export { notificationFactory };

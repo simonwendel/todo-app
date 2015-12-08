@@ -1,27 +1,27 @@
 import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
-import { notificationServiceFactory } from 'js/notificationService.factory';
+import { notificationFactory } from 'js/notification.factory';
 
-let notificationService,
+let notification,
     rootScope;
 
-describe('Factory: notificationServiceFactory (notificationService.factory.js)', () => {
+describe('Factory: notificationFactory (notification.factory.js)', () => {
 
     beforeEach(ng.inject(fixtureSetup));
 
-    describe('Product: notificationService', () => {
+    describe('Product: notification', () => {
 
-        it('should have a build function.', () => {
+        it('should have a create function.', () => {
 
-            expect(notificationService.build('some event')).toBeDefined();
+            expect(notification.create('some event')).toBeDefined();
 
         });
 
-        it('should return a notification service from build which consumers can subscribe to.', () => {
+        it('should return a notification service from create which consumers can subscribe to.', () => {
 
             let someFunction = sinon.spy(),
                 scope = rootScope.$new(),
-                service = notificationService.build('some event');
+                service = notification.create('some event');
 
             service.subscribe(scope, someFunction);
 
@@ -31,7 +31,7 @@ describe('Factory: notificationServiceFactory (notificationService.factory.js)',
 
             let someFunction = sinon.spy(),
                 scope = rootScope.$new(),
-                service = notificationService.build('some event');
+                service = notification.create('some event');
 
             service.subscribe(scope, someFunction);
             service.notify();
@@ -43,7 +43,7 @@ describe('Factory: notificationServiceFactory (notificationService.factory.js)',
 
             let someFunction = sinon.spy(),
                 scope = rootScope.$new(),
-                service = notificationService.build('some event');
+                service = notification.create('some event');
 
             service.subscribe(scope, someFunction);
             scope.$destroy();
@@ -58,5 +58,5 @@ describe('Factory: notificationServiceFactory (notificationService.factory.js)',
 
 function fixtureSetup($rootScope) {
     rootScope = $rootScope;
-    notificationService = notificationServiceFactory(rootScope);
+    notification = notificationFactory(rootScope);
 }

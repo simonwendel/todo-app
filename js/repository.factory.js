@@ -1,15 +1,15 @@
 let storage,
-    notificationService;
+    notification;
 
-repositoryFactory.$inject = ['storage', 'notificationService'];
-function repositoryFactory(storageFactory, notificationServiceFactory) {
+repositoryFactory.$inject = ['storage', 'notification'];
+function repositoryFactory(storageFactory, notificationFactory) {
     storage = storageFactory;
-    notificationService = notificationServiceFactory.build('todoRepositoryFactory.update');
+    notification = notificationFactory.build('todoRepositoryFactory.update');
 
     return {
         getTodo: getTodo,
         newTodo: newTodo,
-        subscribe: notificationService.subscribe
+        subscribe: notification.subscribe
     };
 }
 
@@ -33,7 +33,7 @@ function newTodo(item) {
     if (item) {
         item.id = getNextId();
         storage.save(item);
-        notificationService.notify();
+        notification.notify();
     } else {
         throw new Error('No todo item object to save.');
     }
