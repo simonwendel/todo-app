@@ -18,7 +18,7 @@ function listDirective(viewFactory) {
 function linkFn(scope) {
     savedScope = scope;
 
-    view.subscribe(savedScope, updateList);
+    view.subscribe(updateList, scope);
     savedScope.vm = {};
     updateList();
 }

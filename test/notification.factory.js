@@ -23,7 +23,7 @@ describe('Factory: notificationFactory (notification.factory.js)', () => {
                 scope = rootScope.$new(),
                 service = notification.create('some event');
 
-            service.subscribe(scope, someFunction);
+            service.subscribe(someFunction, scope);
 
         });
 
@@ -33,7 +33,7 @@ describe('Factory: notificationFactory (notification.factory.js)', () => {
                 scope = rootScope.$new(),
                 service = notification.create('some event');
 
-            service.subscribe(scope, someFunction);
+            service.subscribe(someFunction, scope);
             service.notify();
             expect(someFunction.called).toBe(true);
 
@@ -45,7 +45,7 @@ describe('Factory: notificationFactory (notification.factory.js)', () => {
                 scope = rootScope.$new(),
                 service = notification.create('some event');
 
-            service.subscribe(scope, someFunction);
+            service.subscribe(someFunction, scope);
             scope.$destroy();
             service.notify();
             expect(someFunction.called).toBe(false);

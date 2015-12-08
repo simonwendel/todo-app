@@ -35,7 +35,7 @@ describe('Directive: listDirective (list.directive.js)', () => {
 
     it('should update when the subscriber is called.', () => {
 
-        let callback = viewMock.subscribe.getCall(0).args[1];
+        let callback = viewMock.subscribe.getCall(0).args[0];
         viewMock.getTodo.reset();
         callback();
         expect(viewMock.getTodo.called).toBe(true);
