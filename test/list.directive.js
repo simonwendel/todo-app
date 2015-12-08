@@ -4,7 +4,7 @@ import { ng } from 'test/utilities/mocks';
 let element,
     pageScope,
     provide,
-    repositoryMock;
+    viewMock;
 
 describe('Directive: listDirective (list.directive.js)', () => {
 
@@ -21,35 +21,35 @@ describe('Directive: listDirective (list.directive.js)', () => {
 
     });
 
-    it('should call getTodo on repository at init.', () => {
+    it('should call getTodo on view at init.', () => {
 
-        expect(repositoryMock.getTodo.called).toBe(true);
+        expect(viewMock.getTodo.called).toBe(true);
 
     });
 
-    it('should subscribe to repository updates.', () => {
+    it('should subscribe to view updates.', () => {
 
-        expect(repositoryMock.subscribe.called).toBe(true);
+        expect(viewMock.subscribe.called).toBe(true);
 
     });
 
     it('should update when the subscriber is called.', () => {
 
-        let callback = repositoryMock.subscribe.getCall(0).args[1];
-        repositoryMock.getTodo.reset();
+        let callback = viewMock.subscribe.getCall(0).args[1];
+        viewMock.getTodo.reset();
         callback();
-        expect(repositoryMock.getTodo.called).toBe(true);
+        expect(viewMock.getTodo.called).toBe(true);
 
     });
 });
 
 function fixtureSetup($rootScope, $compile) {
-    repositoryMock = {
+    viewMock = {
         getTodo: sinon.spy(),
         subscribe: sinon.spy()
     };
 
-    provide.value('repository', repositoryMock);
+    provide.value('view', viewMock);
     pageScope = $rootScope.$new();
 
     element = angular.element('<c-list></c-list>');

@@ -1,11 +1,11 @@
 import listTemplate from 'templates/list.html!text';
 
-let repository,
+let view,
     savedScope;
 
-listDirective.$inject = ['repository'];
-function listDirective(repositoryFactory) {
-    repository = repositoryFactory;
+listDirective.$inject = ['view'];
+function listDirective(viewFactory) {
+    view = viewFactory;
 
     return {
         template: listTemplate,
@@ -18,13 +18,13 @@ function listDirective(repositoryFactory) {
 function linkFn(scope) {
     savedScope = scope;
 
-    repository.subscribe(savedScope, updateList);
+    view.subscribe(savedScope, updateList);
     savedScope.vm = {};
     updateList();
 }
 
 function updateList() {
-    savedScope.vm.todos = repository.getTodo();
+    savedScope.vm.todos = view.getTodo();
 }
 
 export { listDirective };
