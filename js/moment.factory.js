@@ -1,6 +1,9 @@
 import moment from 'moment';
+import 'moment/locale/sv.js';
 
-function momentFactory() {
+momentFactory.$inject = ['locale'];
+function momentFactory(localeFactory) {
+    moment.locale(localeFactory.default);
     return moment;
 }
 
