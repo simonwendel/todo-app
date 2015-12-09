@@ -23,7 +23,7 @@ function getAll() {
             return {
                 colorName: translate.instant(c.colorName),
                 colorValue: c.colorValue
-            }
+            };
         });
 }
 
