@@ -38,7 +38,7 @@ describe('Directive: dateDirective (date.directive.js)', () => {
 
     });
 
-  });
+});
 
 function fixtureSetup($rootScope, $compile) {
     viewMock = {
