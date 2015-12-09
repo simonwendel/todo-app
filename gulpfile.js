@@ -2,13 +2,15 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var eslint = require('gulp-eslint');
 
 var paths = {
     sassSrc: ['./css/**/*.scss', './css/ionic.app.scss'],
-    sassDest: './css/'
+    sassDest: './css/',
+    js: ['./js/**/*.js', './test/**/*.js']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'eslint']);
 
 gulp.task('sass', function (done) {
     gulp.src(paths.sassSrc)
@@ -23,6 +25,14 @@ gulp.task('sass', function (done) {
         .on('end', done);
 });
 
+gulp.task('eslint', function (done) {
+    gulp.src(paths.js)
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+})
+
 gulp.task('watch', function () {
     gulp.watch(paths.sassSrc, ['sass']);
+    gulp.watch(paths.js, ['eslint']);
 });
