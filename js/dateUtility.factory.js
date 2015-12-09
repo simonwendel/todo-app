@@ -18,20 +18,20 @@ function addDays(days, date) {
     return result;
 }
 
-function display(date){
+function display(date) {
     return moment(date).format('L');
 }
 
 function compareDatePart(first, second) {
-    if(moment(first).isBefore(second, 'day')) {
+    if (moment(first).isBefore(second, 'day')) {
         return -1;
     }
 
-    if(moment(first).isSame(second, 'day')) {
+    if (moment(first).isSame(second, 'day')) {
         return 0;
     }
 
-    if(moment(first).isAfter(second, 'day')) {
+    if (moment(first).isAfter(second, 'day')) {
         return 1;
     }
 }
