@@ -25,7 +25,7 @@ let staticTodos = [{
     created: '2015-11-22T14:09:39+01:00',
     recurring: 7,
     completed: [
-        '2015-11-22T14:09:39+01:00',
+        '2015-11-22T14:09:39+01:00'
     ],
     color: {colorName: 'PURPLE__PASCAL', colorValue: 'purple'}
 }, {
