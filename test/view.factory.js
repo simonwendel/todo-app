@@ -124,7 +124,7 @@ function fixtureSetup() {
     };
 
     notificationMock = {
-        create: sinon.stub().returns(notificationChannel),
+        create: sinon.stub().returns(notificationChannel)
     };
 
     view = viewFactory(repositoryMock, dateUtilityMock, notificationMock);
