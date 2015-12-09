@@ -15,7 +15,8 @@ function viewFactory(repositoryFactory, dateUtilityFactory, notification) {
     selectedDate = dateUtility.now();
 
     return {
-        getDate: getDate,
+        showDate: showDate,
+        today: today,
         nextDay: nextDay,
         previousDay: previousDay,
         getTodo: getTodo,
@@ -23,9 +24,13 @@ function viewFactory(repositoryFactory, dateUtilityFactory, notification) {
     };
 }
 
-function getDate() {
+function showDate() {
     return dateUtility
         .display(selectedDate);
+}
+
+function today() {
+    return selectedDate;
 }
 
 function nextDay() {

@@ -25,9 +25,15 @@ describe('Directive: dateDirective (date.directive.js)', () => {
 
     it('should have a date string from view on scope.', () => {
 
-        expect(viewMock.getDate.called).toBe(true);
+        expect(viewMock.showDate.called).toBe(true);
         expect(scope.vm.date).toBeString();
         expect(scope.vm.date).toBe(dmr);
+
+    });
+
+    it('should subscribe to the view.', () => {
+
+        expect(viewMock.subscribe.called).toBe(true);
 
     });
 
@@ -35,7 +41,9 @@ describe('Directive: dateDirective (date.directive.js)', () => {
 
 function fixtureSetup($rootScope, $compile) {
     viewMock = {
-        getDate: sinon.stub().returns(dmr)
+        showDate: sinon.stub().returns(dmr),
+        today: sinon.stub(),
+        subscribe: sinon.stub()
     };
 
     let pageScope = $rootScope.$new();

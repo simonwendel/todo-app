@@ -17,21 +17,18 @@ function dateDirective(viewFactory, dateUtility) {
 }
 
 function linkFn(scope) {
-    scope.vm = {
-        date: view.getDate(),
-        viewingHistory: isHistoric()
-    };
+    scope.vm = {};
+    update(scope);
+    view.subscribe(() => update(scope), scope);
+}
 
-    scope.$watch(
-        s => view.getDate(),
-        v => {
-            scope.vm.date = v;
-            scope.vm.viewingHistory = isHistoric();
-        });
+function update(scope) {
+    scope.vm.date = view.showDate();
+    scope.vm.viewingHistory = isHistoric();
 }
 
 function isHistoric() {
-    return date.compareDatePart(view.getDate(), date.now()) < 0;
+    return date.compareDatePart(view.today(), date.now()) < 0;
 }
 
 export { dateDirective };

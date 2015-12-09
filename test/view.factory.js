@@ -24,10 +24,18 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         it('should have a function to get the view date as a string.', () => {
 
-            let date = view.getDate();
+            let date = view.showDate();
             expect(dateUtilityMock.now.called).toBe(true);
             expect(dateUtilityMock.display.called).toBe(true);
             expect(date).toBe(rms);
+
+        });
+
+        it('should have a function to get the view date as a date.', () => {
+
+            let date = view.today();
+            expect(dateUtilityMock.display.called).toBe(false);
+            expect(date).toBeDate();
 
         });
 
