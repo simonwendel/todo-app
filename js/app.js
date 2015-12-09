@@ -21,6 +21,9 @@ import { platform } from 'js/platform.constant';
 app.constant('platform', platform);
 
 // services
+import { localeFactory } from 'js/locale.factory';
+app.factory('locale', localeFactory);
+
 import { colorsFactory } from 'js/colors.factory';
 app.factory('colors', colorsFactory);
 
