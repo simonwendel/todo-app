@@ -1,4 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
+import angular from 'angular';
 import { ng } from 'test/utilities/mocks';
 
 const dmr = '1941-09-09';
