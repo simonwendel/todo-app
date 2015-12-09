@@ -19,7 +19,7 @@ function linkFn(scope) {
     scope.vm = {
         nextDay: view.nextDay,
         previousDay: view.previousDay
-    }
+    };
 }
 
 export { headerDirective };

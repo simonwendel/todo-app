@@ -10,7 +10,7 @@ function platformClassDirective(platform) {
                 .element(element)
                 .addClass('platform-' + platform);
         }
-    }
+    };
 }
 
 export { platformClassDirective };

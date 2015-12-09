@@ -52,7 +52,7 @@ describe('Factory: notificationFactory (notification.factory.js)', () => {
 
         });
 
-    })
+    });
 
 });
 
