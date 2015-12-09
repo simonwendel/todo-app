@@ -80,11 +80,9 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should not save when null todo item is saved.', () => {
 
-            try {
+            expect(() => {
                 repository.newTodo(null);
-            } catch (e) {
-            }
-
+            }).toThrow();
             expect(storageMock.save.called).toBe(false);
 
         });
