@@ -1,3 +1,6 @@
+/* we do some cordova specific stuff here, so this is apt: */
+/* global cordova:true */
+
 ionic.$inject = ['$ionicPlatform'];
 function ionic($ionicPlatform) {
     $ionicPlatform.ready(() => {
