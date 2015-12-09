@@ -39,11 +39,25 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
+        it('should notify subscribers on step to next day.', () => {
+
+            view.nextDay();
+            expect(notificationChannel.notify.called).toBe(true);
+
+        });
+
         it('should have a function to step to previous day.', () => {
 
             view.previousDay();
             expect(dateUtilityMock.addDays.args[0][0]).toBe(-1);
             expect(dateUtilityMock.addDays.args[0][1]).toBeDate();
+
+        });
+
+        it('should notify subscribers on step to previous day.', () => {
+
+            view.previousDay();
+            expect(notificationChannel.notify.called).toBe(true);
 
         });
 

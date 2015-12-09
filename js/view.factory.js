@@ -30,10 +30,12 @@ function getDate() {
 
 function nextDay() {
     selectedDate = dateUtility.addDays(1, selectedDate);
+    subscribers.notify();
 }
 
 function previousDay() {
     selectedDate = dateUtility.addDays(-1, selectedDate);
+    subscribers.notify();
 }
 
 function getTodo() {
