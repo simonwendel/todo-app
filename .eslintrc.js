@@ -1,4 +1,4 @@
-module.exports = {
+const eslintRc = {
     'extends': 'eslint',
     'parser': 'babel-eslint',
     'env': {
@@ -19,3 +19,5 @@ module.exports = {
         }]
     }
 };
+
+export default eslintRc;
