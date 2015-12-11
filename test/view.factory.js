@@ -1,7 +1,7 @@
 import 'JamieMason/Jasmine-Matchers';
 import { viewFactory } from 'js/view.factory';
 
-const rms = '1953-03-16';
+const rms = 'March 16, 1953';
 
 let view,
     todo,

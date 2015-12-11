@@ -2,7 +2,7 @@ import 'JamieMason/Jasmine-Matchers';
 import { ng } from 'test/utilities/mocks';
 import { dateUtilityFactory } from 'js/dateUtility.factory';
 
-const ken = '1943-02-04';
+const ken = 'February 4, 1943';
 
 let dateUtility,
     momentMock,

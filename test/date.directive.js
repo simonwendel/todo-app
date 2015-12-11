@@ -2,7 +2,7 @@ import 'JamieMason/Jasmine-Matchers';
 import angular from 'angular';
 import { ng } from 'test/utilities/mocks';
 
-const dmr = '1941-09-09';
+const dmr = 'September 9, 1941';
 
 let element,
     scope,
