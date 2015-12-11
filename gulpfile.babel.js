@@ -1,10 +1,10 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var eslint = require('gulp-eslint');
+import gulp from 'gulp';
+import sass from 'gulp-sass';
+import minifyCss from 'gulp-minify-css';
+import rename from 'gulp-rename';
+import eslint from 'gulp-eslint';
 
-var paths = {
+const paths = {
     sassSrc: ['./css/**/*.scss', './css/ionic.app.scss'],
     sassDest: './css/',
     js: ['./js/**/*.js', './test/**/*.js']
@@ -12,7 +12,7 @@ var paths = {
 
 gulp.task('default', ['sass', 'eslint']);
 
-gulp.task('sass', function (done) {
+gulp.task('sass', done => {
     gulp.src(paths.sassSrc)
         .pipe(sass())
         .on('error', sass.logError)
@@ -25,14 +25,14 @@ gulp.task('sass', function (done) {
         .on('end', done);
 });
 
-gulp.task('eslint', function (done) {
+gulp.task('eslint', done => {
     gulp.src(paths.js)
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 })
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
     gulp.watch(paths.sassSrc, ['sass']);
     gulp.watch(paths.js, ['eslint']);
 });
