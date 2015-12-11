@@ -17,6 +17,7 @@ function viewFactory(repositoryFactory, dateUtilityFactory, notification) {
     return {
         showDate: showDate,
         today: today,
+        goTo: goTo,
         nextDay: nextDay,
         previousDay: previousDay,
         getTodo: getTodo,
@@ -31,6 +32,11 @@ function showDate() {
 
 function today() {
     return selectedDate;
+}
+
+function goTo(date) {
+    selectedDate = date;
+    subscribers.notify();
 }
 
 function nextDay() {

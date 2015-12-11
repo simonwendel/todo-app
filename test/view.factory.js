@@ -100,6 +100,22 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
+        it('should have a function to set the date.', () => {
+
+            let woz = new Date(1950, 8, 11);
+            view.goTo(woz);
+            expect(view.today()).toBe(woz);
+
+        });
+
+        it('should notify subscribers when the date is set.', () => {
+
+            let woz = new Date(1950, 8, 11);
+            view.goTo(woz);
+            expect(notificationChannel.notify.called).toBe(true);
+
+        });
+
     });
 
 });
