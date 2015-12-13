@@ -1,7 +1,7 @@
 const english = {
-    'ADD_TASK__UPPER': 'ADD TASK',
-    'SAVE__UPPER': 'SAVE',
-    'CLOSE__UPPER': 'CLOSE',
+    'ADD_TASK__TRANSLATION__UPPER': 'ADD TASK',
+    'SAVE__TRANSLATION__UPPER': 'SAVE',
+    'CLOSE__TRANSLATION__UPPER': 'CLOSE',
 
     // new todo modal
     'TITLE__TRANSLATION': 'Title',

@@ -1,7 +1,7 @@
 const swedish = {
-   'ADD_TASK__UPPER': 'NY UPPGIFT',
-   'SAVE__UPPER': 'SPARA',
-   'CLOSE__UPPER': 'STÄNG',
+   'ADD_TASK__TRANSLATION__UPPER': 'NY UPPGIFT',
+   'SAVE__TRANSLATION__UPPER': 'SPARA',
+   'CLOSE__TRANSLATION__UPPER': 'STÄNG',
 
    // new todo modal
    'TITLE__TRANSLATION': 'Titel',
