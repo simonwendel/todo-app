@@ -6,19 +6,19 @@
         <div class="list">
 
             <label class="item item-input">
-                <span class="input-label">{{ 'TITLE__PASCAL' | translate }}</span>
+                <span class="input-label">{{ 'TITLE__TRANSLATION' | translate }}</span>
                 <input type="text" ng-model="vm.title">
             </label>
 
             <label class="item item-input">
-                <span class="input-label">{{ 'DESCRIPTION__PASCAL' | translate }}</span>
+                <span class="input-label">{{ 'DESCRIPTION__TRANSLATION' | translate }}</span>
                 <textarea ng-click="vm.description"></textarea>
             </label>
 
             <label class="item item-input item-select">
                 <div class="input-label">
                     <i class="icon ion-record" style="color:{{ vm.selectedColor.colorValue }}"></i>
-                    {{ 'COLOR__PASCAL' | translate }}
+                    {{ 'COLOR__TRANSLATION' | translate }}
                 </div>
                 <select
                     ng-model="vm.selectedColor"
@@ -27,7 +27,7 @@
             </label>
 
             <label class="item item-input">
-                <span class="input-label">{{ 'RECURRING_(DAYS)__PASCAL' | translate }}</span>
+                <span class="input-label">{{ 'RECURRING_(DAYS)__TRANSLATION' | translate }}</span>
                 <input type="number" ng-model="vm.recurring">
             </label>
 

@@ -4,10 +4,10 @@ const english = {
     'CLOSE__UPPER': 'CLOSE',
 
     // new todo modal
-    'TITLE__PASCAL': 'Title',
-    'DESCRIPTION__PASCAL': 'Description',
-    'COLOR__PASCAL': 'Color',
-    'RECURRING_(DAYS)__PASCAL': 'Recurring (days)',
+    'TITLE__TRANSLATION': 'Title',
+    'DESCRIPTION__TRANSLATION': 'Description',
+    'COLOR__TRANSLATION': 'Color',
+    'RECURRING_(DAYS)__TRANSLATION': 'Recurring (days)',
 
     // colors
     'CRIMSON__COLOR': 'Crimson',

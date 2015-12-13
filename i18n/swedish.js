@@ -4,10 +4,10 @@ const swedish = {
    'CLOSE__UPPER': 'STÄNG',
 
    // new todo modal
-   'TITLE__PASCAL': 'Titel',
-   'DESCRIPTION__PASCAL': 'Beskrivning',
-   'COLOR__PASCAL': 'Färg',
-   'RECURRING_(DAYS)__PASCAL': 'Återkommande (dagar)',
+   'TITLE__TRANSLATION': 'Titel',
+   'DESCRIPTION__TRANSLATION': 'Beskrivning',
+   'COLOR__TRANSLATION': 'Färg',
+   'RECURRING_(DAYS)__TRANSLATION': 'Återkommande (dagar)',
 
    // colors
    'CRIMSON__COLOR': 'Röd',
