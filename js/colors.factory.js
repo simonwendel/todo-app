@@ -1,10 +1,10 @@
 const colors = [
-    {colorName: 'CRIMSON__PASCAL', colorValue: 'crimson'},
-    {colorName: 'DARKBLUE__PASCAL', colorValue: 'darkblue'},
-    {colorName: 'PURPLE__PASCAL', colorValue: 'purple'},
-    {colorName: 'SEAGREEN__PASCAL', colorValue: 'seagreen'},
-    {colorName: 'TOMATO__PASCAL', colorValue: 'tomato'},
-    {colorName: 'VIOLET__PASCAL', colorValue: 'violet'}
+    {colorName: 'CRIMSON__COLOR', colorValue: 'crimson'},
+    {colorName: 'DARKBLUE__COLOR', colorValue: 'darkblue'},
+    {colorName: 'PURPLE__COLOR', colorValue: 'purple'},
+    {colorName: 'SEAGREEN__COLOR', colorValue: 'seagreen'},
+    {colorName: 'TOMATO__COLOR', colorValue: 'tomato'},
+    {colorName: 'VIOLET__COLOR', colorValue: 'violet'}
 ];
 
 let translate;

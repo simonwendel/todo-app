@@ -10,12 +10,12 @@ const english = {
     'RECURRING_(DAYS)__PASCAL': 'Recurring (days)',
 
     // colors
-    'CRIMSON__PASCAL': 'Crimson',
-    'DARKBLUE__PASCAL': 'Dark blue',
-    'PURPLE__PASCAL': 'Purple',
-    'SEAGREEN__PASCAL': 'Seagreen',
-    'TOMATO__PASCAL': 'Tomato',
-    'VIOLET__PASCAL': 'Violet'
+    'CRIMSON__COLOR': 'Crimson',
+    'DARKBLUE__COLOR': 'Dark blue',
+    'PURPLE__COLOR': 'Purple',
+    'SEAGREEN__COLOR': 'Seagreen',
+    'TOMATO__COLOR': 'Tomato',
+    'VIOLET__COLOR': 'Violet'
 };
 
 export { english };

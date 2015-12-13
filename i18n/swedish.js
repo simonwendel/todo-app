@@ -10,12 +10,12 @@ const swedish = {
    'RECURRING_(DAYS)__PASCAL': 'Återkommande (dagar)',
 
    // colors
-   'CRIMSON__PASCAL': 'Röd',
-   'DARKBLUE__PASCAL': 'Mörkblå',
-   'PURPLE__PASCAL': 'Lila',
-   'SEAGREEN__PASCAL': 'Grön',
-   'TOMATO__PASCAL': 'Orange',
-   'VIOLET__PASCAL': 'Violett'
+   'CRIMSON__COLOR': 'Röd',
+   'DARKBLUE__COLOR': 'Mörkblå',
+   'PURPLE__COLOR': 'Lila',
+   'SEAGREEN__COLOR': 'Grön',
+   'TOMATO__COLOR': 'Orange',
+   'VIOLET__COLOR': 'Violett'
 };
 
 export { swedish };

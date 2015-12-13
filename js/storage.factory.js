@@ -8,7 +8,7 @@ let staticTodos = [{
         new Date('2015-11-15T14:09:39+01:00'),
         new Date('2015-11-25T14:09:39+01:00')
     ],
-    color: {colorName: 'CRIMSON__PASCAL', colorValue: 'crimson'}
+    color: {colorName: 'CRIMSON__COLOR', colorValue: 'crimson'}
 }, {
     id: 10,
     title: 'Something to do 2',
@@ -17,7 +17,7 @@ let staticTodos = [{
     recurring: 15,
     completed: [
     ],
-    color: {colorName: 'SEAGREEN__PASCAL', colorValue: 'seagreen'}
+    color: {colorName: 'SEAGREEN__COLOR', colorValue: 'seagreen'}
 }, {
     id: 11,
     title: 'Something to do 3',
@@ -27,7 +27,7 @@ let staticTodos = [{
     completed: [
         new Date('2015-11-22T14:09:39+01:00')
     ],
-    color: {colorName: 'PURPLE__PASCAL', colorValue: 'purple'}
+    color: {colorName: 'PURPLE__COLOR', colorValue: 'purple'}
 }, {
     id: 21,
     title: 'Something to do 4',
@@ -37,7 +37,7 @@ let staticTodos = [{
     completed: [
         new Date('2015-11-25T14:09:39+01:00')
     ],
-    color: {colorName: 'SEAGREEN__PASCAL', colorValue: 'seagreen'}
+    color: {colorName: 'SEAGREEN__COLOR', colorValue: 'seagreen'}
 }];
 
 function storageFactory() {
