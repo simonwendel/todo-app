@@ -1,24 +1,24 @@
 <ion-modal-view>
     <ion-header-bar>
-        <h1 class="title">{{ 'ADD_TASK__TRANSLATION__UPPER' | translate }}</h1>
+        <h1 class="title" translate>ADD_TASK__TRANSLATION__UPPER</h1>
     </ion-header-bar>
     <ion-content>
         <div class="list">
 
             <label class="item item-input">
-                <span class="input-label">{{ 'TITLE__TRANSLATION' | translate }}</span>
+                <span class="input-label" translate>TITLE__TRANSLATION</span>
                 <input type="text" ng-model="vm.title">
             </label>
 
             <label class="item item-input">
-                <span class="input-label">{{ 'DESCRIPTION__TRANSLATION' | translate }}</span>
+                <span class="input-label" translate>DESCRIPTION__TRANSLATION</span>
                 <textarea ng-click="vm.description"></textarea>
             </label>
 
             <label class="item item-input item-select">
-                <div class="input-label">
+                <div class="input-label" translate>
                     <i class="icon ion-record" style="color:{{ vm.selectedColor.colorValue }}"></i>
-                    {{ 'COLOR__TRANSLATION' | translate }}
+                    COLOR__TRANSLATION
                 </div>
                 <select
                     ng-model="vm.selectedColor"
@@ -27,17 +27,17 @@
             </label>
 
             <label class="item item-input">
-                <span class="input-label">{{ 'RECURRING_(DAYS)__TRANSLATION' | translate }}</span>
+                <span class="input-label" translate>RECURRING_(DAYS)__TRANSLATION</span>
                 <input type="number" ng-model="vm.recurring">
             </label>
 
             <div class="button-bar">
-                <button class="button button-full button-positive" ng-click="vm.saveNewTodo()">
-                    {{ 'SAVE__TRANSLATION__UPPER' | translate }}
+                <button class="button button-full button-positive" ng-click="vm.saveNewTodo()" translate>
+                    SAVE__TRANSLATION__UPPER
                 </button>
 
-                <button class="button button-full button-stable" ng-click="vm.closeModal()">
-                    {{ 'CLOSE__TRANSLATION__UPPER' | translate }}
+                <button class="button button-full button-stable" ng-click="vm.closeModal()" translate>
+                    CLOSE__TRANSLATION__UPPER
                 </button>
             </div>
 
