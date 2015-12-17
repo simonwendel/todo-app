@@ -59,9 +59,6 @@ app.directive('cHeader', headerDirective);
 import { createTodoDirective } from 'js/createTodo.directive';
 app.directive('cCreateTodo', createTodoDirective);
 
-import { dateDirective } from 'js/date.directive';
-app.directive('cDate', dateDirective);
-
 import { platformClassDirective } from 'js/platformClass.directive';
 app.directive('cPlatformClass', platformClassDirective);
 

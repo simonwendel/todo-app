@@ -2,6 +2,8 @@ import 'JamieMason/Jasmine-Matchers';
 import angular from 'angular';
 import { ng } from 'test/utilities/mocks';
 
+const dmr = 'September 9, 1941';
+
 let element,
     scope,
     provide,
@@ -36,12 +38,29 @@ describe('Directive: headerDirective', () => {
 
     });
 
+    it('should have a date string from view on scope.', () => {
+
+        expect(viewMock.showDate.called).toBe(true);
+        expect(scope.vm.date).toBeString();
+        expect(scope.vm.date).toBe(dmr);
+
+    });
+
+    it('should subscribe to the view.', () => {
+
+        expect(viewMock.subscribe.called).toBe(true);
+
+    });
+
 });
 
 function fixtureSetup($rootScope, $compile) {
     viewMock = {
+        showDate: sinon.stub().returns(dmr),
         nextDay: sinon.stub(),
-        previousDay: sinon.stub()
+        previousDay: sinon.stub(),
+        subscribe: sinon.stub(),
+        today: sinon.stub()
     };
 
     provide.value('view', viewMock);
