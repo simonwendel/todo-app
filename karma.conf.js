@@ -72,9 +72,6 @@ module.exports = function(config) {
         browsers: ['PhantomJS'],
 
 
-        singleRun: true,
-
-
         concurrency: Infinity
-    })
+    });
 };
