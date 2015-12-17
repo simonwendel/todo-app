@@ -20,9 +20,8 @@ const paths = {
  */
 gulp.task('default', ['sass', 'eslint']);
 
-gulp.task('watch', () => {
+gulp.task('ionic-watch', () => {
     gulp.watch(paths.sassSrc, ['sass']);
-    gulp.watch(paths.js, ['eslint']);
 });
 
 /*

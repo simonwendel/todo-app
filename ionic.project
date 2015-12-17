@@ -4,7 +4,7 @@
     "documentRoot": "./",
     "gulpStartupTasks": [
         "sass",
-        "watch"
+        "ionic-watch"
     ],
     "watchPatterns": [
         "/js/**/*",
