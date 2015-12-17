@@ -14,10 +14,16 @@ describe('Factory: storageFactory (storage.factory.js)', () => {
 
         });
 
-        it('should have an save() function to save a todo to storage.', () => {
+        it('should have an save() function to save a Todo to storage.', () => {
 
             storage.save(new Todo({}));
             expect(storage.all().length).toBe(5);
+
+        });
+
+        it('should throw an error if the parameter to save fn is not of type Todo.', () => {
+
+            expect(() => storage.save({})).toThrow();
 
         });
 

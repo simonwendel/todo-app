@@ -1,3 +1,5 @@
+import Validate from 'validate-arguments';
+
 import { Color } from 'js/color.class';
 import { Todo } from 'js/todo.class';
 
@@ -49,6 +51,13 @@ function all() {
 }
 
 function save(item) {
+    var args =
+        Validate.positional(arguments, [Todo]);
+
+    if (!args.isValid()) {
+        throw args.errorString();
+    }
+
     staticTodos.push(item);
 }
 
