@@ -2,7 +2,7 @@
 import Validate from 'validate-arguments';
 
 class Color {
-    constructor(name, value) {
+    constructor(colorName, colorValue) {
         var args =
             Validate.positional(arguments, ['string', 'string']);
 
@@ -11,8 +11,8 @@ class Color {
         }
 
 
-        this.name = name;
-        this.value = value;
+        this.colorName = colorName;
+        this.colorValue = colorValue;
     }
 }
 
