@@ -42,7 +42,8 @@
   "jspm": {
     "dependencies": {
       "angular-translate": "github:angular-translate/bower-angular-translate@^2.8.1",
-      "moment": "npm:moment@^2.10.6"
+      "moment": "npm:moment@^2.10.6",
+      "validate-arguments": "npm:validate-arguments@^0.0.8"
     },
     "devDependencies": {
       "JamieMason/Jasmine-Matchers": "github:JamieMason/Jasmine-Matchers@^1.22.3",
