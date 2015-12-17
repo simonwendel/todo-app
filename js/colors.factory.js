@@ -1,10 +1,12 @@
+import { Color } from 'js/color.class';
+
 const colors = [
-    {colorName: 'CRIMSON__COLOR', colorValue: 'crimson'},
-    {colorName: 'DARKBLUE__COLOR', colorValue: 'darkblue'},
-    {colorName: 'PURPLE__COLOR', colorValue: 'purple'},
-    {colorName: 'SEAGREEN__COLOR', colorValue: 'seagreen'},
-    {colorName: 'TOMATO__COLOR', colorValue: 'tomato'},
-    {colorName: 'VIOLET__COLOR', colorValue: 'violet'}
+    new Color('CRIMSON__COLOR', 'crimson'),
+    new Color('DARKBLUE__COLOR', 'darkblue'),
+    new Color('PURPLE__COLOR', 'purple'),
+    new Color('SEAGREEN__COLOR', 'seagreen'),
+    new Color('TOMATO__COLOR', 'tomato'),
+    new Color('VIOLET__COLOR', 'violet')
 ];
 
 let translate;
@@ -18,13 +20,12 @@ function colorsFactory($translate) {
 }
 
 function getAll() {
-    return colors
-        .map(c => {
-            return {
-                colorName: translate.instant(c.colorName),
-                colorValue: c.colorValue
-            };
-        });
+    if (translate) {
+        return colors.map(
+            c => new Color(translate.instant(c.colorName), c.colorValue));
+    }
+
+    return colors.slice();
 }
 
 export { colorsFactory };

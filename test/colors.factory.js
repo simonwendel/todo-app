@@ -1,4 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
+import { Color } from 'js/color.class';
 import { colorsFactory } from 'js/colors.factory';
 
 let colors,
@@ -12,17 +13,17 @@ describe('Factory: colorsFactory (colors.factory.js)', () => {
 
         it('should produce an array of six color strings.', () => {
 
-            let prod = colors.getAll();
-            expect(prod).toBeArray();
-            expect(prod.length).toBe(6);
+            let allColors = colors.getAll();
+            expect(allColors.length).toBe(6);
+            expect(allColors.every(c => c instanceof Color)).toBe(true);
 
         });
 
         it('should make all names translated by the translate service.', () => {
 
-            let prod = colors.getAll();
+            let allColors = colors.getAll();
             expect(mockTranslate.instant.callCount).toBe(6);
-            expect(prod.every(c => c.colorName === 'TRANSLATED!!1')).toBe(true);
+            expect(allColors.every(c => c.colorName === 'TRANSLATED!!1')).toBe(true);
 
         });
 
