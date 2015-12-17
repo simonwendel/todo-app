@@ -1,5 +1,6 @@
 import 'JamieMason/Jasmine-Matchers';
 import { storageFactory } from 'js/storage.factory';
+import { Todo } from 'js/todo.class';
 
 const storage = storageFactory();
 
@@ -15,8 +16,14 @@ describe('Factory: storageFactory (storage.factory.js)', () => {
 
         it('should have an save() function to save a todo to storage.', () => {
 
-            storage.save({});
+            storage.save(new Todo({}));
             expect(storage.all().length).toBe(5);
+
+        });
+
+        it('should return items of type Todo.', () => {
+
+            expect(storage.all().every(t => t instanceof Todo)).toBe(true);
 
         });
 
