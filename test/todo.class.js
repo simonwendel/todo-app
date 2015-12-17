@@ -1,4 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
+import { Color } from 'js/color.class';
 import { Todo } from 'js/todo.class';
 
 describe('Class: Todo (todo.class.js)', () => {
@@ -41,7 +42,7 @@ describe('Class: Todo (todo.class.js)', () => {
                 id: 13,
                 title: 'Title',
                 description: 'Description goes here',
-                color: 'p!nk',
+                color: new Color('p!nk', 'p!nk'),
                 created: new Date('June 23, 1912'),
                 nextOccurrance: new Date('June 7, 1954'),
                 recurring: 210

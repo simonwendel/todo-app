@@ -1,5 +1,6 @@
 
 import Validate from 'validate-arguments';
+import { Color } from 'js/color.class';
 
 const argsSpec = {
     id: {
@@ -27,7 +28,7 @@ const argsSpec = {
         optional: true
     },
     color: {
-        isa: 'string',
+        isa: Color,
         optional: true
     }
 };
