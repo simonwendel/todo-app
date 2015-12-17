@@ -1,14 +1,11 @@
 
 import Validate from 'validate-arguments';
 
-const argsSpec = [
-    'string',
-    'string'
-];
-
 class Color {
     constructor(name, value) {
-        var args = Validate.positional(arguments, argsSpec);
+        var args =
+            Validate.positional(arguments, ['string', 'string']);
+
         if (!args.isValid()) {
             throw args.errorString();
         }
