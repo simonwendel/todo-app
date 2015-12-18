@@ -1,7 +1,8 @@
 import 'JamieMason/Jasmine-Matchers';
 import { viewFactory } from 'js/view.factory';
 
-const rms = 'March 16, 1953';
+const rms = 'March 16, 1953',
+    today = new Date();
 
 let view,
     todo,
@@ -121,6 +122,15 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
+        it('should have an isToday fn.', () => {
+
+            let isToday = view.isToday();
+            expect(isToday).toBe(true);
+            expect(dateUtilityMock.now.called).toBe(true);
+            expect(dateUtilityMock.compareDatePart.called).toBe(true);
+
+        });
+
     });
 
 });
@@ -129,9 +139,10 @@ function fixtureSetup() {
     todo = new Array(5);
 
     dateUtilityMock = {
-        now: sinon.stub().returns(new Date()),
+        now: sinon.stub().returns(today),
         addDays: sinon.stub(),
-        display: sinon.stub().returns(rms)
+        display: sinon.stub().returns(rms),
+        compareDatePart: sinon.stub().returns(0)
     };
 
     repositoryMock = {

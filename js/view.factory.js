@@ -17,6 +17,7 @@ function viewFactory(repositoryFactory, dateUtilityFactory, notification) {
     return {
         showDate: showDate,
         today: today,
+        isToday: isToday,
         goTo: goTo,
         nextDay: nextDay,
         previousDay: previousDay,
@@ -32,6 +33,10 @@ function showDate() {
 
 function today() {
     return selectedDate;
+}
+
+function isToday() {
+    return dateUtility.compareDatePart(selectedDate, dateUtility.now()) === 0;
 }
 
 function goTo(date) {
