@@ -22,10 +22,15 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
+        it('should set the selected date to current date on construction.', () => {
+
+            expect(dateUtilityMock.now.called).toBe(true);
+
+        });
+
         it('should have a function to get the view date as a string.', () => {
 
             let date = view.showDate();
-            expect(dateUtilityMock.now.called).toBe(true);
             expect(dateUtilityMock.display.called).toBe(true);
             expect(date).toBe(rms);
 
