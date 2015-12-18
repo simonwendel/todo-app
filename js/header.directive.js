@@ -1,12 +1,10 @@
 import headerTemplate from 'templates/header.html!text';
 
-let view,
-    date;
+let view;
 
 headerDirective.$inject = ['view', 'dateUtility'];
-function headerDirective(viewFactory, dateUtility) {
+function headerDirective(viewFactory) {
     view = viewFactory;
-    date = dateUtility;
 
     return {
         template: headerTemplate,
@@ -28,11 +26,6 @@ function linkFn(scope) {
 
 function update(scope) {
     scope.vm.date = view.showDate();
-    scope.vm.viewingHistory = isHistoric();
-}
-
-function isHistoric() {
-    return date.compareDatePart(view.today(), date.now()) < 0;
 }
 
 export { headerDirective };
