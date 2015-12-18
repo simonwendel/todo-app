@@ -20,11 +20,11 @@ function linkFn(scope) {
         previousDay: view.previousDay
     };
 
-    update(scope);
-    view.subscribe(() => update(scope), scope);
+    updateDay(scope);
+    view.subscribe(() => updateDay(scope), scope);
 }
 
-function update(scope) {
+function updateDay(scope) {
     scope.vm.date = view.showDate();
     scope.vm.isToday = view.isToday();
 }
