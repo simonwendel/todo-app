@@ -2,7 +2,7 @@ import headerTemplate from 'templates/header.html!text';
 
 let view;
 
-headerDirective.$inject = ['view', 'dateUtility'];
+headerDirective.$inject = ['view'];
 function headerDirective(viewFactory) {
     view = viewFactory;
 
