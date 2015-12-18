@@ -52,6 +52,13 @@ describe('Directive: headerDirective', () => {
 
     });
 
+    it('should own a flag tracking if viewing today or not.', () => {
+
+        expect(viewMock.isToday.called).toBe(true);
+        expect(scope.vm.isToday).toBe(true);
+
+    });
+
 });
 
 function fixtureSetup($rootScope, $compile) {
@@ -60,7 +67,8 @@ function fixtureSetup($rootScope, $compile) {
         nextDay: sinon.stub(),
         previousDay: sinon.stub(),
         subscribe: sinon.stub(),
-        today: sinon.stub()
+        today: sinon.stub(),
+        isToday: sinon.stub().returns(true)
     };
 
     provide.value('view', viewMock);

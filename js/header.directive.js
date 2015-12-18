@@ -26,6 +26,7 @@ function linkFn(scope) {
 
 function update(scope) {
     scope.vm.date = view.showDate();
+    scope.vm.isToday = view.isToday();
 }
 
 export { headerDirective };
