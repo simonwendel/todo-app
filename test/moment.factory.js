@@ -6,9 +6,15 @@ let moment,
 
 describe('Factory: momentFactory (moment.factory.js)', () => {
 
-    beforeEach(fixtureSetup);
+    it('should not throw if localeFactory is undefined.', () => {
+
+        expect(() => momentFactory()).not.toThrow();
+
+    });
 
     describe('Product: moment', () => {
+
+        beforeEach(fixtureSetup);
 
         it('should honor the default locale.', () => {
 
