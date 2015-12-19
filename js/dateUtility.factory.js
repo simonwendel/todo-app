@@ -13,9 +13,9 @@ function dateUtilityFactory(momentFactory) {
 }
 
 function addDays(days, date) {
-    let result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
+    return moment(date)
+        .add(days, 'days')
+        .toDate();
 }
 
 function display(date) {
