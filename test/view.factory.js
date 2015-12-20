@@ -1,4 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
+import { Todo } from 'js/todo.class';
 import { viewFactory } from 'js/view.factory';
 
 const rms = 'March 16, 1953',
@@ -136,7 +137,21 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 });
 
 function fixtureSetup() {
-    todo = new Array(5);
+    todo = [
+        new Todo({
+            id: 1,
+            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+        }), new Todo({
+            id: 10,
+            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+        }), new Todo({
+            id: 11,
+            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+        }), new Todo({
+            id: 21,
+            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+        })
+    ];
 
     dateUtilityMock = {
         now: sinon.stub().returns(today),
