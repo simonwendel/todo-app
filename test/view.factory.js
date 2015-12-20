@@ -78,14 +78,6 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
-        it('should have a function to get todo.', () => {
-
-            let t = view.getTodo();
-            expect(t).toBe(todo);
-            expect(repositoryMock.getTodo.calledOnce).toBe(true);
-
-        });
-
         it('should set up a notification channel', () => {
 
             expect(view.subscribe).toBe(notificationChannel.subscribe);
@@ -127,6 +119,7 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         it('should have an isToday fn.', () => {
 
+            // on construction, we are already at today
             let isToday = view.isToday();
             expect(isToday).toBe(true);
             expect(dateUtility.now.called).toBe(true);
@@ -134,34 +127,42 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
+        it('should have a filtered list of items to do.', () => {
+
+            // kind of integrating with date util
+            let list = view.getTodo();
+            expect(list).toBeArrayOfSize(3); // <- the one elapsing in 4 days excluded
+            expect(dateUtility.compareDatePart.callCount).toBe(todo.length);
+        });
+
     });
 
 });
 
 function fixtureSetup() {
+    dateUtility = dateUtilityFactory(momentFactory());
+
     todo = [
         new Todo({
             id: 1,
-            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+            nextOccurrance: dateUtility.addDays(4, today) // not yet relevant
         }), new Todo({
             id: 10,
-            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+            nextOccurrance: new Date(today) // should be done
         }), new Todo({
             id: 11,
-            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+            nextOccurrance: dateUtility.addDays(-4, today) // late
         }), new Todo({
             id: 21,
-            nextOccurrance: new Date('2015-12-22T00:00:00+01:00')
+            nextOccurrance: dateUtility.addDays(-1, today) // late
         })
     ];
 
-    dateUtility = dateUtilityFactory(momentFactory());
-
     sinon.stub(dateUtility, 'now').returns(today);
     sinon.stub(dateUtility, 'display').returns(rms);
-    sinon.stub(dateUtility, 'compareDatePart').returns(0);
 
     sinon.spy(dateUtility, 'addDays');
+    sinon.spy(dateUtility, 'compareDatePart');
 
     repositoryMock = {
         getTodo: sinon.stub().returns(todo),

@@ -55,7 +55,9 @@ function previousDay() {
 }
 
 function getTodo() {
-    return repository.getTodo();
+    return repository
+        .getTodo()
+        .filter(t => dateUtility.compareDatePart(t.nextOccurrance, selectedDate) < 1);
 }
 
 export { viewFactory };
