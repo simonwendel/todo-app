@@ -17,7 +17,7 @@ function getTodo(id) {
     if (id) {
         let todo = storage
             .all()
-            .filter(t => id === t.id);
+            .filter(t => t.id === id);
 
         if (todo.length !== 1) {
             throw new Error('No such item found.');
