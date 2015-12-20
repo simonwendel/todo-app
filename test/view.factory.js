@@ -127,12 +127,32 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         });
 
-        it('should have a filtered list of items to do.', () => {
+        // kind of integrating with date util
+        describe('Function: getTodo', () => {
 
-            // kind of integrating with date util
-            let list = view.getTodo();
-            expect(list).toBeArrayOfSize(3); // <- the one elapsing in 4 days excluded
-            expect(dateUtility.compareDatePart.callCount).toBe(todo.length);
+            it('should have a filtered list of items to do today.', () => {
+
+                let list = view.getTodo();
+                expect(list).toBeArrayOfSize(3); // <- the one elapsing in 4 days excluded
+
+            });
+
+            it('should only show items on that day, if viewing the future.', () => {
+
+                view.goTo(dateUtility.addDays(4, today));
+                let list = view.getTodo();
+                expect(list).toBeArrayOfSize(1);
+
+            });
+
+            it('should not show any items on that day, if none on that day.', () => {
+
+                view.goTo(dateUtility.addDays(3, today));
+                let list = view.getTodo();
+                expect(list).toBeArrayOfSize(0);
+
+            });
+
         });
 
     });

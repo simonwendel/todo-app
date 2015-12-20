@@ -55,9 +55,15 @@ function previousDay() {
 }
 
 function getTodo() {
+    if (isToday()) {
+        return repository
+            .getTodo()
+            .filter(t => dateUtility.compareDatePart(t.nextOccurrance, selectedDate) < 1);
+    }
+
     return repository
         .getTodo()
-        .filter(t => dateUtility.compareDatePart(t.nextOccurrance, selectedDate) < 1);
+        .filter(t => dateUtility.compareDatePart(t.nextOccurrance, selectedDate) === 0);
 }
 
 export { viewFactory };
