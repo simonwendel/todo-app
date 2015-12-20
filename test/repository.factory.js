@@ -1,4 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
+import { Todo } from 'js/todo.class';
 import { repositoryFactory } from 'js/repository.factory';
 
 let repository,
@@ -20,7 +21,7 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should expose a subscriber interface using notificationService.', () => {
 
-            repository.subscribe(() => {});
+            repository.subscribe(() => { });
             expect(notificationChannel.subscribe.called).toBe(true);
 
         });
@@ -88,15 +89,16 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
         });
 
     });
+
 });
 
 function fixtureSetup() {
     storageMock = {
         all: sinon.stub().returns([
-            {id: 1},
-            {id: 10},
-            {id: 11},
-            {id: 21}
+            new Todo({ id: 1 }),
+            new Todo({ id: 10 }),
+            new Todo({ id: 11 }),
+            new Todo({ id: 21 })
         ]),
         save: sinon.spy()
     };
