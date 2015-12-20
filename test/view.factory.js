@@ -1,5 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
-import { Todo } from 'js/todo.class';
+import { Todo } from 'js/types';
 import { viewFactory } from 'js/view.factory';
 
 const rms = 'March 16, 1953',

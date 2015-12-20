@@ -1,5 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
-import { Color } from 'js/color.class';
+import { Color } from 'js/types';
 import { colorsFactory } from 'js/colors.factory';
 
 let colors,

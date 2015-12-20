@@ -1,7 +1,5 @@
 import Validate from 'validate-arguments';
-
-import { Color } from 'js/color.class';
-import { Todo } from 'js/todo.class';
+import { Todo, Color } from 'js/types';
 
 let staticTodos = [
     new Todo({

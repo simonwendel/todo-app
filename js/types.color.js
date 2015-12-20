@@ -1,4 +1,3 @@
-
 import Validate from 'validate-arguments';
 
 class Color {

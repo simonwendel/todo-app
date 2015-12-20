@@ -1,6 +1,6 @@
 import 'JamieMason/Jasmine-Matchers';
 import { storageFactory } from 'js/storage.factory';
-import { Todo } from 'js/todo.class';
+import { Todo } from 'js/types';
 
 const storage = storageFactory();
 

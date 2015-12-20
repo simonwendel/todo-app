@@ -1,4 +1,4 @@
-import { Color } from 'js/color.class';
+import { Color } from 'js/types';
 
 const colors = [
     new Color('CRIMSON__COLOR', 'crimson'),

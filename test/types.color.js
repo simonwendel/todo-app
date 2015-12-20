@@ -1,7 +1,7 @@
 import 'JamieMason/Jasmine-Matchers';
-import { Color } from 'js/color.class';
+import { Color } from 'js/types';
 
-describe('Class: Color (color.class.js)', () => {
+describe('Class: Color (types.js)', () => {
 
     describe('Constructor', () => {
 

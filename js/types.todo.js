@@ -1,6 +1,5 @@
-
 import Validate from 'validate-arguments';
-import { Color } from 'js/color.class';
+import { Color } from 'js/types.color';
 
 const argsSpec = {
     id: {

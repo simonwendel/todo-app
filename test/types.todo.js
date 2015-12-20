@@ -1,8 +1,8 @@
 import 'JamieMason/Jasmine-Matchers';
-import { Color } from 'js/color.class';
-import { Todo } from 'js/todo.class';
+import { Color } from 'js/types';
+import { Todo } from 'js/types';
 
-describe('Class: Todo (todo.class.js)', () => {
+describe('Class: Todo (types.js)', () => {
 
     describe('Constructor', () => {
 

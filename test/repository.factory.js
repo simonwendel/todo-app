@@ -1,5 +1,5 @@
 import 'JamieMason/Jasmine-Matchers';
-import { Todo } from 'js/todo.class';
+import { Todo } from 'js/types';
 import { repositoryFactory } from 'js/repository.factory';
 
 let repository,
