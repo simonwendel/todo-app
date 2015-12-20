@@ -1,5 +1,7 @@
 import 'JamieMason/Jasmine-Matchers';
 import { Todo } from 'js/types';
+import { dateUtilityFactory } from 'js/dateUtility.factory';
+import { momentFactory } from 'js/moment.factory';
 import { viewFactory } from 'js/view.factory';
 
 const rms = 'March 16, 1953',
@@ -7,7 +9,7 @@ const rms = 'March 16, 1953',
 
 let view,
     todo,
-    dateUtilityMock,
+    dateUtility,
     repositoryMock,
     notificationMock,
     notificationChannel;
@@ -26,14 +28,14 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         it('should set the selected date to current date on construction.', () => {
 
-            expect(dateUtilityMock.now.called).toBe(true);
+            expect(dateUtility.now.called).toBe(true);
 
         });
 
         it('should have a function to get the view date as a string.', () => {
 
             let date = view.showDate();
-            expect(dateUtilityMock.display.called).toBe(true);
+            expect(dateUtility.display.called).toBe(true);
             expect(date).toBe(rms);
 
         });
@@ -41,7 +43,7 @@ describe('Factory: viewFactory (view.factory.js)', () => {
         it('should have a function to get the view date as a date.', () => {
 
             let date = view.today();
-            expect(dateUtilityMock.display.called).toBe(false);
+            expect(dateUtility.display.called).toBe(false);
             expect(date).toBeDate();
 
         });
@@ -49,8 +51,8 @@ describe('Factory: viewFactory (view.factory.js)', () => {
         it('should have a function to step to next day.', () => {
 
             view.nextDay();
-            expect(dateUtilityMock.addDays.args[0][0]).toBe(1);
-            expect(dateUtilityMock.addDays.args[0][1]).toBeDate();
+            expect(dateUtility.addDays.args[0][0]).toBe(1);
+            expect(dateUtility.addDays.args[0][1]).toBeDate();
 
         });
 
@@ -64,8 +66,8 @@ describe('Factory: viewFactory (view.factory.js)', () => {
         it('should have a function to step to previous day.', () => {
 
             view.previousDay();
-            expect(dateUtilityMock.addDays.args[0][0]).toBe(-1);
-            expect(dateUtilityMock.addDays.args[0][1]).toBeDate();
+            expect(dateUtility.addDays.args[0][0]).toBe(-1);
+            expect(dateUtility.addDays.args[0][1]).toBeDate();
 
         });
 
@@ -127,8 +129,8 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
             let isToday = view.isToday();
             expect(isToday).toBe(true);
-            expect(dateUtilityMock.now.called).toBe(true);
-            expect(dateUtilityMock.compareDatePart.called).toBe(true);
+            expect(dateUtility.now.called).toBe(true);
+            expect(dateUtility.compareDatePart.called).toBe(true);
 
         });
 
@@ -153,12 +155,13 @@ function fixtureSetup() {
         })
     ];
 
-    dateUtilityMock = {
-        now: sinon.stub().returns(today),
-        addDays: sinon.stub(),
-        display: sinon.stub().returns(rms),
-        compareDatePart: sinon.stub().returns(0)
-    };
+    dateUtility = dateUtilityFactory(momentFactory());
+
+    sinon.stub(dateUtility, 'now').returns(today);
+    sinon.stub(dateUtility, 'display').returns(rms);
+    sinon.stub(dateUtility, 'compareDatePart').returns(0);
+
+    sinon.spy(dateUtility, 'addDays');
 
     repositoryMock = {
         getTodo: sinon.stub().returns(todo),
@@ -174,5 +177,5 @@ function fixtureSetup() {
         create: sinon.stub().returns(notificationChannel)
     };
 
-    view = viewFactory(repositoryMock, dateUtilityMock, notificationMock);
+    view = viewFactory(repositoryMock, dateUtility, notificationMock);
 }
