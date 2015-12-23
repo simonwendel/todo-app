@@ -14,19 +14,19 @@ function repositoryFactory(storageFactory, notificationFactory) {
 }
 
 function getTodo(id) {
-    if (id) {
-        let todo = storage
-            .all()
-            .find(t => t.id === id);
-
-        if (todo) {
-            return todo;
-        }
-
-        throw new Error('No such item found.');
+    if (!id) {
+        return storage.all();
     }
 
-    return storage.all();
+    let todo = storage
+        .all()
+        .find(t => t.id === id);
+
+    if (todo) {
+        return todo;
+    }
+
+    throw new Error('No such item found.');
 }
 
 function newTodo(item) {
