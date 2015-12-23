@@ -15,7 +15,8 @@ colorsFactory.$inject = ['$translate'];
 function colorsFactory($translate) {
     translate = $translate;
     return {
-        getAll: getAll
+        getAll: getAll,
+        getByValue: getByValue
     };
 }
 
@@ -26,6 +27,15 @@ function getAll() {
     }
 
     return colors.slice();
+}
+
+function getByValue(value) {
+    var found = colors.find(c => c.colorValue === value);
+    if (found) {
+        return new Color(translate.instant(found.colorName), found.colorValue);
+    }
+
+    throw new Error('No such color!');
 }
 
 export { colorsFactory };

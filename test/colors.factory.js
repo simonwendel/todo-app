@@ -27,6 +27,21 @@ describe('Factory: colorsFactory (colors.factory.js)', () => {
 
         });
 
+        it('should have a fn to get a color by value.', () => {
+
+            let crimson = colors.getByValue('crimson');
+            expect(mockTranslate.instant.callCount).toBe(1);
+            expect(crimson).toEqual(new Color('TRANSLATED!!1', 'crimson'));
+
+        });
+
+        it('should throw exception from getByValue if value not found.', () => {
+
+            expect(() => colors.getByValue()).toThrow();
+            expect(() => colors.getByValue('not-found')).toThrow();
+
+        });
+
     });
 
 });
