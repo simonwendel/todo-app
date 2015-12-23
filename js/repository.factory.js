@@ -30,13 +30,13 @@ function getTodo(id) {
 }
 
 function newTodo(item) {
-    if (item) {
-        item.id = getNextId();
-        storage.save(item);
-        notification.notify();
-    } else {
+    if (!item) {
         throw new Error('No todo item object to save.');
     }
+
+    item.id = getNextId();
+    storage.save(item);
+    notification.notify();
 }
 
 function getNextId() {
