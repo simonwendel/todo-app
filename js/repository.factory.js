@@ -17,13 +17,13 @@ function getTodo(id) {
     if (id) {
         let todo = storage
             .all()
-            .filter(t => t.id === id);
+            .find(t => t.id === id);
 
-        if (todo.length !== 1) {
-            throw new Error('No such item found.');
+        if (todo) {
+            return todo;
         }
 
-        return todo[0];
+        throw new Error('No such item found.');
     }
 
     return storage.all();
@@ -41,10 +41,10 @@ function newTodo(item) {
 
 function getNextId() {
     return 1 + Math.max.apply(
-            Math,
-            storage
-                .all()
-                .map(t => t.id)
+        Math,
+        storage
+            .all()
+            .map(t => t.id)
         );
 }
 
