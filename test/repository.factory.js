@@ -42,9 +42,7 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should throw exception when no todo with specified id exists in the repository.', () => {
 
-            expect(() => {
-                repository.getTodo(100);
-            }).toThrow();
+            expect(() => repository.getTodo(100)).toThrow();
 
         });
 
@@ -64,26 +62,20 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should throw exception when null todo item is saved.', () => {
 
-            expect(() => {
-                repository.newTodo(null);
-            }).toThrow();
+            expect(() => repository.newTodo(null)).toThrow();
 
         });
 
         it('should not notify subscribers if todo item to newTodo is null.', () => {
 
-            expect(() => {
-                repository.newTodo(null);
-            }).toThrow();
+            expect(() => repository.newTodo(null)).toThrow();
             expect(notificationChannel.notify.called).toBe(false);
 
         });
 
         it('should not save when null todo item is saved.', () => {
 
-            expect(() => {
-                repository.newTodo(null);
-            }).toThrow();
+            expect(() => repository.newTodo(null)).toThrow();
             expect(storageMock.save.called).toBe(false);
 
         });
