@@ -50,7 +50,6 @@ gulp.task('eslint', () => {
         .pipe(eslint.failAfterError());
 });
 
-
 /*
  * KARMA
  */
