@@ -1,4 +1,5 @@
-import { Todo } from 'js/types';
+import * as Validate from 'validate-arguments';
+import { Todo, Color } from 'js/types';
 
 let storage,
     notification;
@@ -31,9 +32,37 @@ function getTodo(id) {
     throw new Error('No such item found.');
 }
 
+const argsSpec = {
+    title: {
+        isa: 'string'
+    },
+    description: {
+        isa: 'string',
+        optional: true
+    },
+    created: {
+        isa: 'date'
+    },
+    recurring: {
+        isa: 'whole'
+    },
+    color: {
+        isa: Color
+    }
+};
+
 function newTodo(item) {
     if (!item) {
         throw new Error('No todo item object to save.');
+    }
+
+    var args = Validate.named(item, argsSpec);
+    if (!args.isValid()) {
+        throw args.errorString();
+    }
+
+    if (item.recurring < 0) {
+        throw new Error('Recurring property must be non-negative whole number.');
     }
 
     let todo = new Todo(item);

@@ -1,11 +1,12 @@
 import 'JamieMason/Jasmine-Matchers';
-import { Todo } from 'js/types';
+import { Todo, Color } from 'js/types';
 import { repositoryFactory } from 'js/repository.factory';
 
 let repository,
     storageMock,
     notificationMock,
-    notificationChannel;
+    notificationChannel,
+    someTodo;
 
 describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
@@ -48,14 +49,14 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should call the save() function on storage to save a new todo item.', () => {
 
-            repository.newTodo({});
+            repository.newTodo(someTodo);
             expect(storageMock.save.called).toBe(true);
 
         });
 
         it('should call the notify function notifying subscribers on newTodo.', () => {
 
-            repository.newTodo({});
+            repository.newTodo(someTodo);
             expect(notificationChannel.notify.called).toBe(true);
 
         });
@@ -80,11 +81,49 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         });
 
+        it('should enforce reccurring to be non-negative in newTodo fn.', () => {
+
+            someTodo.recurring = -1;
+            expect(() => repository.newTodo(someTodo)).toThrow();
+
+        });
+
+        it('should enforce types to the newTodo fn.', () => {
+
+            let error = {
+                title: 3,
+                description: true,
+                created: 'some date, right?',
+                recurring: 0.5,
+                color: 'blue'
+            };
+
+            expect(() => repository.newTodo(error)).toThrow();
+
+        });
+
+        it('should enforce non-optional properties of new todo in newTodo fn.', () => {
+
+            let error = {
+                description: 'some descr...'
+            };
+
+            expect(() => repository.newTodo(error)).toThrow();
+
+        });
+
     });
 
 });
 
 function fixtureSetup() {
+    someTodo = {
+        title: 'title',
+        created: new Date(),
+        recurring: 0,
+        color: new Color('', '')
+    };
+
     storageMock = {
         all: sinon.stub().returns([
             new Todo({ id: 1 }),
