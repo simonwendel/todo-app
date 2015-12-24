@@ -2,13 +2,15 @@ import createTodoTemplate from 'templates/create-todo.html!text';
 
 let ionicModal,
     colors,
-    repository;
+    repository,
+    view;
 
-createTodoDirective.$inject = ['$ionicModal', 'colors', 'repository'];
-function createTodoDirective($ionicModal, colorsFactory, repositoryFactory) {
+createTodoDirective.$inject = ['$ionicModal', 'colors', 'repository', 'view'];
+function createTodoDirective($ionicModal, colorsFactory, repositoryFactory, viewFactory) {
     ionicModal = $ionicModal;
     colors = colorsFactory.getAll();
     repository = repositoryFactory;
+    view = viewFactory;
 
     return {
         restrict: 'A',
@@ -60,7 +62,8 @@ function saveNewTodo(scope) {
         title: scope.vm.title,
         description: scope.vm.description,
         color: scope.vm.selectedColor,
-        recurring: scope.vm.reccuring
+        recurring: scope.vm.reccuring,
+        created: view.today()
     };
 
     repository.newTodo(item);

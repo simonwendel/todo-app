@@ -7,7 +7,9 @@ let element,
     provide,
     scope,
     allColors,
-    repositoryMock;
+    repositoryMock,
+    today,
+    viewMock;
 
 describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
@@ -79,7 +81,9 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
         scope.vm.saveNewTodo();
 
+        expect(viewMock.today.called).toBe(true);
         expect(repositoryMock.newTodo.called).toBe(true);
+        expect(repositoryMock.newTodo.args[0][0].created).toBe(today);
 
     });
 
@@ -93,13 +97,13 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
 function fixtureSetup($rootScope, $compile, colors) {
     modal = {
-        show: sinon.spy(),
-        hide: sinon.spy(),
-        remove: sinon.spy()
+        show: sinon.stub(),
+        hide: sinon.stub(),
+        remove: sinon.stub()
     };
 
     repositoryMock = {
-        newTodo: sinon.spy()
+        newTodo: sinon.stub()
     };
 
     provide.value('repository', repositoryMock);
@@ -110,6 +114,13 @@ function fixtureSetup($rootScope, $compile, colors) {
         };
 
     provide.value('$ionicModal', ionicModal);
+
+    today = new Date();
+    viewMock = {
+        today: sinon.stub().returns(today)
+    };
+
+    provide.value('view', viewMock);
 
     // lazyness makes me just go ahead and use the actual "colors" factory...
     allColors = colors.getAll();
