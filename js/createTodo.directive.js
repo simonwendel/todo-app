@@ -62,7 +62,7 @@ function saveNewTodo(scope) {
         title: scope.vm.title,
         description: scope.vm.description,
         color: scope.vm.selectedColor,
-        recurring: scope.vm.reccuring >>> 0,
+        recurring: scope.vm.recurring >>> 0,
         created: view.viewingDate()
     };
 
