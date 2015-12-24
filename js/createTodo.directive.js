@@ -63,7 +63,7 @@ function saveNewTodo(scope) {
         description: scope.vm.description,
         color: scope.vm.selectedColor,
         recurring: scope.vm.reccuring,
-        created: view.today()
+        created: view.viewingDate()
     };
 
     repository.newTodo(item);

@@ -42,7 +42,7 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
         it('should have a function to get the view date as a date.', () => {
 
-            let date = view.today();
+            let date = view.viewingDate();
             expect(dateUtility.display.called).toBe(false);
             expect(date).toBeDate();
 
@@ -105,7 +105,7 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
             let woz = new Date(1950, 8, 11);
             view.goTo(woz);
-            expect(view.today()).toBe(woz);
+            expect(view.viewingDate()).toBe(woz);
 
         });
 

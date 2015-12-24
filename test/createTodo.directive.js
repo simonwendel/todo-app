@@ -81,7 +81,7 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
         scope.vm.saveNewTodo();
 
-        expect(viewMock.today.called).toBe(true);
+        expect(viewMock.viewingDate.called).toBe(true);
         expect(repositoryMock.newTodo.called).toBe(true);
         expect(repositoryMock.newTodo.args[0][0].created).toBe(today);
 
@@ -117,7 +117,7 @@ function fixtureSetup($rootScope, $compile, colors) {
 
     today = new Date();
     viewMock = {
-        today: sinon.stub().returns(today)
+        viewingDate: sinon.stub().returns(today)
     };
 
     provide.value('view', viewMock);

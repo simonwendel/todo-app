@@ -67,7 +67,7 @@ function fixtureSetup($rootScope, $compile) {
         nextDay: sinon.stub(),
         previousDay: sinon.stub(),
         subscribe: sinon.stub(),
-        today: sinon.stub(),
+        viewingDate: sinon.stub(),
         isToday: sinon.stub().returns(true)
     };
 
