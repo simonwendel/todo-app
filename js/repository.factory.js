@@ -1,3 +1,5 @@
+import { Todo } from 'js/types';
+
 let storage,
     notification;
 
@@ -34,8 +36,9 @@ function newTodo(item) {
         throw new Error('No todo item object to save.');
     }
 
-    item.id = getNextId();
-    storage.save(item);
+    let todo = new Todo(item);
+    todo.id = getNextId();
+    storage.save(todo);
     notification.notify();
 }
 
