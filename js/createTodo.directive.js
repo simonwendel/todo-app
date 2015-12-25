@@ -58,6 +58,10 @@ function setupScope(modal, scope, element) {
 }
 
 function saveNewTodo(scope) {
+    if (scope.createTodoForm) {
+        scope.createTodoForm.$validate();
+    }
+
     let item = {
         title: scope.vm.title,
         description: scope.vm.description,

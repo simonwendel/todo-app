@@ -5,41 +5,43 @@
     <ion-content>
         <div class="list">
 
-            <label class="item item-input">
-                <span class="input-label" translate>TITLE__TRANSLATION</span>
-                <input type="text" ng-model="vm.title">
-            </label>
+            <form name="createTodoForm">
 
-            <label class="item item-input">
-                <span class="input-label" translate>DESCRIPTION__TRANSLATION</span>
-                <textarea ng-click="vm.description"></textarea>
-            </label>
+                <label class="item item-input">
+                    <span class="input-label" translate>TITLE__TRANSLATION</span>
+                    <input type="text" ng-model="vm.title" required>
+                </label>
 
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    <i class="icon ion-record" style="color:{{ vm.selectedColor.colorValue }}"></i>
-                    <span translate>COLOR__TRANSLATION</span>
+                <label class="item item-input">
+                    <span class="input-label" translate>DESCRIPTION__TRANSLATION</span>
+                    <textarea ng-click="vm.description"></textarea>
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        <i class="icon ion-record" style="color:{{ vm.selectedColor.colorValue }}"></i>
+                        <span translate>COLOR__TRANSLATION</span>
+                    </div>
+                    <select ng-model="vm.selectedColor" ng-options="color.colorName for color in vm.availableColors">
+                    </select>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label" translate>RECURRING_(DAYS)__TRANSLATION</span>
+                    <input type="number" min="0" ng-model="vm.recurring">
+                </label>
+
+                <div class="button-bar">
+                    <button class="button button-full button-positive" ng-click="vm.saveNewTodo()" translate>
+                        SAVE__TRANSLATION__UPPER
+                    </button>
+
+                    <button class="button button-full button-stable" ng-click="vm.closeModal()" translate>
+                        CLOSE__TRANSLATION__UPPER
+                    </button>
                 </div>
-                <select
-                    ng-model="vm.selectedColor"
-                    ng-options="color.colorName for color in vm.availableColors">
-                </select>
-            </label>
 
-            <label class="item item-input">
-                <span class="input-label" translate>RECURRING_(DAYS)__TRANSLATION</span>
-                <input type="number" min="0" ng-model="vm.recurring">
-            </label>
-
-            <div class="button-bar">
-                <button class="button button-full button-positive" ng-click="vm.saveNewTodo()" translate>
-                    SAVE__TRANSLATION__UPPER
-                </button>
-
-                <button class="button button-full button-stable" ng-click="vm.closeModal()" translate>
-                    CLOSE__TRANSLATION__UPPER
-                </button>
-            </div>
+            </form>
 
         </div>
     </ion-content>
