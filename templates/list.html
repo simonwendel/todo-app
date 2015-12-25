@@ -1,6 +1,9 @@
 <div class="list card">
+    <a ng-show="vm.todos.length === 0" href="#" class="item item-icon-left">
+        <i class="icon ion-happy-outline"></i>
+        <span translate>NOTHING_TO_DO__TRANSLATION</span>
+    </a>
     <a href="#" class="item item-icon-left" ng-repeat="todo in vm.todos">
-        <i class="icon ion-record" style="color:{{ todo.color.colorValue }}"></i>
-        {{ todo.title }}
+        <i class="icon ion-record" style="color:{{ todo.color.colorValue }}"></i> {{ todo.title }}
     </a>
 </div>

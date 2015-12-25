@@ -3,6 +3,9 @@ const english = {
     'SAVE__TRANSLATION__UPPER': 'SAVE',
     'CLOSE__TRANSLATION__UPPER': 'CLOSE',
 
+    // todo list
+    'NOTHING_TO_DO__TRANSLATION': 'Nothing to do right now...',
+
     // new todo modal
     'TITLE__TRANSLATION': 'Title',
     'DESCRIPTION__TRANSLATION': 'Description',
