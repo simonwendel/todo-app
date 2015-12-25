@@ -42,6 +42,9 @@ app.factory('repository', repositoryFactory);
 import { viewFactory } from 'js/view.factory';
 app.factory('view', viewFactory);
 
+import { browserLocalStorageFactory } from 'js/browserLocalStorage.factory';
+app.factory('browserLocalStorage', browserLocalStorageFactory);
+
 // wrapping moment.js for injectability
 import { momentFactory } from 'js/moment.factory';
 app.factory('moment', momentFactory);
