@@ -5,8 +5,12 @@
     </a>
 </div>
 
-<div class="list card" ng-repeat="todo in vm.todos">
-    <a href="#" class="item item-icon-left" >
+<div class="list card" ng-repeat="todo in vm.todos" ng-show="vm.todos.length !== 0">
+    <a href="#" class="item item-icon-left">
         <i class="icon ion-record" style="color:{{ todo.color.colorValue }}"></i> {{ todo.title }}
     </a>
+    <div class="buttons">
+        <button c-platform-class class="button icon platform-edit-icon"></button>
+        <button c-platform-class class="button icon platform-trash-icon"></button>
+    </div>
 </div>

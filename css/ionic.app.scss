@@ -32,7 +32,7 @@ $ionicons-font-path: "../jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts" 
 }
 
 .platform-win32.platform-back-button {
-    @extend .platform-android.platform-back-button;
+    @extend .platform-android.platform-back-button
 }
 
 // platform specific forward button icons
@@ -45,5 +45,31 @@ $ionicons-font-path: "../jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts" 
 }
 
 .platform-win32.platform-forward-button {
-    @extend .platform-android.platform-forward-button;
+    @extend .platform-android.platform-forward-button
+}
+
+// platform specific trash icons
+.platform-ios.platform-trash-icon {
+    @extend .ion-ios-trash
+}
+
+.platform-android.platform-trash-icon {
+    @extend .ion-android-delete
+}
+
+.platform-win32.platform-trash-icon {
+    @extend .platform-android.platform-trash-icon
+}
+
+// platform specific edit icons
+.platform-ios.platform-edit-icon {
+    @extend .ion-ios-compose
+}
+
+.platform-android.platform-edit-icon {
+    @extend .ion-android-create
+}
+
+.platform-win32.platform-edit-icon {
+    @extend .platform-android.platform-edit-icon
 }
