@@ -112,6 +112,26 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         });
 
+        it('should use the storage remove fn to remove items.', () => {
+
+            repository.remove(1);
+            expect(storageMock.remove.called).toBe(true);
+
+        });
+
+        it('should notify subscribers after remove fn called.', () => {
+
+            repository.remove(1);
+            expect(notificationChannel.notify.called).toBe(true);
+
+        });
+
+        it('should enforce parameter types to remove fn.', () => {
+
+            expect(() => repository.remove({})).toThrow();
+
+        });
+
     });
 
 });
@@ -131,7 +151,8 @@ function fixtureSetup() {
             new Todo({ id: 11 }),
             new Todo({ id: 21 })
         ]),
-        save: sinon.spy()
+        save: sinon.spy(),
+        remove: sinon.spy()
     };
 
     notificationChannel = {

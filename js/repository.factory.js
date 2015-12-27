@@ -12,6 +12,7 @@ function repositoryFactory(storageFactory, notificationFactory) {
     return {
         getTodo: getTodo,
         newTodo: newTodo,
+        remove: remove,
         subscribe: notification.subscribe
     };
 }
@@ -68,6 +69,16 @@ function newTodo(item) {
     let todo = new Todo(item);
     todo.id = getNextId();
     storage.save(todo);
+    notification.notify();
+}
+
+function remove(id) {
+    let args = Validate.positional(arguments, ['whole']);
+    if (!args.isValid()) {
+        throw args.errorString();
+    }
+
+    storage.remove(id);
     notification.notify();
 }
 
