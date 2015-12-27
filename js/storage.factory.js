@@ -1,6 +1,6 @@
 import Validate from 'validate-arguments';
 import { Todo } from 'js/types';
-import { staticTodos } from 'js/staticTodos';
+import { staticTodos } from 'js/config/staticTodos';
 
 let todos;
 
