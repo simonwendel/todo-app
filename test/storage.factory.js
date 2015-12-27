@@ -2,9 +2,11 @@ import 'JamieMason/Jasmine-Matchers';
 import { storageFactory } from 'js/storage.factory';
 import { Todo } from 'js/types';
 
-const storage = storageFactory();
+let storage;
 
 describe('Factory: storageFactory (storage.factory.js)', () => {
+
+    beforeEach(fixtureSetup);
 
     describe('Product: storage', () => {
 
@@ -36,3 +38,7 @@ describe('Factory: storageFactory (storage.factory.js)', () => {
     });
 
 });
+
+function fixtureSetup() {
+    storage = storageFactory();
+}
