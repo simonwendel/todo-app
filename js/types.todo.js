@@ -34,7 +34,7 @@ const argsSpec = {
 
 class Todo {
     constructor(data) {
-        var args = Validate.named(data, argsSpec);
+        let args = Validate.named(data, argsSpec);
         if (!args.isValid()) {
             throw args.errorString();
         }

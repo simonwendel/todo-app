@@ -30,7 +30,7 @@ function getAll() {
 }
 
 function getByValue(value) {
-    var found = colors.find(c => c.colorValue === value);
+    let found = colors.find(c => c.colorValue === value);
     if (found) {
         return new Color(translate.instant(found.colorName), found.colorValue);
     }

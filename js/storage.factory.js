@@ -19,7 +19,7 @@ function all() {
 }
 
 function save(item) {
-    var args =
+    let args =
         Validate.positional(arguments, [Todo]);
 
     if (!args.isValid()) {

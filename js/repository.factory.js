@@ -56,7 +56,7 @@ function newTodo(item) {
         throw new Error('No todo item object to save.');
     }
 
-    var args = Validate.named(item, argsSpec);
+    let args = Validate.named(item, argsSpec);
     if (!args.isValid()) {
         throw args.errorString();
     }

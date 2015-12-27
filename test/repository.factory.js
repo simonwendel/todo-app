@@ -36,7 +36,7 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should have a function for retrieving one todo item by id.', () => {
 
-            var todo = repository.getTodo(11);
+            let todo = repository.getTodo(11);
             expect(todo.id).toBe(11);
 
         });

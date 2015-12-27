@@ -2,7 +2,7 @@ import Validate from 'validate-arguments';
 
 class Color {
     constructor(colorName, colorValue) {
-        var args =
+        let args =
             Validate.positional(arguments, ['string', 'string']);
 
         if (!args.isValid()) {
