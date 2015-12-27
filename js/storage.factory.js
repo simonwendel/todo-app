@@ -9,7 +9,8 @@ function storageFactory() {
 
     return {
         all: all,
-        save: save
+        save: save,
+        remove: remove
     };
 }
 
@@ -26,6 +27,15 @@ function save(item) {
     }
 
     todos.push(item);
+}
+
+function remove(id) {
+    let index = todos.findIndex(t => t.id === id);
+    if (index === -1) {
+        throw new Error('No todo item with supplied id found.');
+    }
+
+    todos.splice(index, 1);
 }
 
 export { storageFactory };
