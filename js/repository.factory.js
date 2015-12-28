@@ -91,6 +91,11 @@ function markTodo(todo) {
         throw args.errorString();
     }
 
+    if (todo.recurring === 0) {
+        removeTodo(todo.id);
+        return;
+    }
+
     todo.nextOccurrance =
         dateUtility.addDays(todo.recurring, dateUtility.now());
 

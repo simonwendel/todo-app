@@ -148,6 +148,15 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         });
 
+        it('should remove todo if done and no recurrance.', () => {
+
+            someTodo.recurring = 0;
+            repository.markTodo(someTodo);
+            expect(storageMock.remove.called).toBe(true);
+            expect(storageMock.update.called).toBe(false);
+
+        });
+
         it('should enforce parameter types to markTodo fn.', () => {
 
             expect(() => repository.markTodo({})).toThrow();
@@ -157,6 +166,7 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
         it('should use the storage update fn to mark items as done.', () => {
 
             repository.markTodo(someTodo);
+            expect(storageMock.remove.called).toBe(false);
             expect(storageMock.update.called).toBe(true);
 
         });
@@ -181,6 +191,7 @@ function fixtureSetup() {
     };
 
     someTodo = new Todo(anonymousTodo);
+    someTodo.id = 210;
 
     storageMock = {
         all: sinon.stub().returns([
