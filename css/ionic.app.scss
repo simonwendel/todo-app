@@ -49,40 +49,40 @@ $ionicons-font-path: "../jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts" 
 }
 
 // platform specific trash icons
-.cs-platform-ios.platform-trash-icon {
+.cs-platform-ios.cs-trash-icon {
     @extend .ion-ios-trash
 }
 
-.cs-platform-android.platform-trash-icon {
+.cs-platform-android.cs-trash-icon {
     @extend .ion-android-delete
 }
 
-.cs-platform-win32.platform-trash-icon {
-    @extend .cs-platform-android.platform-trash-icon
+.cs-platform-win32.cs-trash-icon {
+    @extend .cs-platform-android.cs-trash-icon
 }
 
 // platform specific edit icons
-.cs-platform-ios.platform-edit-icon {
+.cs-platform-ios.cs-edit-icon {
     @extend .ion-ios-compose
 }
 
-.cs-platform-android.platform-edit-icon {
+.cs-platform-android.cs-edit-icon {
     @extend .ion-android-create
 }
 
-.cs-platform-win32.platform-edit-icon {
-    @extend .cs-platform-android.platform-edit-icon
+.cs-platform-win32.cs-edit-icon {
+    @extend .cs-platform-android.cs-edit-icon
 }
  
 // platform specific checkmark icons
-.cs-platform-ios.platform-checkmark-icon {
+.cs-platform-ios.cs-checkmark-icon {
     @extend .ion-ios-checkmark
 }
 
-.cs-platform-android.platform-checkmark-icon {
+.cs-platform-android.cs-checkmark-icon {
     @extend .ion-android-checkbox
 }
 
-.cs-platform-win32.platform-checkmark-icon {
-    @extend .cs-platform-android.platform-checkmark-icon
+.cs-platform-win32.cs-checkmark-icon {
+    @extend .cs-platform-android.cs-checkmark-icon
 }
