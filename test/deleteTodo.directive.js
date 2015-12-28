@@ -35,7 +35,7 @@ describe('Directive: deleteTodoDirective (deleteTodo.directive.js)', () => {
 
     });
 
-    it('should clean up after itself by destroying the modal on scope desctruction.', () => {
+    it('should clean up after itself by destroying the modal on scope destruction.', () => {
 
         scope.$broadcast('$destroy');
         expect(modal.remove.called).toBe(true);
