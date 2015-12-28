@@ -23,16 +23,16 @@ $ionicons-font-path: "../jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts" 
 
 
 // platform specific back button icons
-.cs-platform-ios.platform-back-button {
+.cs-platform-ios.cs-back-icon {
     @extend .ion-ios-arrow-back
 }
 
-.cs-platform-android.platform-back-button {
+.cs-platform-android.cs-back-icon {
     @extend .ion-android-arrow-back
 }
 
-.cs-platform-win32.platform-back-button {
-    @extend .cs-platform-android.platform-back-button
+.cs-platform-win32.cs-back-icon {
+    @extend .cs-platform-android.cs-back-icon
 }
 
 // platform specific forward button icons
