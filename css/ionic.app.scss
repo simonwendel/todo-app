@@ -36,16 +36,16 @@ $ionicons-font-path: "../jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts" 
 }
 
 // platform specific forward button icons
-.cs-platform-ios.platform-forward-button {
+.cs-platform-ios.cs-forward-icon {
     @extend .ion-ios-arrow-forward
 }
 
-.cs-platform-android.platform-forward-button {
+.cs-platform-android.cs-forward-icon {
     @extend .ion-android-arrow-forward
 }
 
-.cs-platform-win32.platform-forward-button {
-    @extend .cs-platform-android.platform-forward-button
+.cs-platform-win32.cs-forward-icon {
+    @extend .cs-platform-android.cs-forward-icon
 }
 
 // platform specific trash icons
