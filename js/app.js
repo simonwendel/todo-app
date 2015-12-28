@@ -65,6 +65,9 @@ app.directive('cCreateTodo', createTodoDirective);
 import { deleteTodoDirective } from 'js/deleteTodo.directive';
 app.directive('cDeleteTodo', deleteTodoDirective);
 
+import { markAsDoneDirective } from 'js/markAsDone.directive';
+app.directive('cMarkAsDone', markAsDoneDirective);
+
 import { platformClassDirective } from 'js/platformClass.directive';
 app.directive('cPlatformClass', platformClassDirective);
 
