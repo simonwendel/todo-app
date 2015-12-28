@@ -142,6 +142,7 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
             expect(dateUtilityMock.now.called).toBe(true);
             expect(dateUtilityMock.addDays.calledWith(someTodo.recurring)).toBe(true);
+
             let updatedOccurrance = storageMock.update.args[0][0].nextOccurrance;
             expect(updatedOccurrance).toBe(grace);
 
