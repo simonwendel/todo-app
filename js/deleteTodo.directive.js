@@ -45,7 +45,7 @@ function setupScope(modal, scope, element) {
     });
 
     scope.vm.removeTodo = () => {
-        repository.remove(scope.cDeleteTodo.id);
+        repository.removeTodo(scope.cDeleteTodo.id);
         scope.modal.remove();
     };
 

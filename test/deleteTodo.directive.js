@@ -54,7 +54,7 @@ describe('Directive: deleteTodoDirective (deleteTodo.directive.js)', () => {
     it('should call the repository remove fn to delete the todo on vm.removeTodo.', () => {
 
         scope.vm.removeTodo();
-        expect(repositoryMock.remove.calledWith(todoToDelete.id)).toBe(true);
+        expect(repositoryMock.removeTodo.calledWith(todoToDelete.id)).toBe(true);
 
     });
 
@@ -69,7 +69,7 @@ describe('Directive: deleteTodoDirective (deleteTodo.directive.js)', () => {
 
 function fixtureSetup($rootScope, $compile) {
     repositoryMock = {
-        remove: sinon.stub()
+        removeTodo: sinon.stub()
     };
 
     provide.value('repository', repositoryMock);
