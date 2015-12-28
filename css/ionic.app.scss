@@ -23,66 +23,66 @@ $ionicons-font-path: "../jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts" 
 
 
 // platform specific back button icons
-.platform-ios.platform-back-button {
+.cs-platform-ios.platform-back-button {
     @extend .ion-ios-arrow-back
 }
 
-.platform-android.platform-back-button {
+.cs-platform-android.platform-back-button {
     @extend .ion-android-arrow-back
 }
 
-.platform-win32.platform-back-button {
-    @extend .platform-android.platform-back-button
+.cs-platform-win32.platform-back-button {
+    @extend .cs-platform-android.platform-back-button
 }
 
 // platform specific forward button icons
-.platform-ios.platform-forward-button {
+.cs-platform-ios.platform-forward-button {
     @extend .ion-ios-arrow-forward
 }
 
-.platform-android.platform-forward-button {
+.cs-platform-android.platform-forward-button {
     @extend .ion-android-arrow-forward
 }
 
-.platform-win32.platform-forward-button {
-    @extend .platform-android.platform-forward-button
+.cs-platform-win32.platform-forward-button {
+    @extend .cs-platform-android.platform-forward-button
 }
 
 // platform specific trash icons
-.platform-ios.platform-trash-icon {
+.cs-platform-ios.platform-trash-icon {
     @extend .ion-ios-trash
 }
 
-.platform-android.platform-trash-icon {
+.cs-platform-android.platform-trash-icon {
     @extend .ion-android-delete
 }
 
-.platform-win32.platform-trash-icon {
-    @extend .platform-android.platform-trash-icon
+.cs-platform-win32.platform-trash-icon {
+    @extend .cs-platform-android.platform-trash-icon
 }
 
 // platform specific edit icons
-.platform-ios.platform-edit-icon {
+.cs-platform-ios.platform-edit-icon {
     @extend .ion-ios-compose
 }
 
-.platform-android.platform-edit-icon {
+.cs-platform-android.platform-edit-icon {
     @extend .ion-android-create
 }
 
-.platform-win32.platform-edit-icon {
-    @extend .platform-android.platform-edit-icon
+.cs-platform-win32.platform-edit-icon {
+    @extend .cs-platform-android.platform-edit-icon
 }
  
 // platform specific checkmark icons
-.platform-ios.platform-checkmark-icon {
+.cs-platform-ios.platform-checkmark-icon {
     @extend .ion-ios-checkmark
 }
 
-.platform-android.platform-checkmark-icon {
+.cs-platform-android.platform-checkmark-icon {
     @extend .ion-android-checkbox
 }
 
-.platform-win32.platform-checkmark-icon {
-    @extend .platform-android.platform-checkmark-icon
+.cs-platform-win32.platform-checkmark-icon {
+    @extend .cs-platform-android.platform-checkmark-icon
 }

@@ -7,7 +7,7 @@ function platformClassDirective(platform) {
         link: (scope, element) => {
             angular
                 .element(element)
-                .addClass('platform-' + platform);
+                .addClass('cs-platform-' + platform);
         }
     };
 }

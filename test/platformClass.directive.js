@@ -13,9 +13,9 @@ describe('Directive: platformClassDirective (platformClass.directive.js)', () =>
 
     beforeEach(ng.inject(fixtureSetup));
 
-    it('should add a class "platform-xxx" with platform name in element.', () => {
+    it('should add a class "cs-platform-xxx" with platform name in element.', () => {
 
-        expect(element.hasClass('platform-blackberry')).toBe(true);
+        expect(element.hasClass('cs-platform-blackberry')).toBe(true);
 
     });
 
