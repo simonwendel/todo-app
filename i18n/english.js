@@ -17,6 +17,11 @@ const english = {
     'DELETE__TRANSLATION__UPPER': 'DELETE',
     'ARE_YOU_SURE__TRANSLATION': 'Are you sure you want to delete this item?',
 
+    // mark as done modal
+    'MARK_AS_DONE__TRANSLATION__UPPER': 'MARK AS DONE',
+    'MARK__TRANSLATION__UPPER': 'MARK',
+    'DO_YOU_WANT_TO_MARK__TRANSLATION': 'Do you want to mark this item as done?',
+
     // colors
     'CRIMSON__COLOR': 'Crimson',
     'DARKBLUE__COLOR': 'Dark blue',
