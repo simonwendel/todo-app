@@ -2,10 +2,14 @@ import 'JamieMason/Jasmine-Matchers';
 import { Todo, Color } from 'js/types';
 import { repositoryFactory } from 'js/repository.factory';
 
+const grace = new Date('December 9, 1906');
+
 let repository,
     storageMock,
     notificationMock,
+    dateUtilityMock,
     notificationChannel,
+    anonymousTodo,
     someTodo;
 
 describe('Factory: repositoryFactory (repository.factory.js)', () => {
@@ -49,14 +53,14 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should call the save() function on storage to save a new todo item.', () => {
 
-            repository.newTodo(someTodo);
+            repository.newTodo(anonymousTodo);
             expect(storageMock.save.called).toBe(true);
 
         });
 
         it('should call the notify function notifying subscribers on newTodo.', () => {
 
-            repository.newTodo(someTodo);
+            repository.newTodo(anonymousTodo);
             expect(notificationChannel.notify.called).toBe(true);
 
         });
@@ -83,8 +87,8 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         it('should enforce reccurring to be non-negative in newTodo fn.', () => {
 
-            someTodo.recurring = -1;
-            expect(() => repository.newTodo(someTodo)).toThrow();
+            anonymousTodo.recurring = -1;
+            expect(() => repository.newTodo(anonymousTodo)).toThrow();
 
         });
 
@@ -132,17 +136,50 @@ describe('Factory: repositoryFactory (repository.factory.js)', () => {
 
         });
 
+        it('should update the nextOcurrance prop on the todo item when marking as done.', () => {
+
+            repository.markTodo(someTodo);
+
+            expect(dateUtilityMock.now.called).toBe(true);
+            expect(dateUtilityMock.addDays.calledWith(someTodo.recurring)).toBe(true);
+            let updatedOccurrance = storageMock.update.args[0][0].nextOccurrance;
+            expect(updatedOccurrance).toBe(grace);
+
+        });
+
+        it('should enforce parameter types to markTodo fn.', () => {
+
+            expect(() => repository.markTodo({})).toThrow();
+
+        });
+
+        it('should use the storage update fn to mark items as done.', () => {
+
+            repository.markTodo(someTodo);
+            expect(storageMock.update.called).toBe(true);
+
+        });
+
+        it('should notify subscribers after markTodo fn called.', () => {
+
+            repository.markTodo(someTodo);
+            expect(notificationChannel.notify.called).toBe(true);
+
+        });
+
     });
 
 });
 
 function fixtureSetup() {
-    someTodo = {
+    anonymousTodo = {
         title: 'title',
         created: new Date(),
-        recurring: 0,
+        recurring: 10,
         color: new Color('', '')
     };
+
+    someTodo = new Todo(anonymousTodo);
 
     storageMock = {
         all: sinon.stub().returns([
@@ -151,18 +188,24 @@ function fixtureSetup() {
             new Todo({ id: 11 }),
             new Todo({ id: 21 })
         ]),
-        save: sinon.spy(),
-        remove: sinon.spy()
+        save: sinon.stub(),
+        remove: sinon.stub(),
+        update: sinon.stub()
     };
 
     notificationChannel = {
-        subscribe: sinon.spy(),
-        notify: sinon.spy()
+        subscribe: sinon.stub(),
+        notify: sinon.stub()
     };
 
     notificationMock = {
         create: sinon.stub().returns(notificationChannel)
     };
 
-    repository = repositoryFactory(storageMock, notificationMock);
+    dateUtilityMock = {
+        addDays: sinon.stub().returns(grace),
+        now: sinon.stub()
+    };
+
+    repository = repositoryFactory(storageMock, notificationMock, dateUtilityMock);
 }

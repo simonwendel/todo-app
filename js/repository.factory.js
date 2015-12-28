@@ -2,17 +2,20 @@ import * as Validate from 'validate-arguments';
 import { Todo, Color } from 'js/types';
 
 let storage,
-    notification;
+    notification,
+    dateUtility;
 
-repositoryFactory.$inject = ['storage', 'notification'];
-function repositoryFactory(storageFactory, notificationFactory) {
+repositoryFactory.$inject = ['storage', 'notification', 'dateUtility'];
+function repositoryFactory(storageFactory, notificationFactory, dateUtilityFactory) {
     storage = storageFactory;
     notification = notificationFactory.create('todoRepositoryFactory.update');
+    dateUtility = dateUtilityFactory;
 
     return {
         getTodo: getTodo,
         newTodo: newTodo,
         removeTodo: removeTodo,
+        markTodo: markTodo,
         subscribe: notification.subscribe
     };
 }
@@ -79,6 +82,19 @@ function removeTodo(id) {
     }
 
     storage.remove(id);
+    notification.notify();
+}
+
+function markTodo(todo) {
+    let args = Validate.positional(arguments, [Todo]);
+    if (!args.isValid()) {
+        throw args.errorString();
+    }
+
+    todo.nextOccurrance =
+        dateUtility.addDays(todo.recurring, dateUtility.now());
+
+    storage.update(todo);
     notification.notify();
 }
 
