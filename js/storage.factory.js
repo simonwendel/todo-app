@@ -10,7 +10,8 @@ function storageFactory() {
     return {
         all: all,
         save: save,
-        remove: remove
+        remove: remove,
+        update: update
     };
 }
 
@@ -36,6 +37,18 @@ function remove(id) {
     }
 
     todos.splice(index, 1);
+}
+
+function update(item) {
+    let args =
+        Validate.positional(arguments, [Todo]);
+
+    if (!args.isValid()) {
+        throw args.errorString();
+    }
+
+    remove(item.id);
+    save(item);
 }
 
 export { storageFactory };
