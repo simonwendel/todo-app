@@ -73,3 +73,16 @@ $ionicons-font-path: "../jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts" 
 .platform-win32.platform-edit-icon {
     @extend .platform-android.platform-edit-icon
 }
+ 
+// platform specific checkmark icons
+.platform-ios.platform-checkmark-icon {
+    @extend .ion-ios-checkmark
+}
+
+.platform-android.platform-checkmark-icon {
+    @extend .ion-android-checkbox
+}
+
+.platform-win32.platform-checkmark-icon {
+    @extend .platform-android.platform-checkmark-icon
+}
