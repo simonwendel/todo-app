@@ -1,14 +1,18 @@
 import deleteTodoTemplate from 'templates/delete-todo.html!text';
 
-let ionicModal;
+let ionicModal,
+    repository;
 
-deleteTodoDirective.$inject = ['$ionicModal'];
-function deleteTodoDirective($ionicModal) {
+deleteTodoDirective.$inject = ['$ionicModal', 'repository'];
+function deleteTodoDirective($ionicModal, repositoryFactory) {
     ionicModal = $ionicModal;
+    repository = repositoryFactory;
 
     return {
         restrict: 'A',
-        scope: {},
+        scope: {
+            cDeleteTodo: '='
+        },
         link: linkFn
     };
 }
@@ -40,8 +44,12 @@ function setupScope(modal, scope, element) {
         scope.modal.remove();
     });
 
+    scope.vm.removeTodo = () => {
+        repository.remove(scope.cDeleteTodo.id);
+        scope.modal.remove();
+    };
+
     element.on('click', scope.vm.openModal);
 }
-
 
 export { deleteTodoDirective };

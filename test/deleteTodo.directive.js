@@ -5,7 +5,9 @@ import { ng } from 'test/utilities/mocks';
 let element,
     provide,
     scope,
-    modal;
+    modal,
+    todoToDelete,
+    repositoryMock;
 
 describe('Directive: deleteTodoDirective (deleteTodo.directive.js)', () => {
 
@@ -49,9 +51,29 @@ describe('Directive: deleteTodoDirective (deleteTodo.directive.js)', () => {
 
     });
 
+    it('should call the repository remove fn to delete the todo on vm.removeTodo.', () => {
+
+        scope.vm.removeTodo();
+        expect(repositoryMock.remove.calledWith(todoToDelete.id)).toBe(true);
+
+    });
+
+    it('should destroy the modal on scope vm.removeTodo fn call.', () => {
+
+        scope.vm.removeTodo();
+        expect(modal.remove.called).toBe(true);
+
+    });
+
 });
 
 function fixtureSetup($rootScope, $compile) {
+    repositoryMock = {
+        remove: sinon.stub()
+    };
+
+    provide.value('repository', repositoryMock);
+
     modal = {
         show: sinon.stub(),
         hide: sinon.stub(),
@@ -63,9 +85,12 @@ function fixtureSetup($rootScope, $compile) {
             fromTemplate: () => modal
         };
 
+    todoToDelete = { id: 8 };
+    pageScope.todoToDelete = todoToDelete;
+
     provide.value('$ionicModal', ionicModal);
 
-    element = angular.element('<button c-delete-todo></button>');
+    element = angular.element('<button c-delete-todo="todoToDelete"></button>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
 
