@@ -1,6 +1,7 @@
-function localeFactory() {
+localeFactory.$inject = ['preferences'];
+function localeFactory(preferences) {
     return {
-        default: 'sv'
+        default: preferences ? preferences.defaultLocale : 'sv'
     };
 }
 
