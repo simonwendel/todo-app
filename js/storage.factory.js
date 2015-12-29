@@ -1,11 +1,15 @@
 import Validate from 'validate-arguments';
-import { Todo } from 'js/types';
-import { staticTodos } from 'js/config/staticTodos';
+import { Todo, Color } from 'js/types';
 
-let todos;
+let storageKey,
+    todos,
+    browserLocalStorage;
 
-function storageFactory() {
-    todos = staticTodos.slice();
+storageFactory.$inject = ['browserLocalStorage', 'preferences'];
+function storageFactory(browserLocalStorageFactory, preferences) {
+    storageKey = preferences.storageKey;
+    browserLocalStorage = browserLocalStorageFactory;
+    todos = retrieveItems();
 
     return {
         all: all,
@@ -28,6 +32,7 @@ function save(item) {
     }
 
     todos.push(item);
+    persistItems();
 }
 
 function remove(id) {
@@ -37,6 +42,7 @@ function remove(id) {
     }
 
     todos.splice(index, 1);
+    persistItems();
 }
 
 function update(item) {
@@ -49,6 +55,26 @@ function update(item) {
 
     remove(item.id);
     save(item);
+}
+
+function retrieveItems() {
+    return browserLocalStorage.getArray(storageKey).map(
+        t => new Todo({
+            id: t.id,
+            title: t.title,
+            description: t.description,
+            created: new Date(t.created),
+            nextOccurrance: new Date(t.nextOccurrance),
+            color: new Color(
+                t.color.colorName,
+                t.color.colorValue
+            ),
+            recurring: t.recurring
+        }));
+}
+
+function persistItems() {
+    browserLocalStorage.setArray(storageKey, todos);
 }
 
 export { storageFactory };
