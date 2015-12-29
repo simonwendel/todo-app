@@ -104,12 +104,12 @@ function markTodo(todo) {
 }
 
 function getNextId() {
-    return 1 + Math.max.apply(
+    return 1 + (Math.max.apply(
         Math,
         storage
             .all()
             .map(t => t.id)
-        );
+        ) << 0);
 }
 
 export { repositoryFactory };
