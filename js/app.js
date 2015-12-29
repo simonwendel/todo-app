@@ -2,16 +2,19 @@ import 'ionic';
 import 'angular-translate';
 import angular from 'angular';
 
-import { ionic } from 'js/config/ionic';
-import { translations } from 'js/config/translations';
-import { routes } from 'js/config/routes';
-
 // define it
 const app =
     angular
         .module('todo', ['ionic', 'pascalprecht.translate']);
 
 // configure it
+import { preferences } from 'js/config/preferences';
+import { ionic } from 'js/config/ionic';
+import { translations } from 'js/config/translations';
+import { routes } from 'js/config/routes';
+
+app.constant('preferences', preferences);
+
 app.run(ionic);
 app.config(translations);
 app.config(routes);
