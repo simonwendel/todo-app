@@ -14,6 +14,20 @@ describe('Configuration: translations (config/translations.js)', () => {
 
     });
 
+    it('should have a hardcoded default preferredLanguage if no prefs.', () => {
+
+        translations($translateProviderMock);
+        expect($translateProviderMock.useSanitizeValueStrategy.calledWith('en')).toBe(true);
+
+    });
+
+    it('should use prefs object for default preferredLanguage.', () => {
+
+        translations($translateProviderMock, { preferredLanguage: 'bleh' });
+        expect($translateProviderMock.useSanitizeValueStrategy.calledWith('bleh')).toBe(true);
+
+    });
+
 });
 
 function fixtureSetup() {
