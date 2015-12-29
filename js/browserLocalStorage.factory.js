@@ -1,11 +1,11 @@
 browserLocalStorageFactory.$inject = ['$window'];
 function browserLocalStorageFactory($window) {
     return {
-        setObject: (key, value) => {
-            $window.localStorage[key] = JSON.stringify(value);
+        setArray: (key, array) => {
+            $window.localStorage[key] = JSON.stringify(array);
         },
-        getObject: (key) => {
-            return JSON.parse($window.localStorage[key] || '{}');
+        getArray: (key) => {
+            return JSON.parse($window.localStorage[key] || '[]');
         }
     };
 }
