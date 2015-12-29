@@ -1,6 +1,7 @@
 const preferences = {
     defaultLocale: 'sv',
-    preferredLanguage: 'en'
+    preferredLanguage: 'en',
+    storageKey: 'se.simonwendel.todo.items'
 };
 
 export { preferences };

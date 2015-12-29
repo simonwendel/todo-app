@@ -7,7 +7,8 @@ describe('Configuration: preferences (config/preferences.js)', () => {
 
         expect(preferences).toEqual({
             defaultLocale: 'sv',
-            preferredLanguage: 'en'
+            preferredLanguage: 'en',
+            storageKey: 'se.simonwendel.todo.items'
         });
 
     });
