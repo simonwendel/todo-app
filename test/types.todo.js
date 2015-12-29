@@ -17,7 +17,7 @@ describe('Class: Todo (types.js)', () => {
 
             expect(todo.created).toBeDate();
             expect(todo.nextOccurrance).toBe(todo.created);
-            expect(todo.recurring).toBe(null);
+            expect(todo.recurring).toBe(0);
 
         });
 
@@ -32,7 +32,7 @@ describe('Class: Todo (types.js)', () => {
 
             expect(todo.created).toBeDate();
             expect(todo.nextOccurrance).toBe(todo.created);
-            expect(todo.recurring).toBe(null);
+            expect(todo.recurring).toBe(0);
 
         });
 

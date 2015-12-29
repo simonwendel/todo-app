@@ -43,9 +43,11 @@ class Todo {
         this.title = data.title ? data.title : null;
         this.description = data.description ? data.description : null;
         this.created = data.created ? data.created : new Date();
-        this.recurring = data.recurring ? data.recurring : null;
         this.nextOccurrance = data.nextOccurrance ? data.nextOccurrance : this.created;
         this.color = data.color ? data.color : null;
+
+        // if you didn't specify, then 0 it is!
+        this.recurring = data.recurring << 0;
     }
 }
 
