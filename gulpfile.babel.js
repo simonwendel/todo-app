@@ -5,11 +5,17 @@ import sass from 'gulp-sass';
 import karma from 'karma';
 import minifyCss from 'gulp-minify-css';
 import htmlreplace from 'gulp-html-replace';
+import htmlmin from 'gulp-htmlmin';
 import rename from 'gulp-rename';
 import clean from 'gulp-clean';
 import eslint from 'gulp-eslint';
 import path from 'path';
 import Builder from 'systemjs-builder';
+
+const fileNames = {
+    tmpHtml: 'index.tmp.html',
+    appHtml: 'index.html'
+};
 
 const paths = {
     sassSrc: ['./css/**/*.scss', './css/ionic.app.scss'],
@@ -22,7 +28,6 @@ const paths = {
     srcJs: './js/app.js',
 
     distDir: './www/',
-    distHtml: './www/index.html',
     distJs: './www/app.min.js'
 };
 
@@ -45,7 +50,9 @@ gulp.task('build', [
     'copy-css',
     'copy-html',
     'build-systemjs-bundle',
-    'replace-refs'
+    'replace-refs',
+    'minify-html',
+    'clean-tmp'
 ]);
 
 gulp.task('clean-dist', () =>
@@ -62,11 +69,12 @@ gulp.task('copy-css', ['clean-dist', 'sass'], () =>
 gulp.task('copy-html', ['clean-dist'], () =>
     gulp
         .src(paths.srcHtml)
+        .pipe(rename(fileNames.tmpHtml))
         .pipe(gulp.dest(paths.distDir))
     );
 
 gulp.task('replace-refs', ['copy-html'], () =>
-    gulp.src(paths.distHtml)
+    gulp.src(paths.distDir + fileNames.tmpHtml)
         .pipe(htmlreplace({
             'css': 'app.min.css',
             'js': 'app.min.js'
@@ -85,6 +93,20 @@ gulp.task('build-systemjs-bundle', ['clean-dist'], done => {
             console.log(err);
         });
 });
+
+gulp.task('minify-html', ['copy-html', 'replace-refs'], () =>
+    gulp.src(paths.distDir + fileNames.tmpHtml)
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            removeComments: true }))
+        .pipe(rename(fileNames.appHtml))
+        .pipe(gulp.dest(paths.distDir))
+    );
+
+gulp.task('clean-tmp', ['minify-html'], () =>
+    gulp.src(paths.distDir + fileNames.tmpHtml, { read: false })
+        .pipe(clean())
+    );
 
 /*
  * SASS
