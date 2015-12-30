@@ -26,9 +26,11 @@ const paths = {
     srcCss: './css/app.min.css',
     srcHtml: './index.html',
     srcJs: './js/app.js',
+    srcFonts: './jspm_packages/github/driftyco/ionic-bower@1.1.1/fonts/*.@(eot|svg|ttf|woff)',
 
     distDir: './www/',
-    distJs: './www/app.min.js'
+    distJs: './www/app.min.js',
+    distFonts: './www/fonts/'
 };
 
 /*
@@ -46,6 +48,7 @@ gulp.task('ionic-watch', () => {
 
 gulp.task('build', [
     'clean-dist',
+    'copy-fonts',
     'sass',
     'copy-css',
     'copy-html',
@@ -64,6 +67,12 @@ gulp.task('copy-css', ['clean-dist', 'sass'], () =>
     gulp
         .src(paths.srcCss)
         .pipe(gulp.dest(paths.distDir))
+    );
+
+gulp.task('copy-fonts', ['clean-dist'], () =>
+    gulp
+        .src(paths.srcFonts)
+        .pipe(gulp.dest(paths.distFonts))
     );
 
 gulp.task('copy-html', ['clean-dist'], () =>
