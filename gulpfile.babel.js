@@ -78,7 +78,7 @@ gulp.task('build-systemjs-bundle', ['clean-dist'], done => {
     let builder = new Builder('./', './config.js');
 
     builder
-        .buildStatic(paths.srcJs, paths.distJs)
+        .buildStatic(paths.srcJs, paths.distJs, { minify: true, sourceMaps: false })
         .then(() => done())
         .catch(err => {
             console.log('Build error:');
