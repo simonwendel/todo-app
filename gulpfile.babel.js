@@ -5,6 +5,7 @@ import sass from 'gulp-sass';
 import karma from 'karma';
 import minifyCss from 'gulp-minify-css';
 import rename from 'gulp-rename';
+import clean from 'gulp-clean';
 import eslint from 'gulp-eslint';
 import path from 'path';
 
@@ -12,7 +13,8 @@ const paths = {
     sassSrc: ['./css/**/*.scss', './css/ionic.app.scss'],
     sassDest: './css/',
     js: ['./js/**/*.js', './test/**/*.js'],
-    karmaConf: path.join(__dirname, '/karma.conf.js')
+    karmaConf: path.join(__dirname, '/karma.conf.js'),
+    distDir: './www/'
 };
 
 /*
@@ -22,6 +24,18 @@ gulp.task('default', ['sass', 'eslint']);
 
 gulp.task('ionic-watch', () => {
     gulp.watch(paths.sassSrc, ['sass']);
+});
+
+/*
+ * BUILD
+ */
+
+gulp.task('build');
+
+gulp.task('clean-dist', done => {
+    gulp.src(paths.distDir, {read: false})
+		.pipe(clean())
+        .on('end', done);
 });
 
 /*
