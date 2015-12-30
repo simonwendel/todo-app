@@ -14,7 +14,10 @@ const paths = {
     sassDest: './css/',
     js: ['./js/**/*.js', './test/**/*.js'],
     karmaConf: path.join(__dirname, '/karma.conf.js'),
-    distDir: './www/'
+
+    srcCss: './css/ionic.app.min.css',
+    distDir: './www/',
+    distCss: './www/css/'
 };
 
 /*
@@ -30,12 +33,17 @@ gulp.task('ionic-watch', () => {
  * BUILD
  */
 
-gulp.task('build');
+gulp.task('build', ['clean-dist', 'sass', 'copy-css']);
 
-gulp.task('clean-dist', done => {
-    gulp.src(paths.distDir, {read: false})
-		.pipe(clean())
-        .on('end', done);
+gulp.task('clean-dist', () => {
+    return gulp.src(paths.distDir, {read: false})
+		.pipe(clean());
+});
+
+gulp.task('copy-css', () => {
+    return gulp
+        .src(paths.srcCss)
+        .pipe(gulp.dest(paths.distCss));
 });
 
 /*
