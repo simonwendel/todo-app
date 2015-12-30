@@ -41,8 +41,8 @@ gulp.task('clean-dist', done => {
 /*
  * SASS
  */
-gulp.task('sass', done => {
-    gulp.src(paths.sassSrc)
+gulp.task('sass', () => {
+    return gulp.src(paths.sassSrc)
         .pipe(sass())
         .on('error', sass.logError)
         .pipe(gulp.dest(paths.sassDest))
@@ -50,15 +50,14 @@ gulp.task('sass', done => {
             keepSpecialComments: 0
         }))
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(paths.sassDest))
-        .on('end', done);
+        .pipe(gulp.dest(paths.sassDest));
 });
 
 /*
  * LINT
  */
 gulp.task('eslint', () => {
-    gulp.src(paths.js)
+    return gulp.src(paths.js)
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
