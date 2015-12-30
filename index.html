@@ -12,12 +12,13 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
+    <!-- build:js -->
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
     <script type="text/javascript">
         System.import('js/app');
     </script>
+    <!-- endbuild -->
 </head>
 <body>
     <ion-nav-view name="todo"></ion-nav-view>

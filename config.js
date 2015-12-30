@@ -7,6 +7,7 @@ System.config({
       "optimisation.modules.system"
     ]
   },
+  buildCSS: false,
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"

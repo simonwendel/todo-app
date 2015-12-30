@@ -28,7 +28,8 @@
     "karma-sinon": "^1.0.4",
     "karma-verbose-reporter": "0.0.3",
     "phantomjs": "^1.9.19",
-    "sinon": "^1.17.2"
+    "sinon": "^1.17.2",
+    "systemjs-builder": "^0.14.15"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",

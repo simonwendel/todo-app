@@ -9,6 +9,7 @@ import rename from 'gulp-rename';
 import clean from 'gulp-clean';
 import eslint from 'gulp-eslint';
 import path from 'path';
+import Builder from 'systemjs-builder';
 
 const paths = {
     sassSrc: ['./css/**/*.scss', './css/ionic.app.scss'],
@@ -18,9 +19,11 @@ const paths = {
 
     srcCss: './css/ionic.app.min.css',
     srcHtml: './index.html',
+    srcJs: './js/app.js',
 
     distDir: './www/',
-    distHtml: './www/index.html'
+    distHtml: './www/index.html',
+    distJs: './www/app.js'
 };
 
 /*
@@ -41,6 +44,7 @@ gulp.task('build', [
     'sass',
     'copy-css',
     'copy-html',
+    'build-systemjs-bundle',
     'replace-refs'
 ]);
 
@@ -64,10 +68,23 @@ gulp.task('copy-html', ['clean-dist'], () =>
 gulp.task('replace-refs', ['copy-html'], () =>
     gulp.src(paths.distHtml)
         .pipe(htmlreplace({
-            'css': 'ionic.app.min.css'
+            'css': 'ionic.app.min.css',
+            'js': 'app.js'
         }))
         .pipe(gulp.dest(paths.distDir))
     );
+
+gulp.task('build-systemjs-bundle', ['clean-dist'], done => {
+    let builder = new Builder('./', './config.js');
+
+    builder
+        .buildStatic(paths.srcJs, paths.distJs)
+        .then(() => done())
+        .catch(err => {
+            console.log('Build error:');
+            console.log(err);
+        });
+});
 
 /*
  * SASS
