@@ -50,7 +50,7 @@ gulp.task('clean-dist', () =>
 gulp.task('copy-css', ['clean-dist', 'sass'], () =>
     gulp
         .src(paths.srcCss)
-        .pipe(gulp.dest(paths.distCss))
+        .pipe(gulp.dest(paths.distDir))
     );
 
 gulp.task('copy-html', ['clean-dist'], () =>
