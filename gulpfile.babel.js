@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import karma from 'karma';
 import minifyCss from 'gulp-minify-css';
+import htmlreplace from 'gulp-html-replace';
 import rename from 'gulp-rename';
 import clean from 'gulp-clean';
 import eslint from 'gulp-eslint';
@@ -19,7 +20,7 @@ const paths = {
     srcHtml: './index.html',
 
     distDir: './www/',
-    distCss: './www/css/'
+    distHtml: './www/index.html'
 };
 
 /*
@@ -39,7 +40,8 @@ gulp.task('build', [
     'clean-dist',
     'sass',
     'copy-css',
-    'copy-html'
+    'copy-html',
+    'replace-refs'
 ]);
 
 gulp.task('clean-dist', () =>
@@ -56,6 +58,14 @@ gulp.task('copy-css', ['clean-dist', 'sass'], () =>
 gulp.task('copy-html', ['clean-dist'], () =>
     gulp
         .src(paths.srcHtml)
+        .pipe(gulp.dest(paths.distDir))
+    );
+
+gulp.task('replace-refs', ['copy-html'], () =>
+    gulp.src(paths.distHtml)
+        .pipe(htmlreplace({
+            'css': 'ionic.app.min.css'
+        }))
         .pipe(gulp.dest(paths.distDir))
     );
 
