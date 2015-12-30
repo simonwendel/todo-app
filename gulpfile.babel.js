@@ -23,7 +23,7 @@ const paths = {
 
     distDir: './www/',
     distHtml: './www/index.html',
-    distJs: './www/app.js'
+    distJs: './www/app.min.js'
 };
 
 /*
@@ -69,7 +69,7 @@ gulp.task('replace-refs', ['copy-html'], () =>
     gulp.src(paths.distHtml)
         .pipe(htmlreplace({
             'css': 'app.min.css',
-            'js': 'app.js'
+            'js': 'app.min.js'
         }))
         .pipe(gulp.dest(paths.distDir))
     );
