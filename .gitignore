@@ -10,6 +10,6 @@ plugins/
 .idea/
 lib
 
-css/ionic.app.css
-css/ionic.app.min.css
+css/app.css
+css/app.min.css
 .vscode/

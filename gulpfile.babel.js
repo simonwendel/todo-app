@@ -17,7 +17,7 @@ const paths = {
     js: ['./js/**/*.js', './test/**/*.js'],
     karmaConf: path.join(__dirname, '/karma.conf.js'),
 
-    srcCss: './css/ionic.app.min.css',
+    srcCss: './css/app.min.css',
     srcHtml: './index.html',
     srcJs: './js/app.js',
 
@@ -68,7 +68,7 @@ gulp.task('copy-html', ['clean-dist'], () =>
 gulp.task('replace-refs', ['copy-html'], () =>
     gulp.src(paths.distHtml)
         .pipe(htmlreplace({
-            'css': 'ionic.app.min.css',
+            'css': 'app.min.css',
             'js': 'app.js'
         }))
         .pipe(gulp.dest(paths.distDir))
