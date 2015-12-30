@@ -35,22 +35,22 @@ gulp.task('ionic-watch', () => {
 
 gulp.task('build', ['clean-dist', 'sass', 'copy-css']);
 
-gulp.task('clean-dist', () => {
-    return gulp.src(paths.distDir, {read: false})
-		.pipe(clean());
-});
+gulp.task('clean-dist', () =>
+    gulp.src(paths.distDir, { read: false })
+        .pipe(clean())
+    );
 
-gulp.task('copy-css', () => {
-    return gulp
+gulp.task('copy-css', () =>
+    gulp
         .src(paths.srcCss)
-        .pipe(gulp.dest(paths.distCss));
-});
+        .pipe(gulp.dest(paths.distCss))
+    );
 
 /*
  * SASS
  */
-gulp.task('sass', () => {
-    return gulp.src(paths.sassSrc)
+gulp.task('sass', () =>
+    gulp.src(paths.sassSrc)
         .pipe(sass())
         .on('error', sass.logError)
         .pipe(gulp.dest(paths.sassDest))
@@ -58,18 +58,18 @@ gulp.task('sass', () => {
             keepSpecialComments: 0
         }))
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(paths.sassDest));
-});
+        .pipe(gulp.dest(paths.sassDest))
+    );
 
 /*
  * LINT
  */
-gulp.task('eslint', () => {
-    return gulp.src(paths.js)
+gulp.task('eslint', () =>
+    gulp.src(paths.js)
         .pipe(eslint())
         .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
-});
+        .pipe(eslint.failAfterError())
+    );
 
 /*
  * KARMA
