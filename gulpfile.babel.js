@@ -35,20 +35,25 @@ gulp.task('ionic-watch', () => {
  * BUILD
  */
 
-gulp.task('build', ['clean-dist', 'sass', 'copy-css', 'copy-html']);
+gulp.task('build', [
+    'clean-dist',
+    'sass',
+    'copy-css',
+    'copy-html'
+]);
 
 gulp.task('clean-dist', () =>
     gulp.src(paths.distDir, { read: false })
         .pipe(clean())
     );
 
-gulp.task('copy-css', () =>
+gulp.task('copy-css', ['clean-dist', 'sass'], () =>
     gulp
         .src(paths.srcCss)
         .pipe(gulp.dest(paths.distCss))
     );
 
-gulp.task('copy-html', () =>
+gulp.task('copy-html', ['clean-dist'], () =>
     gulp
         .src(paths.srcHtml)
         .pipe(gulp.dest(paths.distDir))
