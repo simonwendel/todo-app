@@ -1,6 +1,6 @@
 const preferences = {
     defaultLocale: 'sv',
-    preferredLanguage: 'en',
+    preferredLanguage: 'sv',
     storageKey: 'se.simonwendel.todo.items'
 };
 
