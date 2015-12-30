@@ -46,7 +46,7 @@ function setupScope(modal, scope, element) {
 
     scope.vm.markTodo = () => {
         repository.markTodo(scope.cMarkAsDone);
-        scope.modal.remove();
+        scope.modal.hide();
     };
 
     element.on('click', scope.vm.openModal);

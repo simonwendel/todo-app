@@ -58,10 +58,10 @@ describe('Directive: markAsDoneDirective (markAsDone.directive.js)', () => {
 
     });
 
-    it('should destroy the modal on scope vm.markTodo fn call.', () => {
+    it('should hide the modal on scope vm.markTodo fn call.', () => {
 
         scope.vm.markTodo();
-        expect(modal.remove.called).toBe(true);
+        expect(modal.hide.called).toBe(true);
 
     });
 
