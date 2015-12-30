@@ -99,14 +99,14 @@ gulp.task('eslint', () =>
  */
 let Server = karma.Server;
 
-gulp.task('test', (done) => {
+gulp.task('test', done => {
     new Server({
         configFile: paths.karmaConf,
         singleRun: true
     }, () => done()).start();
 });
 
-gulp.task('tdd', (done) => {
+gulp.task('tdd', done => {
     new Server({
         configFile: paths.karmaConf,
         singleRun: false
