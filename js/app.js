@@ -19,10 +19,6 @@ app.run(ionic);
 app.config(translations);
 app.config(routes);
 
-// constants and values
-import { platform } from 'js/platform.constant';
-app.constant('platform', platform);
-
 // services
 import { localeFactory } from 'js/locale.factory';
 app.factory('locale', localeFactory);
@@ -70,9 +66,6 @@ app.directive('cDeleteTodo', deleteTodoDirective);
 
 import { markAsDoneDirective } from 'js/markAsDone.directive';
 app.directive('cMarkAsDone', markAsDoneDirective);
-
-import { platformClassDirective } from 'js/platformClass.directive';
-app.directive('cPlatformClass', platformClassDirective);
 
 // boot it
 angular.element(document).ready(() =>
