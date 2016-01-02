@@ -28,7 +28,8 @@ function linkFn(scp, element) {
     scope.vm = {
         closeModal: closeModal,
         saveNewTodo: saveNewTodo,
-        availableColors: colors
+        availableColors: colors,
+        selectedColor: colors[0]
     };
 
     scope.$on('$destroy', () => {
@@ -36,7 +37,6 @@ function linkFn(scp, element) {
     });
 
     element.on('click', openModal);
-
     resetModel();
 }
 
@@ -49,7 +49,6 @@ function createModal() {
 }
 
 function resetModel() {
-    scope.vm.selectedColor = colors[0];
     scope.vm.title = '';
     scope.vm.description = '';
     scope.vm.recurring = 0;
@@ -78,6 +77,7 @@ function openModal() {
 
 function closeModal() {
     modal.hide();
+    resetModel();
 }
 
 export { createTodoDirective };
