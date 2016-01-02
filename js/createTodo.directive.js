@@ -39,7 +39,6 @@ function createModal() {
 function setupScope() {
     scope.vm = {};
 
-    scope.vm.openModal = openModal;
     scope.vm.closeModal = closeModal;
     scope.vm.saveNewTodo = saveNewTodo;
 

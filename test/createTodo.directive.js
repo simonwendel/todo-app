@@ -19,13 +19,6 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
     beforeEach(ng.inject(fixtureSetup));
 
-    it('should have a function for opening the modal attached to vm.', () => {
-
-        scope.vm.openModal();
-        expect(modal.show.called).toBe(true);
-
-    });
-
     it('should have a function for closing the modal attached to vm.', () => {
 
         scope.vm.closeModal();
