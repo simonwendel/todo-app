@@ -7,10 +7,10 @@
 
 <div class="list card" ng-repeat="todo in vm.todos" ng-show="vm.todos.length !== 0">
     <a href="#" class="item item-icon-left">
-        <i c-platform-class class="icon" ng-class="vm.getItemIcon(todo.overdue)" style="color:{{ todo.color.colorValue }}"></i> {{ todo.title }}
+        <i class="icon" ng-class="vm.getItemIcon(todo.overdue)" style="color:{{ todo.color.colorValue }}"></i> {{ todo.title }}
     </a>
     <div class="buttons">
-        <button c-mark-as-done="todo" c-platform-class class="button icon cs-checkmark-icon"></button>
-        <button c-delete-todo="todo" c-platform-class class="button icon cs-trash-icon"></button>
+        <button c-mark-as-done="todo" class="button icon cs-checkmark-icon"></button>
+        <button c-delete-todo="todo" class="button icon cs-trash-icon"></button>
     </div>
 </div>

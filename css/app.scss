@@ -21,81 +21,62 @@ $ionicons-font-path: "./fonts" !default;
 // Include all of Ionic
 @import "../jspm_packages/github/driftyco/ionic-bower@1.1.1/scss/ionic";
 
-
 // platform specific back button icons
-.cs-platform-ios.cs-back-icon {
-    @extend .ion-ios-arrow-back
+.platform-ios .cs-back-icon {
+    @extend .ion-ios-arrow-back;
 }
 
-.cs-platform-android.cs-back-icon {
-    @extend .ion-android-arrow-back
-}
-
-.cs-platform-win32.cs-back-icon {
-    @extend .cs-platform-android.cs-back-icon
+.platform-win32 .cs-back-icon,
+.platform-android .cs-back-icon {
+    @extend .ion-android-arrow-back;
 }
 
 // platform specific forward button icons
-.cs-platform-ios.cs-forward-icon {
-    @extend .ion-ios-arrow-forward
+.platform-ios .cs-forward-icon {
+    @extend .ion-ios-arrow-forward;
 }
 
-.cs-platform-android.cs-forward-icon {
-    @extend .ion-android-arrow-forward
-}
-
-.cs-platform-win32.cs-forward-icon {
-    @extend .cs-platform-android.cs-forward-icon
+.platform-win32 .cs-forward-icon,
+.platform-android .cs-forward-icon {
+    @extend .ion-android-arrow-forward;
 }
 
 // platform specific trash icons
-.cs-platform-ios.cs-trash-icon {
-    @extend .ion-ios-trash
+.platform-ios .cs-trash-icon {
+    @extend .ion-ios-trash;
 }
 
-.cs-platform-android.cs-trash-icon {
-    @extend .ion-android-delete
-}
-
-.cs-platform-win32.cs-trash-icon {
-    @extend .cs-platform-android.cs-trash-icon
+.platform-win32 .cs-trash-icon,
+.platform-android .cs-trash-icon {
+    @extend .ion-android-delete;
 }
 
 // platform specific edit icons
-.cs-platform-ios.cs-edit-icon {
-    @extend .ion-ios-compose
+.platform-ios .cs-edit-icon {
+    @extend .ion-ios-compose;
 }
 
-.cs-platform-android.cs-edit-icon {
-    @extend .ion-android-create
+.platform-win32 .cs-edit-icon,
+.platform-android .cs-edit-icon {
+    @extend .ion-android-create;
 }
 
-.cs-platform-win32.cs-edit-icon {
-    @extend .cs-platform-android.cs-edit-icon
-}
- 
 // platform specific checkmark icons
-.cs-platform-ios.cs-checkmark-icon {
-    @extend .ion-ios-checkmark
+.platform-ios .cs-checkmark-icon {
+    @extend .ion-ios-checkmark;
 }
 
-.cs-platform-android.cs-checkmark-icon {
-    @extend .ion-android-checkbox
-}
-
-.cs-platform-win32.cs-checkmark-icon {
-    @extend .cs-platform-android.cs-checkmark-icon
+.platform-win32 .cs-checkmark-icon,
+.platform-android .cs-checkmark-icon {
+    @extend .ion-android-checkbox;
 }
 
 // platform specific warning icons
-.cs-platform-ios.cs-late-warning-icon {
-    @extend .ion-ios-information
+.platform-ios cs-late-warning-icon {
+    @extend .ion-ios-information;
 }
 
-.cs-platform-android.cs-late-warning-icon {
-    @extend .ion-android-alert
-}
-
-.cs-platform-win32.cs-late-warning-icon {
-    @extend .cs-platform-android.cs-late-warning-icon
+.platform-win32 .cs-late-warning-icon,
+.platform-android .cs-late-warning-icon {
+    @extend .ion-android-alert;
 }
