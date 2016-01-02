@@ -4,6 +4,7 @@ import { ng } from 'test/utilities/mocks';
 
 let element,
     pageScope,
+    scope,
     provide,
     viewMock;
 
@@ -42,6 +43,14 @@ describe('Directive: listDirective (list.directive.js)', () => {
         expect(viewMock.getTodo.called).toBe(true);
 
     });
+
+    it('should have fn to render icon class name based on overdue attached to scope.', () => {
+
+        expect(scope.vm.getItemIcon(false)).toBe('ion-record');
+        expect(scope.vm.getItemIcon(true)).toBe('cs-late-warning-icon');
+
+    });
+
 });
 
 function fixtureSetup($rootScope, $compile) {
@@ -56,4 +65,5 @@ function fixtureSetup($rootScope, $compile) {
     element = angular.element('<c-list></c-list>');
     element = $compile(element)(pageScope);
     pageScope.$digest();
+    scope = element.isolateScope();
 }

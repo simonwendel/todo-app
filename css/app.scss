@@ -86,3 +86,16 @@ $ionicons-font-path: "./fonts" !default;
 .cs-platform-win32.cs-checkmark-icon {
     @extend .cs-platform-android.cs-checkmark-icon
 }
+
+// platform specific warning icons
+.cs-platform-ios.cs-late-warning-icon {
+    @extend .ion-ios-information
+}
+
+.cs-platform-android.cs-late-warning-icon {
+    @extend .ion-android-alert
+}
+
+.cs-platform-win32.cs-late-warning-icon {
+    @extend .cs-platform-android.cs-late-warning-icon
+}

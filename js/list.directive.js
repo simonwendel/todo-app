@@ -19,12 +19,19 @@ function linkFn(scope) {
     savedScope = scope;
 
     view.subscribe(updateList, scope);
-    savedScope.vm = {};
+    savedScope.vm = {
+        getItemIcon: getItemIcon
+    };
+
     updateList();
 }
 
 function updateList() {
     savedScope.vm.todos = view.getTodo();
+}
+
+function getItemIcon(overdue) {
+    return overdue ? 'cs-late-warning-icon' : 'ion-record';
 }
 
 export { listDirective };
