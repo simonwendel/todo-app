@@ -153,6 +153,15 @@ describe('Factory: viewFactory (view.factory.js)', () => {
 
             });
 
+            it('should add property to todo items stating if item is late or not.', () => {
+
+                let late = view.getTodo().filter(t => t.overdue === true);
+                let onTime = view.getTodo().filter(t => t.overdue === false);
+                expect(late).toBeArrayOfSize(2);
+                expect(onTime).toBeArrayOfSize(1);
+
+            });
+
         });
 
     });
