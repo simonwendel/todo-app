@@ -3,7 +3,9 @@ import createTodoTemplate from 'templates/create-todo.html!text';
 let ionicModal,
     colors,
     repository,
-    view;
+    view,
+    scope,
+    modal;
 
 createTodoDirective.$inject = ['$ionicModal', 'colors', 'repository', 'view'];
 function createTodoDirective($ionicModal, colorsFactory, repositoryFactory, viewFactory) {
@@ -19,12 +21,14 @@ function createTodoDirective($ionicModal, colorsFactory, repositoryFactory, view
     };
 }
 
-function linkFn(scope, element) {
-    let modal = createModal(scope);
-    setupScope(modal, scope, element);
+function linkFn(scp, element) {
+    scope = scp;
+    modal = createModal();
+    element.on('click', openModal);
+    setupScope();
 }
 
-function createModal(scope) {
+function createModal() {
     return ionicModal
         .fromTemplate(createTodoTemplate, {
             scope: scope,
@@ -32,32 +36,22 @@ function createModal(scope) {
         });
 }
 
-function setupScope(modal, scope, element) {
-    scope.modal = modal;
+function setupScope() {
     scope.vm = {};
 
-    scope.vm.openModal = () =>
-        scope.modal.show();
-
-    scope.vm.closeModal = () =>
-        scope.modal.hide();
-
-    scope.vm.saveNewTodo = () => {
-        saveNewTodo(scope);
-        scope.modal.hide();
-    };
+    scope.vm.openModal = openModal;
+    scope.vm.closeModal = closeModal;
+    scope.vm.saveNewTodo = saveNewTodo;
 
     scope.vm.availableColors = colors;
     scope.vm.selectedColor = colors[0];
 
     scope.$on('$destroy', () => {
-        scope.modal.remove();
+        modal.remove();
     });
-
-    element.on('click', scope.vm.openModal);
 }
 
-function saveNewTodo(scope) {
+function saveNewTodo() {
     if (scope.createTodoForm) {
         scope.createTodoForm.$validate();
     }
@@ -71,6 +65,15 @@ function saveNewTodo(scope) {
     };
 
     repository.newTodo(item);
+    closeModal();
+}
+
+function openModal() {
+    modal.show();
+}
+
+function closeModal() {
+    modal.hide();
 }
 
 export { createTodoDirective };

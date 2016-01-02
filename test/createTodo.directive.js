@@ -19,12 +19,6 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
     beforeEach(ng.inject(fixtureSetup));
 
-    it('should retrieve a modal instance from ionic.', () => {
-
-        expect(scope.modal).toBe(modal);
-
-    });
-
     it('should have a function for opening the modal attached to vm.', () => {
 
         scope.vm.openModal();
