@@ -54,17 +54,10 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
 
     it('should save a new todo item when save function on vm is called.', () => {
 
-        let expected = {
-            title: 'Some title',
-            description: 'This is a longer description',
-            color: 'color 1',
-            recurring: 7
-        };
-
-        scope.vm.title = expected.title;
-        scope.vm.description = expected.description;
-        scope.vm.selectedColor = expected.color;
-        scope.vm.reccuring = expected.recurring;
+        scope.vm.title = 'Some title';
+        scope.vm.description = 'This is a longer description';
+        scope.vm.selectedColor = {};
+        scope.vm.reccuring = 7;
 
         scope.vm.saveNewTodo();
 
