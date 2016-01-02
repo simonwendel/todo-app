@@ -24,8 +24,20 @@ function createTodoDirective($ionicModal, colorsFactory, repositoryFactory, view
 function linkFn(scp, element) {
     scope = scp;
     modal = createModal();
+
+    scope.vm = {
+        closeModal: closeModal,
+        saveNewTodo: saveNewTodo,
+        availableColors: colors
+    };
+
+    scope.$on('$destroy', () => {
+        modal.remove();
+    });
+
     element.on('click', openModal);
-    setupScope();
+
+    resetModel();
 }
 
 function createModal() {
@@ -36,18 +48,11 @@ function createModal() {
         });
 }
 
-function setupScope() {
-    scope.vm = {};
-
-    scope.vm.closeModal = closeModal;
-    scope.vm.saveNewTodo = saveNewTodo;
-
-    scope.vm.availableColors = colors;
+function resetModel() {
     scope.vm.selectedColor = colors[0];
-
-    scope.$on('$destroy', () => {
-        modal.remove();
-    });
+    scope.vm.title = '';
+    scope.vm.description = '';
+    scope.vm.recurring = 0;
 }
 
 function saveNewTodo() {
