@@ -73,6 +73,7 @@ describe('Directive: createTodoDirective (createTodo.directive.js)', () => {
         expect(modal.hide.called).toBe(true);
 
     });
+
 });
 
 function fixtureSetup($rootScope, $compile, colors) {
