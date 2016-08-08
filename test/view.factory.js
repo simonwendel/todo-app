@@ -174,16 +174,16 @@ function fixtureSetup() {
     todo = [
         new Todo({
             id: 1,
-            nextOccurrance: dateUtility.addDays(4, today) // not yet relevant
+            nextOccurrence: dateUtility.addDays(4, today) // not yet relevant
         }), new Todo({
             id: 10,
-            nextOccurrance: new Date(today) // should be done
+            nextOccurrence: new Date(today) // should be done
         }), new Todo({
             id: 11,
-            nextOccurrance: dateUtility.addDays(-4, today) // late
+            nextOccurrence: dateUtility.addDays(-4, today) // late
         }), new Todo({
             id: 21,
-            nextOccurrance: dateUtility.addDays(-1, today) // late
+            nextOccurrence: dateUtility.addDays(-1, today) // late
         })
     ];
 

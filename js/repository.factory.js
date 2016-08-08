@@ -96,7 +96,7 @@ function markTodo(todo) {
         return;
     }
 
-    todo.nextOccurrance =
+    todo.nextOccurrence =
         dateUtility.addDays(todo.recurring, dateUtility.now());
 
     storage.update(todo);

@@ -16,7 +16,7 @@ describe('Class: Todo (types.js)', () => {
             expect(todo.color).toBe(null);
 
             expect(todo.created).toBeDate();
-            expect(todo.nextOccurrance).toBe(todo.created);
+            expect(todo.nextOccurrence).toBe(todo.created);
             expect(todo.recurring).toBe(0);
 
         });
@@ -31,7 +31,7 @@ describe('Class: Todo (types.js)', () => {
             expect(todo.color).toBe(null);
 
             expect(todo.created).toBeDate();
-            expect(todo.nextOccurrance).toBe(todo.created);
+            expect(todo.nextOccurrence).toBe(todo.created);
             expect(todo.recurring).toBe(0);
 
         });
@@ -44,7 +44,7 @@ describe('Class: Todo (types.js)', () => {
                 description: 'Description goes here',
                 color: new Color('p!nk', 'p!nk'),
                 created: new Date('June 23, 1912'),
-                nextOccurrance: new Date('June 7, 1954'),
+                nextOccurrence: new Date('June 7, 1954'),
                 recurring: 210
             };
 
@@ -56,7 +56,7 @@ describe('Class: Todo (types.js)', () => {
             expect(todo.color).toBe(data.color);
 
             expect(todo.created).toBe(data.created);
-            expect(todo.nextOccurrance).toBe(data.nextOccurrance);
+            expect(todo.nextOccurrence).toBe(data.nextOccurrence);
             expect(todo.recurring).toBe(data.recurring);
 
         });
@@ -69,7 +69,7 @@ describe('Class: Todo (types.js)', () => {
                 description: 1,
                 color: {},
                 created: false,
-                nextOccurrance: 'June 7, 1954',
+                nextOccurrence: 'June 7, 1954',
                 recurring: '210'
             };
 

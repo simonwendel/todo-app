@@ -58,15 +58,15 @@ function getTodo() {
     let todo = repository.getTodo();
     if (isToday()) {
         todo =
-            todo.filter(t => dateUtility.compareDatePart(t.nextOccurrance, selectedDate) < 1);
+            todo.filter(t => dateUtility.compareDatePart(t.nextOccurrence, selectedDate) < 1);
     } else {
         todo =
-            todo.filter(t => dateUtility.compareDatePart(t.nextOccurrance, selectedDate) === 0);
+            todo.filter(t => dateUtility.compareDatePart(t.nextOccurrence, selectedDate) === 0);
     }
 
     return todo.map(t => {
         t.overdue =
-            dateUtility.compareDatePart(t.nextOccurrance, selectedDate) < 0;
+            dateUtility.compareDatePart(t.nextOccurrence, selectedDate) < 0;
         return t;
     });
 }

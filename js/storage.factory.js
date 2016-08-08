@@ -64,7 +64,7 @@ function retrieveItems() {
             title: t.title,
             description: t.description,
             created: new Date(t.created),
-            nextOccurrance: new Date(t.nextOccurrance),
+            nextOccurrence: new Date(t.nextOccurrence),
             color: new Color(
                 t.color.colorName,
                 t.color.colorValue

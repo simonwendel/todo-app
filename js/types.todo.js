@@ -22,7 +22,7 @@ const argsSpec = {
         isa: 'whole',
         optional: true
     },
-    nextOccurrance: {
+    nextOccurrence: {
         isa: 'date',
         optional: true
     },
@@ -43,7 +43,7 @@ class Todo {
         this.title = data.title ? data.title : null;
         this.description = data.description ? data.description : null;
         this.created = data.created ? data.created : new Date();
-        this.nextOccurrance = data.nextOccurrance ? data.nextOccurrance : this.created;
+        this.nextOccurrence = data.nextOccurrence ? data.nextOccurrence : this.created;
         this.color = data.color ? data.color : null;
 
         // if you didn't specify, then 0 it is!
